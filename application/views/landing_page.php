@@ -84,7 +84,6 @@
 	</div><!-- /slider-wrapper -->
 	</div>
 	
-    <footer>
     	<script type="text/javascript">	
 			$(function() {
 					var heig = $(window).height();
@@ -180,6 +179,5 @@
 			
 			});
 		</script>
-    </footer>
   </body>
 </html>

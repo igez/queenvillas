@@ -969,6 +969,213 @@ blockquote p {
 		font-size: 16px;
 	}
 
-} 
+}
+
+.bg-head {
+			z-index: -2;
+			width: 100%;
+			height: 480px;
+			background: url('/assets/img/acco-bg-head.jpg') no-repeat;
+			background-size: cover;
+			background-position: bottom;
+			position: relative;
+		}
+		
+		.title-container {
+			margin-top: -35px;
+			height: 80px;
+		}
+		
+		.yellow {
+			margin-top: -10px;
+			font-family: Georgia;
+			background: #feca28;
+			height: 70px;
+			width: 300px;
+		}
+		
+		.yellow h2 {
+			font-weight: normal;
+			line-height: 22px;
+			padding-top:10px;
+		}
+		
+		.yellow p {
+			text-align:right;
+			padding: 0 20px;
+		}
+		
+		.yellow-s {
+			position: absolute;
+			background: #feca28;
+			height: 70px;
+			min-width: 200px;
+			float: left;
+			margin-top: 0;
+			z-index: -1;
+		}
+		
+		.title-box {
+			background: red;
+			width: 400px;
+			height: 80px;
+			padding: 0;
+			margin-top: -10px;
+		}
+		
+		.content {
+			padding-top: 40px;
+		}
+		
+		.img-slider {
+			float: left;
+			width: 500px;
+			height: 375px;
+		}
+		
+		.img-slider-1170 {
+			width: auto;
+			min-height: 490px;
+			margin-bottom: 20px;
+		}
+		
+		#screen {
+			background: url('/assets/img/103.gif') no-repeat 50%;
+			height: 300px;
+			width: 500px;
+			overflow-y: hidden;
+		}
+		
+		.screen {
+			visibility: hidden;
+		}
+		
+		.acco-desc {
+			font-size: 12px;
+			padding-left: 20px;
+			width: 650px;
+			height: 300px;
+			float: left;
+		}
+		
+		.thumb-list {
+			width: 432px;
+			display: block;
+			float: left;
+		}
+		
+		.thumb {
+			display: block;
+			margin-top: 8px;
+			margin-right: 8px;
+			float: left;
+			width: 100px;
+			height: 71px;
+			overflow: hidden;
+			background: url('/assets/img/25.gif') no-repeat 50%;
+		}
+		
+		.thumb-box {
+			display: block;
+			margin-top: 8px;
+			margin-right: 8px;
+			float: left;
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+			background: url('/assets/img/25.gif') no-repeat 50%;
+		}
+		
+		.facility-box {
+			float: left;
+		}
+		
+		.facility-box ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			margin-left: 10px;
+		}
+		
+		.facility-box li {
+		width: auto;
+			float: left;
+			display: block;
+			padding: 4px 8px;
+		}
+		
+		.facility-box span p {
+			font-size: 9px;
+			text-align: center;
+		}
+		
+		.facility-desc {
+			padding: 8px;
+			width: 722px;
+			float: left;
+		}
+	
+	#v-footer {
+		text-align: center;
+		padding-bottom: 30px;
+	}
+	
+	#menu-footer-menu {
+		list-style: none;
+	}
+	
+	footer {
+		margin-top: 50px;
+		background: url('/assets/img/footer-bg.gif') repeat-x;
+		height: 98px;
+		-webkit-box-shadow: 1px -1px 4px 1px #ccc;
+		box-shadow: 1px -1px 4px 1px #ccc;
+	}
+	
+	.footer-logo {
+		margin-left: 20px;
+		width: 162px;
+		height: 98px;
+		background: url('/assets/img/qv-logo.png') no-repeat 50%;
+	}
+	
+	.footer-desc {
+		width: 350px;
+	}
+	
+	.footer-desc p {
+		margin-left: 20px;
+		font-size: 10px;
+		line-height: 8px;
+	}
+	
+	.footer-soc {
+		width: 150px;
+		float: right;
+		height: 22px;
+		margin-top: 40px;
+	}
+	
+	.footer-soc ul li {
+		list-style: none;
+		float: left;
+	}
+	
+	.footer-soc li {
+		padding-left: 5px;
+	}
+	
+	.thumb-1 {
+		visibility: hidden;
+	}
+	
+	.thumb-2 {
+		visibility: hidden;
+	}
+	
+	.thumb-3 {
+		visibility: hidden;
+	}
+	
 
  
