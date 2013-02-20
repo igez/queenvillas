@@ -48,7 +48,7 @@
 						<?=$row->timestamp;?>
 					</td>
 					<td class="center">
-						<a class="btn btn-success" href="#">
+						<a class="btn btn-success" href="/accomodation/<?=$row->slug;?>">
 							<i class="icon-zoom-in icon-white"></i>  
 							View                                            
 						</a>
