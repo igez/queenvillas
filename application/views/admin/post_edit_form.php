@@ -10,6 +10,13 @@
 	</ul>
 </div>
 <script type="text/javascript">
+	$('a#resetImages').live('click', function() {
+		console.log('Begin Reset!');
+		$('.imagess li').slideUp('fast', function() {
+    		$(this).remove();
+    		$('input#files').val('');
+  		});
+	});
 	$().ready(function () {
 			$('.slug').slugify('#title');
 		
@@ -87,7 +94,11 @@
 								
 								foreach ($imgs as $row):
 								
-									echo "<li style='float: left; list-style:none; margin: 4px 4px 4px 0;'><img src='/assets/uploads/images/$row' width='100px' height='100px'></li>";
+									echo "<li style='float: left; list-style:none; margin: 4px 4px 4px 0;' class='thumbnail'>";
+									echo "<a style='background: url(ewe.jpg);' href='/assets/uploads/images/$row' class='cboxElement'>";
+									echo "<img src='/assets/uploads/images/$row' width='100px' height='100px'>";
+									echo "</a>";
+									echo "</li>";
 								
 								endforeach;
 							}
@@ -96,6 +107,7 @@
 						<input type="hidden" name="files" value="<?=$data->images;?>" id="files"/>
 						<div class="clearfix"></div>
 						<a href="#" class="btn btn-primary btn-small gallery-open">Select Image(s)</a>
+						<a href="#" class="btn btn-danger btn-small" id="resetImages">Reset Images</a>
 						<!-- <input data-no-uniform="true" type="file" name="file_upload" id="file_upload" /> -->
 					</div>
 				</div>
