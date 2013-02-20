@@ -2,6 +2,8 @@
 
 class Admin extends CI_Controller {
 
+	var $data = array();
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('ion_auth');
@@ -9,11 +11,12 @@ class Admin extends CI_Controller {
 			redirect('admin/login');
 		}
 		$this->load->model(array('post_model', 'category_model'));
+		$this->load->vars($this->data);
 		
 	}
 	
 	public function index()	{
-		$data->content = "dashboard";
+		$data['content'] = "dashboard";
 		$this->load->view('admin/index', $data);
 	}
 	
@@ -30,9 +33,9 @@ class Admin extends CI_Controller {
 			// if category has data and empty
 			else {
 				// fetch necessary data from post_model according to category and add them variable $data
-				$data->data = $this->post_model->fetchByCategory($this->input->get('category'));
+				$data['data'] = $this->post_model->fetchByCategory($this->input->get('category'));
 			}
-			$data->content = "posts";
+			$data['content'] = "posts";
 			$this->load->view('admin/index', $data);
 		}
 		elseif ($this->input->get('action') == 'add') {
@@ -42,9 +45,9 @@ class Admin extends CI_Controller {
 		}
 		elseif ($this->input->get('action') == 'edit' && ($this->input->get('id') != NULL)) {
 			
-			$data->data = $this->post_model->fetchById($this->input->get('id'));
-			$data->category = $this->category_model->fetchAll();
-			$data->content = "post_edit_form";
+			$data['data'] = $this->post_model->fetchById($this->input->get('id'));
+			$data['category'] = $this->category_model->fetchAll();
+			$data['content'] = "post_edit_form";
 			//var_dump($data->data);
 			$this->load->view('admin/index', $data);
 			
