@@ -18,8 +18,10 @@
 	    foreach (new DirectoryIterator("./assets/uploads/images/") as $fn) {
 	    	$tpl = "/assets/uploads/images/";
 	    	if ($fn->getExtension() == 'jpg' || $fn->getExtension() == 'png' || $fn->getExtension() == 'gif') {
-	    		echo "<li class='img-gal' style='float: left; padding: 0 6px 6px 0; list-style:none;'>";
+	    		echo "<li class='thumbnail' style='float: left; margin: 4px; list-style:none;'>";
+	    		echo "<a style='background: url();' href='".$tpl.$fn->getFilename()."' class='cboxElement'>";
 				echo "<img rel='".$fn->getFilename()."' src='".$tpl.$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";
+				echo "</a>";
 				echo "</li>";
 			}
 		}
