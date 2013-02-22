@@ -28,71 +28,32 @@
 	    <img class="slide" src="/assets/img/sliders/2.jpg" alt="" />
 	</div>
 	-->
+
 	<style type="text/css">
-		.demo-2 .bg-img-1 {
-			background-image: url(/assets/img/sliders/01.jpg);
+		<?php $i=1;?>
+		<?php foreach ($slide->slides as $row): ?>
+		.demo-2 .bg-img-<?=$i;?> {
+			background-image: url(/assets/img/sliders/<?=$row['img'];?>);
 		}
-		.demo-2 .bg-img-2 {
-			background-image: url(/assets/img/sliders/02.jpg);
-		}
-		.demo-2 .bg-img-3 {
-			background-image: url(/assets/img/sliders/03.jpg);
-		}
-		.demo-2 .bg-img-4 {
-			background-image: url(/assets/img/sliders/04.jpg);
-		}
-		.demo-2 .bg-img-5 {
-			background-image: url(/assets/img/sliders/05.jpg);
-		}
+		<?php $i++; ?>
+		<?php endforeach; ?>
 	</style>
 	<div class="demo-2">
 		<div class="grad"></div>
 		<div id="slider" class="sl-slider-wrapper">
 
 		<div class="sl-slider">
-		
+		<?php $i=1;?>
+		<?php foreach ($slide->slides as $row): ?>
 			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 				<div class="sl-slide-inner">
-					<div class="bg-img bg-img-1"></div>
+					<div class="bg-img bg-img-<?=$i;?>"></div>
 					<h2><a href="">Hello From The Jewel of Gilis</a></h2>
-					<blockquote><p>You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity.</p></blockquote>
-				</div>
-				<div class="sl-slide-inner">
-					<div class="bg-img bg-img-1"></div>
-					<h2><a href="">Hello From The Jewel of Gilis</a></h2>
-					<blockquote><p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.</p></blockquote>
+					<blockquote><p><?=$row['caption'];?></p></blockquote>
 				</div>
 			</div>
-			
-			<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-				<div class="sl-slide-inner">
-					<div class="bg-img bg-img-2"></div>
-					<h2><a href="">A bene placito.</a></h2>
-					<blockquote><p>Suspendisse potenti. Nullam molestie leo ac ipsum porta suscipit. Vestibulum euismod, mauris id euismod luctus, mi mi auctor libero, ac luctus quam justo at augue. Etiam tristique lacinia urna ut tincidunt. Suspendisse nec massa nunc. Morbi et felis ut ligula imperdiet rutrum.</p></blockquote>
-				</div>
-			</div>
-			
-			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-				<div class="sl-slide-inner">
-					<div class="bg-img bg-img-3"></div>
-					<h2><a href="">A bene placito.</a></h2>
-					<blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the abattoirs.</p></blockquote>
-				</div>
-			</div>
-			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-				<div class="sl-slide-inner">
-					<div class="bg-img bg-img-4"></div>
-					<h2><a href="">A bene placito.</a></h2>
-					<blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the abattoirs.</p></blockquote>
-				</div>
-			</div>
-			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-				<div class="sl-slide-inner">
-					<div class="bg-img bg-img-5"></div>
-					<h2><a href="">A bene placito.</a></h2>
-					<blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the abattoirs.</p></blockquote>
-				</div>
-			</div>
+		<?php $i++; ?>
+	<?php endforeach; ?>
 		</div><!-- /sl-slider -->
 
 		<nav id="nav-dots" class="nav-dots">
