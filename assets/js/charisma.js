@@ -287,6 +287,11 @@ function docReady(){
 		e.preventDefault();
 		$('#gallery').modal('show');
 	});
+	
+	$('.chImg').click(function(e){
+						e.preventDefault();
+						$('#sliderImg').modal('show');
+					});
 
 
 

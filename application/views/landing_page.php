@@ -28,6 +28,23 @@
 	    <img class="slide" src="/assets/img/sliders/2.jpg" alt="" />
 	</div>
 	-->
+	<style type="text/css">
+		.demo-2 .bg-img-1 {
+			background-image: url(/assets/img/sliders/01.jpg);
+		}
+		.demo-2 .bg-img-2 {
+			background-image: url(/assets/img/sliders/02.jpg);
+		}
+		.demo-2 .bg-img-3 {
+			background-image: url(/assets/img/sliders/03.jpg);
+		}
+		.demo-2 .bg-img-4 {
+			background-image: url(/assets/img/sliders/04.jpg);
+		}
+		.demo-2 .bg-img-5 {
+			background-image: url(/assets/img/sliders/05.jpg);
+		}
+	</style>
 	<div class="demo-2">
 		<div class="grad"></div>
 		<div id="slider" class="sl-slider-wrapper">
@@ -39,6 +56,11 @@
 					<div class="bg-img bg-img-1"></div>
 					<h2><a href="">Hello From The Jewel of Gilis</a></h2>
 					<blockquote><p>You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity.</p></blockquote>
+				</div>
+				<div class="sl-slide-inner">
+					<div class="bg-img bg-img-1"></div>
+					<h2><a href="">Hello From The Jewel of Gilis</a></h2>
+					<blockquote><p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.</p></blockquote>
 				</div>
 			</div>
 			

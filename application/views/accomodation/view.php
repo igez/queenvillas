@@ -25,7 +25,7 @@
   		
   		</div>
   		<div class="container">
-  			<div class="yellow">
+			<div class="yellow">
   				<h2><?=$content->title;?></h2>
 	  			<p>Lorem Ipsum Dolor Sit</p>
   			</div>
@@ -62,7 +62,8 @@
   				<img src="/assets/uploads/images/<?=$row;?>" alt="" width="100px" class="thumb-1"/>
   			</a>
   			<?php endforeach; ?>
-  		</div>
+  		
+		</div>
   		<div class="acco-desc">
   			<?=$content->content;?>
   		</div>

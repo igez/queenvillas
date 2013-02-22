@@ -10,7 +10,7 @@ class Admin extends CI_Controller {
 		if (!$this->ion_auth->logged_in())	{
 			redirect('admin/login');
 		}
-		$this->load->model(array('post_model', 'category_model'));
+		$this->load->model(array('post_model', 'category_model', 'page_model', 'setting_model'));
 		$this->load->vars($this->data);
 		
 	}
@@ -52,6 +52,14 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/index', $data);
 			
 		}
+		elseif ($this->input->get('action') == 'delete' && ($this->input->get('id') != NULL)) {
+			// begin delete process
+			// die("Begin Delete Process id=".$this->input->get('id'));
+			if ($this->post_model->deletePost($this->input->get('id'))) {
+				$this->session->set_flashdata('success', '<b>Success!</b> Your post has been deleted.');
+				redirect('/admin/posts?category=1', 'refresh');
+			}
+		}
 		else {
 			$data->content = "post_add_form";
 			$this->load->view('admin/index', $data);
@@ -62,7 +70,7 @@ class Admin extends CI_Controller {
 	public function post_update() {
 		if ($this->input->post('submit') === 'doSave') {
 			$targetFolder = "/assets/uploads/images/cover/";
-			if ($_FILES['cover']['error'] == '0') {
+			if ($_FILES['cover']['error'] == 0) {
 				$tempFile = $_FILES['cover']['tmp_name'];
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
 				$targetFile = rtrim($targetPath,'/') . '/' . $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION);
@@ -95,7 +103,6 @@ class Admin extends CI_Controller {
 					redirect('/admin/posts?category=1', 'refresh');
 				}
 			}
-				
 		}
 	}
 	
@@ -106,6 +113,41 @@ class Admin extends CI_Controller {
 				redirect('/admin/posts?category=1', 'refresh');
 			}
 		}
+	}
+	
+	/*
+	public function page() {
+		if (empty($_GET['action'])) {
+			$data['pages'] = $this->page_model->fetchAll();
+			//var_dump($this->page_model->fetchAll());
+			$data['content'] = 'contents/page_index';
+		}
+		elseif ($_GET['action'] == 'edit' && !empty($_GET['id'])) {
+			$id = $_GET['id'];
+			$data['page'] = $this->page_model->fetch($id);
+			$data['content'] = 'contents/page_edit';
+		}
+		else {
+			show_404();
+		}
+		$this->load->view('admin/index', $data);
+	}
+	*/
+	
+	public function setting() {
+		$target = $this->input->get('target');
+		
+		// if target is empty
+			if (empty($target)) {
+				// throw 404 page
+				show_404();
+			}
+			elseif ($target == 'landing-page') {
+				$data['data'] = $this->setting_model->fetchSetting();
+				$data['content'] = 'contents/setting_landing';
+				$this->load->view('admin/index',$data);
+			}
+			// execute setting_landing.php view
 	}
 	
 }

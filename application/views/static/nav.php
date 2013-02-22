@@ -26,7 +26,7 @@
 			<li><a href="">Packages</a></li>
 	  	</ul>
 		
-	  	<ul class="nav nav-right">
+	  	<ul class="nav nav-right" style="left:20%;">
 			<li><a href="">Tour</a></li>
 	  		<li><a href="#">Events</a></li>
 	  		<li><a href="">Gallery</a></li>

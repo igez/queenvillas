@@ -121,12 +121,12 @@
 		</div>
 	</div><!--/span-->
 	
-	<div class="modal hide fade" id="gallery">
+	<div class="modal hide fade" id="gallery" style="width: 800px; margin-left: -380px;">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 	    <h3>Select Images :</h3>
 	  </div>
-	  <div class="modal-body">
+	  <div class="modal-body" style="max-height: 800px;">
 	  	<script type="text/javascript">
 	  		console.log($('.imagess li').length);
 	  		$('#imagez li').live('click', function () {

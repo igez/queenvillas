@@ -42,6 +42,12 @@
   					$('img.thumb-2').load(function() {
   						$('.thumb-2').hide().css({visibility: "visible"}).fadeIn("fast");
   					});
+  					$('img.thumb-3').load(function() {
+  						$('.thumb-3').hide().css({visibility: "visible"}).fadeIn("fast");
+  					});
+  					$('img.thumb-4').load(function() {
+  						$('.thumb-4').hide().css({visibility: "visible"}).fadeIn("fast");
+  					});
   			});
   			$(function() {
 				$(".thumb-box").click(function() {
@@ -59,9 +65,14 @@
   				<img src="/assets/img/pool-bar-2.jpg" alt="" />
   			</div>
   			<div class="thumb-list">
-  				<a href="#" class="thumb-box" rel="/assets/img/pool-bar-2.jpg">
-  					<img src="/assets/img/facilities/pool-bar_thumb.jpg" alt="" class="thumb-1" width="100px"/>
+  			<?php $imgs = explode(', ', $content->images); ?>
+  			<?php $i = 1; ?>
+  			<?php foreach ($imgs as $row) : ?>
+  				<a href="#" class="thumb-box" rel="/assets/uploads/images/<?=$row;?>">
+  					<img src="/assets/uploads/images/<?=$row;?>" alt="" class="thumb-<?=$i;?>" height="100px"/>
 	  			</a>
+	  			<?php $i++;?>
+	  		<?php endforeach; ?>
 	  			<div class="clearfix"></div>
   			</div>
   			<div class="facility-desc">

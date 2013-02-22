@@ -46,10 +46,14 @@ $route['admin/login'] = "user/adm_login";
 $route['admin/gallery'] = "main/gallery";
 $route['accomodation/(:any)'] = "main/accomodation";
 $route['facilities/(:any)'] = "main/facilities"; 
+$route['reservation/(:any)'] = "main/rsvp";
+
 
 $route['admin/posts'] = "admin/posts";
 $route['admin/post/save'] = "admin/post_save";
 $route['admin/post/update'] = "admin/post_update";
+$route['admin/setting'] = "admin/setting";
+
 
 
 /* End of file routes.php */

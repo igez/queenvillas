@@ -72,4 +72,12 @@ class Main extends CI_Controller {
 		$this->load->view('admin/index', $data);
 	}
 	
+	public function rsvp() {
+		$id = $this->uri->segment(2);
+		if ($id == 'meeting-room') {
+			$this->load->view('rsvp/meeting');
+		}
+		//var_dump($id);
+	}
+	
 }

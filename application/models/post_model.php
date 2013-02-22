@@ -73,4 +73,22 @@ class post_model extends CI_Model {
 			return TRUE;
 		}
 	}
+	
+	public function deletePost() {
+		$id = $this->input->get('id');
+		
+		if (empty($id)) {
+			return false;
+		}
+		
+		else {
+			$q = $this->db->delete('posts', array('id' => $id));
+			if ($q) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
 }
