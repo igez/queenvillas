@@ -136,6 +136,7 @@ class Admin extends CI_Controller {
 	
 	public function setting() {
 		$target = $this->input->get('target');
+		$this->load->library('thumbify');
 		
 		// if target is empty
 			if (empty($target)) {
@@ -144,6 +145,11 @@ class Admin extends CI_Controller {
 			}
 			elseif ($target == 'landing-page') {
 				$data['data'] = $this->setting_model->fetchSetting();
+				/*
+				$this->thumbify->load('/assets/img/01.jpg');
+				$this->thumbify->resizeToWidth(200);
+				$this->thumbify->save($_SERVER['DOCUMENT_ROOT'].'/assets/img/thumb_01.jpg');
+				*/
 				$data['content'] = 'contents/setting_landing';
 				$this->load->view('admin/index',$data);
 			}

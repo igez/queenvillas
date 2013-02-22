@@ -43,6 +43,15 @@
 						height: auto;
 						float: left;
 					}
+
+					.slide-thumb-empty {
+						margin: 10px;
+						width: 300px;
+						height: 300px;
+						float: left;
+						background: #ccc url('http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=3249213') no-repeat 50%;
+						display: block;
+					}
 					
 					
 					.slider-holder {
@@ -69,17 +78,20 @@
 					}
 				</style>
 				<script type="text/javascript">
-					
+					$('#addImg').live('click', function() {
+						alert('ewe');
+					});
 				</script>
-			<?php foreach ($data->slides as $row): ?>
 				<div class="slide-thumb">
 					<div class="slider-holder">
 						<a href="#" class="btn btn-small slide-btn chImg">Change Image</a>
-						<img src="/assets/uploads/images/sliders/<?=$row['img'];?>" alt="" width="300px"/>
+						<img src="/assets/uploads/images/sliders/" alt="" width="300px"/>
 					</div>
 					<textarea name="" id="" cols="30" rows="4" class="slide-caption"><?=$row['caption'];?></textarea>
 				</div>
-			<?php endforeach; ?>
+				<div class="slide-thumb-empty" id="addImg">
+
+				</div>
 			<div class="clearfix"></div>
 			<form class="form-horizontal" action="/admin/post/save" method="POST">
 			  <fieldset>
@@ -93,8 +105,7 @@
 			</form>   
 
 		</div>
-	</div><!--/span-->
-	
+	</div>
 	<div class="modal hide fade" id="sliderImg">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -110,9 +121,11 @@
 	    <?php
 	    foreach (new DirectoryIterator("./assets/uploads/images/sliders/") as $fn) {
 	    	$tpl = "/assets/uploads/images/sliders/";
+	    	$fullpath = $_SERVER['DOCUMENT_ROOT'];
 	    	if ($fn->getExtension() == 'jpg' || $fn->getExtension() == 'png' || $fn->getExtension() == 'gif') {
 	    		echo "<li class='img-gal' style='float: left; padding: 0 6px 6px 0; list-style:none;'>";
-				echo "<img rel='".$fn->getFilename()."' src='".$tpl.$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";
+	    		echo "<img rel='".$fn->getFilename()."' src='".$tpl.$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";
+				//echo "<img rel='".$fn->getFilename()."' src='".$tpl.$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";
 				echo "</li>";
 			}
 		}

@@ -12,7 +12,11 @@ class Main extends CI_Controller {
 	}
 	
 	public function index()	{
-		$this->load->view('landing_page');
+		$this->load->model('setting_model');
+
+		$data['slide'] = $this->setting_model->fetchSetting();
+
+		$this->load->view('landing_page', $data);
 		
 		
 	}
