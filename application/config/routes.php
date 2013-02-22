@@ -47,6 +47,7 @@ $route['admin/gallery'] = "main/gallery";
 $route['accomodation/(:any)'] = "main/accomodation";
 $route['facilities/(:any)'] = "main/facilities"; 
 $route['reservation/(:any)'] = "main/rsvp";
+$route['package'] = "main/package";
 
 
 $route['admin/posts'] = "admin/posts";
