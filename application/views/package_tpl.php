@@ -362,15 +362,25 @@
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Queen Villas and Spa Gili Trawangan. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
     </div><!-- /.container -->
+    <footer>
+      <div class="footer-logo pull-left">
+      </div>
+      <div class="footer-desc pull-left">
+        <p style="color: #695d58; font-weight: bold; font-size: 12px; padding-top: 10px;">Queen Villas & Spa</p>
+        <p>Gili Trawangan Island, North Lombok - Indonesia</p>
+      <p>ph: (62) 370-633686 (hunting) m: (62) 878-6450-4800 </p>
+      <p>fax: (62) 370-633626</p>
+      <p>email: info@queenvillas.com</p>
+      </div>
+      <div class="footer-soc">
+        <ul>
+          <li><img src="/assets/img/twitter.gif" alt="" /></li>
+          <li><img src="/assets/img/fb.gif" alt="" /></li>
+          <li><img src="/assets/img/mail.gif" alt="" /></li>
+        </ul>
+      </div>
+    </footer>
 
 
 
