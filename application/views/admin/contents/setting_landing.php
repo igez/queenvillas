@@ -36,66 +36,52 @@
 		</div>
 		<div class="box-content">
 				<style type="text/css">
-					.slide-thumb {
-						
-						margin: 10px;
-						width: 300px;
-						height: auto;
-						float: left;
+					.slider-holder {
+						width: 100%;
+						min-height: 220px;
+						border: 1px solid #ccc;
+						display: block;
+
 					}
 
-					.slide-thumb-empty {
-						margin: 10px;
+					.slider-thumbnail {
 						width: 300px;
-						height: 300px;
+						padding: 10px;
 						float: left;
-						background: #ccc url('http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=3249213') no-repeat 50%;
-						display: block;
+
 					}
-					
-					
-					.slider-holder {
-						background: #ccc;
-						display: block;
-						width: 300px;
-						height: 200px;
-						border: 1px solid #ccc;
+
+					.slider-content {
+						width: 50%;
+						float: left;
+						padding: 10px;
 					}
-					
-					.slide-caption {
-						width: 96%;
-						padding: 2%;
-						border-radius: 0;
-						-webkit-border-radius: 0;
+
+					.slider-content input {
+						width: 100%;
 					}
-					
-					.slide-btn {
-						position: absolute;
-						background: #fff;
-						padding: 4px;
-						margin: 5px;
-						border-radius: 5px;
+					.slider-content textarea {
+						margin-top: 10px;
+						width: 100%;
+						height:148px;
 					}
+
 				</style>
 				<script type="text/javascript">
-					$('#addImg').live('click', function() {
-						alert('ewe');
-					});
+					
 				</script>
-				<div class="slide-thumb">
-					<div class="slider-holder">
-						<a href="#" class="btn btn-small slide-btn chImg">Change Image</a>
-						<img src="/assets/uploads/images/sliders/" alt="" width="300px"/>
-					</div>
-					<textarea name="" id="" cols="30" rows="4" class="slide-caption"><?=$row['caption'];?></textarea>
-				</div>
-				<div class="slide-thumb-empty" id="addImg">
-
-				</div>
-			<div class="clearfix"></div>
+				
 			<form class="form-horizontal" action="/admin/post/save" method="POST">
 			  <fieldset>
-
+			  	<div class="slider-holder">
+			  		<div class="slider-thumbnail">
+			  			<img src="http://lorempixel.com/300/200">
+			  		</div>
+			  		<div class="slider-content">
+			  			<input type="text" placeholder="Text input" name="title">
+			  			<textarea name="caption" placeholder="Text input"></textarea>
+			  		</div>
+			  	</div>
 				<hr />
 				<div class="form-actions">
 				  <button type="submit" name="submit" class="btn btn-primary" value="doSave">Save</button>

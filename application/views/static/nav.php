@@ -23,7 +23,7 @@
 	  					<?php endif; ?>
 					<?php endforeach; ?>
 	  			</ul>
-			<li><a href="">Packages</a></li>
+			<li><a href="/package">Packages</a></li>
 	  	</ul>
 		
 	  	<ul class="nav nav-right" style="left:20%;">

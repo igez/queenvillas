@@ -83,5 +83,10 @@ class Main extends CI_Controller {
 		}
 		//var_dump($id);
 	}
+
+	// package main function
+	public function package() {
+		$this->load->view('package_tpl');
+	}
 	
 }
