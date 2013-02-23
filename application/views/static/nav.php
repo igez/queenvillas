@@ -27,10 +27,10 @@
 	  	</ul>
 		
 	  	<ul class="nav nav-right" style="left:20%;">
-			<li><a href="">Tour</a></li>
-	  		<li><a href="#">Events</a></li>
-	  		<li><a href="">Gallery</a></li>
-	  		<li><a href="">Contact</a></li>
+			<li><a href="/tour/">Tour</a></li>
+	  		<li><a href="/events/">Events</a></li>
+	  		<li><a href="/gallery/">Gallery</a></li>
+	  		<li><a href="/contact/">Contact</a></li>
 	  	</ul>
 		
 	  </div>
