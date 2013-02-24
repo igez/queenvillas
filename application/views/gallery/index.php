@@ -109,12 +109,10 @@
 		  	// item is clicked
 		  	$('#gal-filter li a').click(function(e) {
 		    	// reset the active class on all the buttons
-		    	$('#gal-filter li').removeClass('active');
 		    
 		    	// assign the class of the clicked filter option
 		    	// element to our $filterType variable
 		    	var $filterType = $(this).attr('data-type');
-		    	$(this).parent().addClass('active');
 		    
 		    	if ($filterType == 'all') {
 		      		// assign all li items to the $filteredData var when
@@ -130,7 +128,15 @@
 		    	// call quicksand and assign transition parameters
 		    	$holder.quicksand($filteredData, {
 		      		duration: 800,
-		      		easing: 'easeInOutQuad'
+		      		//easing: 'easeInOutQuad'
+		    	}, function () {
+		    		$('.thumbs a img').css("opacity", "1");
+
+				$('.thumbs a img').mouseover(function() {
+					$(this).stop().animate({"opacity": "0.3"}, "slow");
+				}).mouseout(function(){
+					$(this).stop().animate({"opacity": "1"}, "fast");
+			});
 		    	});
 		    	e.preventDefault();
 		    	return false;
