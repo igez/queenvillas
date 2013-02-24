@@ -81,7 +81,7 @@
 
 		.flame {
 			height: 300px;
-			background: url('/assets/img/atfot.png') no-repeat;
+			background: url('/assets/img/atfot.jpg') no-repeat;
 			background-size: cover;
 		}
 	</style>
