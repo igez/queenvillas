@@ -78,6 +78,12 @@
 			display: inline-block;
 			font-size: 12px;
 		}
+
+		.flame {
+			height: 300px;
+			background: url('/assets/img/atfot.png') no-repeat;
+			background-size: cover;
+		}
 	</style>
 	<script type="text/javascript">
 
@@ -176,6 +182,8 @@
 				<?php endforeach; ?>
 			</ul>
 		</div>
+	</div>
+	<div class="flame">
 	</div>
 	<footer>
     	<div class="footer-logo pull-left">

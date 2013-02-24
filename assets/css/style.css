@@ -1130,11 +1130,10 @@ blockquote p {
 	}
 	
 	footer {
-		margin-top: 50px;
 		background: url('/assets/img/footer-bg.gif') repeat-x;
 		height: 98px;
-		-webkit-box-shadow: 1px -1px 4px 1px #ccc;
-		box-shadow: 1px -1px 4px 1px #ccc;
+		-webkit-box-shadow: 1px -1px 40px 1px #ccc;
+		box-shadow: 1px -1px 40px 1px #ccc;
 	}
 	
 	.footer-logo {
