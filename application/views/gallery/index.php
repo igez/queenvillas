@@ -1,5 +1,5 @@
 	<?php $this->load->view('static/nav'); ?>
-	<div class="bg-head" style="background: gray;"></div>
+	<div class="bg-head" style="background: url('/assets/img/gallery-cover.jpg');"></div>
 	<div class="title-container">
 		<div class="yellow-s"></div>
 		<div class="container">
@@ -88,9 +88,13 @@
 	<script type="text/javascript">
 
 		$(document).ready(function() {
-			$(".pop").fancybox({
-				openEffect	: 'fade',
-				closeEffect	: 'fade'
+			$("a[rel=imgGallery]").fancybox({
+				openEffect		: 'fade',
+				closeEffect		: 'fade',
+				titlePosition	: 'over',
+				titleFormat 	: function(title, currentArray, currentIndex, currentOpts) {
+		    		return '<span id="fancybox-title-over">Image ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
+				}
 			});
 
 			$('.thumbs a img').css("opacity", "1");
@@ -174,7 +178,7 @@
 					else $dt = NULL;
 				?>
 				<li class="thumbs" data-id="id-<?=$i;?>" data-type="<?=$dt;?>">
-					<a href="/assets/uploads/images/galleries/<?=$row->src;?>" class="pop">
+					<a rel="imgGallery" href="/assets/uploads/images/galleries/<?=$row->src;?>" title="<?=$row->title;?>">
 						<img src="/assets/uploads/images/galleries/<?=$row->src;?>" class="width240">
 					</a>
 				</li>
