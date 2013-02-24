@@ -52,5 +52,6 @@
 
   <body style="background-color:#fff;color:#000;font-family:georgia,serif;">
       <?php $this->load->view('gallery/index'); ?>
+  <script type="text/javascript" src="/assets/js/holder.js"></script>
   </body>
-</html>
+  </html>

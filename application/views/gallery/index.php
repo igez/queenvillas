@@ -46,14 +46,14 @@
 
 		.gallery-list li {
 			overflow: hidden;
-			margin: 10px;
+			margin: 3px 2px;
 		}
 
 		.thumbs {
-			width: 262px;
 			height: auto;
-			padding: 2px;
-			border:1px solid #E8E8E8;
+			moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+			-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+			box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
 		}
 
 		.thumbs a {
@@ -75,20 +75,19 @@
 		}
 	</style>
 	<script type="text/javascript">
-		$(window).load(function(){
-			$('.thumbs a img').css("opacity", "1");
-
-			$('.thumbs a img').mouseover(function() {
-				$(this).stop().animate({"opacity": "0.3"}, "slow");
-			}).mouseout(function(){
-				$(this).stop().animate({"opacity": "1"}, "fast");
-			});
-		});
 
 		$(document).ready(function() {
 			$(".pop").fancybox({
 				openEffect	: 'fade',
 				closeEffect	: 'fade'
+			});
+
+			$('.thumbs a img').css("opacity", "1");
+
+				$('.thumbs a img').mouseover(function() {
+					$(this).stop().animate({"opacity": "0.3"}, "slow");
+				}).mouseout(function(){
+					$(this).stop().animate({"opacity": "1"}, "fast");
 			});
 
 			// get the action filter option item on page load
@@ -135,6 +134,12 @@
 		
 	</script>
 	<div class="content container">
+		<style type="text/css">
+		.width240 {
+			height: 120px;
+			overflow: hidden;
+		}
+		</style>
 		<ul id="gal-filter">
 			<li><a href="#" class="btn" data-type="all">All</a></li>
 			<li><a href="#" class="btn" data-type="qv">Queen Villas & Spa</a></li>
@@ -143,18 +148,21 @@
 		</ul>
 		<div class="gallery-list">
 			<ul class="gallery-holder">
-				<li class="thumbs" data-id="id-1" data-type="qv">
-					<a href="/assets/img/slide-01.jpg" class="pop"><img src="/assets/img/slide-01.jpg"></a>
-				</li>	
-				<li class="thumbs" data-id="id-2" data-type="ag">
-					<a href="/assets/img/slide-02.jpg" class="pop"><img src="/assets/img/slide-02.jpg"></a>
+				<?php $i = 1; ?>
+				<?php foreach ($content as $row) : ?>
+				<?php 
+					if ($row->location_id == '1') $dt = 'qv';
+					elseif ($row->location_id == '2') $dt = 'ag';
+					elseif ($row->location_id == '3') $dt = 'al';
+					else $dt = NULL;
+				?>
+				<li class="thumbs" data-id="id-<?=$i;?>" data-type="<?=$dt;?>">
+					<a href="/assets/uploads/images/galleries/<?=$row->src;?>" class="pop">
+						<img src="/assets/uploads/images/galleries/<?=$row->src;?>" class="width240">
+					</a>
 				</li>
-				<li class="thumbs" data-id="id-3" data-type="qv">
-					<a href="/assets/img/vintage-410x230.jpg" class="pop"><img src="/assets/img/vintage-410x230.jpg"></a>
-				</li>
-				<li class="thumbs" data-id="id-4" data-type="al">
-					<a href="/assets/img/vintage-410x230.jpg" class="pop"><img src="/assets/img/vintage-410x230.jpg"></a>
-				</li>
+				<?php $i++; ?>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	</div>
