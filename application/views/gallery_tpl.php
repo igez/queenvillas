@@ -16,6 +16,9 @@
     <script type="text/javascript" src="/assets/js/jquery.js"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.quicksand.js"></script>
+    
     <style>
 
     /* GLOBAL STYLES
