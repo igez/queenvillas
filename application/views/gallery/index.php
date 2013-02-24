@@ -21,6 +21,11 @@
 			width: 100%;
 		}
 
+		.gallery-holder {
+			display: block;
+			height: auto;
+		}
+
 		.gallery ul {
 			text-align: center;
 		}
