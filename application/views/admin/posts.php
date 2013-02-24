@@ -52,7 +52,7 @@
 							<i class="icon-zoom-in icon-white"></i>  
 							View                                            
 						</a>
-						<a class="btn btn-info" href="/admin/posts?action=edit&id=<?=$row->id;?>">
+						<a class="btn btn-info" href="/admin/posts?action=edit&id=<?=$row->id;?>&category=<?=$row->category_id;?>">
 							<i class="icon-edit icon-white"></i>  
 							Edit                                            
 						</a>

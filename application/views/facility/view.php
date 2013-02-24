@@ -76,8 +76,7 @@
 	  			<div class="clearfix"></div>
   			</div>
   			<div class="facility-desc">
-  				<p>Our Coral and Pearl meeting room is specially designed for those who demands for perfection. Focus on the result of your meeting and we will take care of the rest to ensure your corporate activities are successful. 
-For more information and inqueries request <a href="/reservation/meeting-room/">click here.</a></p>
+  				<p><?=$content->content;?></p>
   			</div>
   			<div class="clearfix"></div>
   		</div>
