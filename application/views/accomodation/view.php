@@ -70,31 +70,31 @@
   		<div class="facility-box">
   			<ul>
   				<li>
-					<p style="text-align: center;"><img src="/assets/img/tmp/swim.jpg" alt="" /></p>
+					<p style="text-align: center;"><img src="/assets/img/icon-facility-swim.gif" alt="" /></p>
 					<span>
 						<p>Private Pool</p>
 					</span>
 				</li>
 				<li>
-					<p style="text-align: center;"><img src="/assets/img/tmp/swim.jpg" alt="" /></p>
+					<p style="text-align: center;"><img src="/assets/img/icon-facility-bed.gif" alt="" /></p>
 					<span>
 						<p>Spring Air Bed</p>
 					</span>
 				</li>
   				<li>
-					<p style="text-align: center;"><img src="/assets/img/tmp/swim.jpg" alt="" /></p>
+					<p style="text-align: center;"><img src="/assets/img/icon-facility-lock.gif" alt="" /></p>
 					<span>
 						<p>Safe Deposit Box</p>
 					</span>
 				</li>
 				<li>
-					<p style="text-align: center;"><img src="/assets/img/tmp/swim.jpg" alt="" /></p>
+					<p style="text-align: center;"><img src="/assets/img/icon-facility-tv.gif" alt="" /></p>
 					<span>
 						<p>LED TV</p>
 					</span>
 				</li>
 				<li>
-					<p style="text-align: center;"><img src="/assets/img/tmp/swim.jpg" alt="" /></p>
+					<p style="text-align: center;"><img src="/assets/img/icon-facility-coffee.gif" alt="" /></p>
 					<span>
 						<p>Coffee Maker</p>
 					</span>
