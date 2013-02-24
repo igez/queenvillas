@@ -1033,7 +1033,7 @@ blockquote p {
 		}
 		
 		.img-slider {
-			float: left;
+			float: right;
 			width: 500px;
 			height: 375px;
 		}
