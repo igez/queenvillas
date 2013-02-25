@@ -3,6 +3,9 @@
   <head>
     <title>Queen Villas</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/assets/css/style.css" />
 	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
