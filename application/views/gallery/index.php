@@ -63,7 +63,7 @@
 
 		.thumbs a {
 			display: block;
-			background: url('http://themes.webcreations907.com/ninezeroseven/option-one/wp-content/themes/ninezeroseven/assets/img/theme/img.png') no-repeat 50%;
+			background: url('/assets/img/lens.png') no-repeat 50%;
 		}
 
 		.after {
