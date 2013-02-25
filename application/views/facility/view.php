@@ -62,10 +62,10 @@
   	<div class="content container">
   		<div class="img-slider-1170">
   			<div id="screen-1170">
-  				<img src="/assets/img/pool-bar-2.jpg" alt="" />
+          <?php $imgs = explode(', ', $content->images); ?>
+  				<img src="/assets/uploads/images/<?=$imgs[0];?>" alt="" />
   			</div>
   			<div class="thumb-list">
-  			<?php $imgs = explode(', ', $content->images); ?>
   			<?php $i = 1; ?>
   			<?php foreach ($imgs as $row) : ?>
   				<a href="#" class="thumb-box" rel="/assets/uploads/images/<?=$row;?>">
@@ -81,6 +81,8 @@
   			<div class="clearfix"></div>
   		</div>
   	</div>
+    <div class="flame">
+      </div>
     <footer>
     	<div class="footer-logo pull-left">
     	</div>

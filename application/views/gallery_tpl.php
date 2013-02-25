@@ -52,6 +52,26 @@
 
   <body style="background-color:#fff;color:#000;font-family:georgia,serif;">
       <?php $this->load->view('gallery/index'); ?>
+      <div class="flame">
+      </div>
+      <footer>
+        <div class="footer-logo pull-left">
+        </div>
+        <div class="footer-desc pull-left">
+          <p style="color: #695d58; font-weight: bold; font-size: 12px; padding-top: 10px;">Queen Villas & Spa</p>
+          <p>Gili Trawangan Island, North Lombok - Indonesia</p>
+        <p>ph: (62) 370-633686 (hunting) m: (62) 878-6450-4800 </p>
+        <p>fax: (62) 370-633626</p>
+        <p>email: info@queenvillas.com</p>
+        </div>
+        <div class="footer-soc">
+          <ul>
+            <li><img src="/assets/img/twitter.gif" alt="" /></li>
+            <li><img src="/assets/img/fb.gif" alt="" /></li>
+            <li><img src="/assets/img/mail.gif" alt="" /></li>
+          </ul>
+        </div>
+      </footer>
   <script type="text/javascript" src="/assets/js/holder.js"></script>
   </body>
   </html>
