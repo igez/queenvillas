@@ -1137,7 +1137,10 @@ blockquote p {
 			background: url('/assets/img/atfot.jpg') no-repeat;
 			background-size: cover;
 		}
-	
+		.flip {
+			background-image: url('/assets/img/atflip.jpg' no-repeat);
+			background-size: cover;
+		}
 	footer {
 		background: url('/assets/img/footer-bg.gif') repeat-x;
 
