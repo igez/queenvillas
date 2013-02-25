@@ -11,7 +11,17 @@
 	<script type="text/javascript" src="/assets/js/jquery.ba-cond.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.slitslider.js"></script>
   </head>
+  <style type="text/css">
+  .dotbg {
+    height: 300px;
+    position: relative;
+    z-index: -4;
+    background-image:url('/assets/img/atfot.gif') no-repeat; 
+    background-size:cover;
+  }
+  </style>
   <body>
+  
   	<?php $this->load->view('static/nav'); ?>
   	<?php if ($content->cover_image) : ?>
   		<div class="bg-head" style="background: url('/assets/uploads/images/cover/<?=$content->cover_image;?>') no-repeat; background-size: cover;;">
@@ -70,7 +80,7 @@
   			<?=$content->content;?>
         <!-- <a href="#" class="btn btn-primary pull-right">Book Now!</a> -->
   		</div>
-      <div class="btn btn-warning btn-small pull-right"><p>Book Now!</p></div>
+      <div class="btn btn-warning btn-small pull-right" style="visibility:hidden;"><p>Book Now!</p></div>
   		<div class="facility-box">
   			<ul>
   				<li>
