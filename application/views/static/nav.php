@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar visible-desktop">
 		<div class="navbar-wrapper"></div>
 	  <div class="navbar-inner">
 	  	<a class="brand" href="#"><img src="/assets/img/logo.png" alt="" /></a>
@@ -35,3 +35,14 @@
 		
 	  </div>
 	</div>
+
+<div class="navbar hidden-desktop">
+  <div class="navbar-inner">
+    <a class="brand" href="#"><img src="/assets/img/logo.png" alt="" /></a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+</div>
