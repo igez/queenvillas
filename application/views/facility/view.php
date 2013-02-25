@@ -80,7 +80,10 @@
   			</div>
   			<div class="clearfix"></div>
   		</div>
-  	</div>
+      <?php if ($content->slug == 'meeting-room') : ?>
+        <?php $this->load->view('facility/rsvp'); ?>
+      <?php endif; ?>
+  	</div> <!-- end of content -->
     <div class="flame">
       </div>
     <footer>
