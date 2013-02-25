@@ -1,14 +1,16 @@
 	<?php $this->load->view('static/nav'); ?>
 	<div class="bg-head" style="background: url('/assets/img/gallery-cover.jpg');"></div>
-	<div class="title-container">
-		<div class="yellow-s"></div>
-		<div class="container">
-			<div class="yellow">
-				<h2>Photo Gallery</h2>
-  				<p>Lorem Ipsum Dolor Sit</p>
-			</div>
-  		</div>
-	</div>
+	<div class="bahe">
+      <div class="title-container">
+        <div class="yellow-s"></div>
+        <div class="container">
+          <div class="yellow">
+            <h2>Photo Gallery</h2>
+            <p>Lorem Ipsum Dolor Sit</p>
+          </div>
+        </div>
+      </div>
+    </div>
 	<style>
 		.stage {
 			width: 770px;

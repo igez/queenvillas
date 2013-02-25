@@ -20,17 +20,17 @@
   	<?php endif ;?>
 
   	</div>
-  	<div class="title-container">
-  		<div class="yellow-s">
-  		
-  		</div>
-  		<div class="container">
-  			<div class="yellow">
-  				<h2><?=$content->title;?></h2>
-	  			<p>Lorem Ipsum Dolor Sit</p>
-  			</div>
-	  		</div>
-  	</div>
+  	<div class="bahe">
+      <div class="title-container">
+        <div class="yellow-s"></div>
+        <div class="container">
+          <div class="yellow">
+            <h2><?=$content->title;?></h2>
+            <p>Lorem Ipsum Dolor Sit</p>
+          </div>
+        </div>
+      </div>
+    </div>
   	<script type="text/javascript">
   		$(document).ready(function() {
   					$('img.screen').load(function() {

@@ -36,23 +36,20 @@
   </script>
   <body>
   	<?php $this->load->view('static/nav'); ?>
-<<<<<<< HEAD
   		<div class="bg-head" style="background-image:url('/assets/img/contactcover.jpg') no-repeat;background-size:cover;">
-=======
   		<div class="bg-head" style="background: url('/assets/img/contactcover.jpg'); background-size: cover;">
->>>>>>> Contact cover added
   	 </div>
-  	<div class="title-container">
-  		<div class="yellow-s">
-  		
-  		</div>
-  		<div class="container">
-  			<div class="yellow">
-  				<h2>Contact Us</h2>
-	  			<p>Lorem Ipsum Dolor Sit</p>
-  			</div>
-	  		</div>
-  	</div>
+  	<div class="bahe">
+      <div class="title-container">
+        <div class="yellow-s"></div>
+        <div class="container">
+          <div class="yellow">
+            <h2>Contact</h2>
+            <p>Lorem Ipsum Dolor Sit</p>
+          </div>
+        </div>
+      </div>
+    </div>
   	<!-- -->
     <style>
       #map {

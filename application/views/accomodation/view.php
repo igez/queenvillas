@@ -30,17 +30,25 @@
   	<?php endif ;?>
   		
   	</div>
-  	<div class="title-container">
-  		<div class="yellow-s">
-  		
-  		</div>
-  		<div class="container">
-			<div class="yellow">
-  				<h2><?=$content->title;?></h2>
-	  			<p>Lorem Ipsum Dolor Sit</p>
-  			</div>
-	  		</div>
-  	</div>
+    <style>
+      .bahe {
+        background: url('/assets/img/atfot.gif') repeat-x;
+        width: 100%;
+        height: 300px;
+      }
+    </style>
+    <div class="bahe">
+      <div class="title-container">
+        <div class="yellow-s"></div>
+        <div class="container">
+          <div class="yellow">
+            <h2><?=$content->title;?></h2>
+            <p>Lorem Ipsum Dolor Sit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  	
   
   	<div class="content container">
 

@@ -32,12 +32,14 @@
     <?php $this->load->view('static/nav'); ?>
     <div class="bg-head" style="background: url('/assets/img/eventscover.jpg'); background-size: cover;">
     </div>
-    <div class="title-container">
-      <div class="yellow-s"></div>
-      <div class="container">
-        <div class="yellow">
-          <h2>Events</h2>
-          <p>Lorem Ipsum Dolor Sit</p>
+    <div class="bahe">
+      <div class="title-container">
+        <div class="yellow-s"></div>
+        <div class="container">
+          <div class="yellow">
+            <h2>Events</h2>
+            <p>Lorem Ipsum Dolor Sit</p>
+          </div>
         </div>
       </div>
     </div>
