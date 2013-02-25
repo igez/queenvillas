@@ -36,7 +36,7 @@
   </script>
   <body>
   	<?php $this->load->view('static/nav'); ?>
-  		<div class="bg-head" style="background: gray;">
+  		<div class="bg-head" style="background-image:url('/assets/img/contactcover.jpg') no-repeat;background-size:cover;">
   	 </div>
   	<div class="title-container">
   		<div class="yellow-s">

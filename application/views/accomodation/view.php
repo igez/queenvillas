@@ -33,6 +33,7 @@
   	</div>
   
   	<div class="content container">
+
   		<script type="text/javascript">
   			$(document).ready(function() {
   					$('img.screen').load(function() {
@@ -64,10 +65,12 @@
   			<?php endforeach; ?>
   		
 		</div>
+
   		<div class="acco-desc">
   			<?=$content->content;?>
         <!-- <a href="#" class="btn btn-primary pull-right">Book Now!</a> -->
   		</div>
+      <div class="btn btn-warning btn-small pull-right"><p>Book Now!</p></div>
   		<div class="facility-box">
   			<ul>
   				<li>
