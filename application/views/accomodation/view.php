@@ -104,7 +104,7 @@
   		</div>
   		<div class="clearfix"></div>
   	</div>
-    <div class="flame">
+    <div class="flame" style="margin-top:-250px;">
     </div>
     <footer>
     	<div class="footer-logo pull-left">
