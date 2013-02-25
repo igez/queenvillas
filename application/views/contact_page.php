@@ -20,12 +20,12 @@
         prettyPrint();
         map = new GMaps({
           div: '#map',
-          lat: -8.350297,
-          lng: 116.028907
+          lat: -8.348365,
+          lng: 116.028821
         });
         map.addMarker({
-          lat: -8.350297,
-          lng: 116.028907,
+          lat: -8.348365,
+          lng: 116.028821,
           title: 'Queen Villas & Spa',
         });
       });
