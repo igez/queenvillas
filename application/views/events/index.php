@@ -29,7 +29,7 @@
     </style>
   <body>
     <?php $this->load->view('static/nav'); ?>
-    <div class="bg-head" style="background: gray;">
+    <div class="bg-head" style="background: url('/assets/img/eventscover.jpg'); background-size: cover;">
     </div>
     <div class="title-container">
       <div class="yellow-s"></div>
