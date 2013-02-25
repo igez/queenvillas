@@ -48,7 +48,7 @@
 			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 				<div class="sl-slide-inner">
 					<div class="bg-img bg-img-<?=$i;?>"></div>
-					<h2><a href="">Hello From The Jewel of Gilis</a></h2>
+					<h2><a href="">Hello From The Queen of Gilis</a></h2>
 					<blockquote><p><?=$row['caption'];?></p></blockquote>
 				</div>
 			</div>
