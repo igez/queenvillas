@@ -1128,9 +1128,19 @@ blockquote p {
 	#menu-footer-menu {
 		list-style: none;
 	}
+
+			.flame {
+			height: 300px;
+			margin-bottom: :300px;
+			z-index: -3;
+			position: relative;
+			background: url('/assets/img/atfot.jpg') no-repeat;
+			background-size: cover;
+		}
 	
 	footer {
 		background: url('/assets/img/footer-bg.gif') repeat-x;
+
 		height: 98px;
 		-webkit-box-shadow: 1px -1px 40px 1px #ccc;
 		box-shadow: 1px -1px 40px 1px #ccc;
