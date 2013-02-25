@@ -68,7 +68,7 @@
   			<div class="thumb-list">
   			<?php $i = 1; ?>
   			<?php foreach ($imgs as $row) : ?>
-  				<a href="#" class="thumb-box" rel="/assets/uploads/images/<?=$row;?>">
+  				<a href="#" class="thumb-box2" rel="/assets/uploads/images/<?=$row;?>">
   					<img src="/assets/uploads/images/<?=$row;?>" alt="" class="thumb-<?=$i;?>" height="100px"/>
 	  			</a>
 	  			<?php $i++;?>

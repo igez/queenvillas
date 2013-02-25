@@ -3,14 +3,37 @@
   <head>
     <title>Queen Villas</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="/assets/js/gmap.js"></script>
+    <script type="text/javascript" src="/assets/js/prettify.js"></script>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/assets/css/style.css" />
 	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.ba-cond.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.slitslider.js"></script>
   </head>
+  <script>
+      var map;
+      $(document).ready(function(){
+        prettyPrint();
+        map = new GMaps({
+          div: '#map',
+          lat: -12.043333,
+          lng: -77.028333
+        });
+        map.addMarker({
+          lat: -12.043333,
+          lng: -77.03,
+          title: 'Lima',
+          details: {
+            database_id: 42,
+            author: 'HPNeo'
+          }
+        });
+      });
+  </script>
   <body>
   	<?php $this->load->view('static/nav'); ?>
   		<div class="bg-head" style="background: gray;">
@@ -27,10 +50,17 @@
 	  		</div>
   	</div>
   	<!-- -->
+    <style>
+      #map {
+        height: 300px;
+      }
+    </style>
     <div class="content container">
-        <form class="well span12">
+        <form>
           <div class="row">
-            <div class="span4"></div>
+            <div class="span5">
+              <div id="map"></div>
+            </div>
             <div class="span3">
               <label>First Name</label>
               <input type="text" class="span3" placeholder="Your First Name">
@@ -49,9 +79,9 @@
               </select>
               </label>
             </div>
-            <div class="span5">
+            <div class="span4">
               <label>Message</label>
-              <textarea name="message" id="message" class="input-xlarge span5" rows="10"></textarea>
+              <textarea name="message" id="message" class="input-xlarge span4" rows="10"></textarea>
             </div>
           </div>
           <button type="submit" class="btn btn-primary pull-right">Send</button>

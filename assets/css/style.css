@@ -1090,6 +1090,16 @@ blockquote p {
 			overflow: hidden;
 			background: url('/assets/img/25.gif') no-repeat 50%;
 		}
+
+		.thumb-box2 {
+			display: block;
+			margin-top: 8px;
+			margin-right: 8px;
+			float: left;
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+		}
 		
 		.facility-box {
 			float: left;

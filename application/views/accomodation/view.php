@@ -66,6 +66,7 @@
 		</div>
   		<div class="acco-desc">
   			<?=$content->content;?>
+        <!-- <a href="#" class="btn btn-primary pull-right">Book Now!</a> -->
   		</div>
   		<div class="facility-box">
   			<ul>

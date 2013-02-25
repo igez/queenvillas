@@ -26,6 +26,7 @@
       .pull10 { padding-left:10px;}
       .top60 {margin-top:60px;}
       .test {background-color:#444;background-image:url(/assets/img/newsbg.jpg);background-size:cover;width:100%;height:300px;}
+      .bahe {background:url(/assets/img/atfot.gif); background-size: cover;height:300px; padding-top: -100px;}
     </style>
   <body>
     <?php $this->load->view('static/nav'); ?>
