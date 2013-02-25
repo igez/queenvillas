@@ -20,17 +20,13 @@
         prettyPrint();
         map = new GMaps({
           div: '#map',
-          lat: -12.043333,
-          lng: -77.028333
+          lat: -8.35639,
+          lng: 116.031547
         });
         map.addMarker({
-          lat: -12.043333,
-          lng: -77.03,
-          title: 'Lima',
-          details: {
-            database_id: 42,
-            author: 'HPNeo'
-          }
+          lat: -8.35639,
+          lng: 116.031547,
+          title: 'Queen Villas & Spa',
         });
       });
   </script>
