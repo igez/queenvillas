@@ -50,7 +50,7 @@
   					});
   			});
   			$(function() {
-				$(".thumb-box").click(function() {
+				$(".thumb-box2").click(function() {
 					var image = $(this).attr("rel");
 					$('#screen-1170').hide();
 					$('#screen-1170').fadeIn('slow');
