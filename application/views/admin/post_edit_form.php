@@ -130,7 +130,7 @@
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 	    <h3>Select Images :</h3>
 	  </div>
-	  <div class="modal-body" style="max-height: 800px;">
+	  <div class="modal-body" style="max-height: 400px;">
 	  	<script type="text/javascript">
 	  		console.log($('.imagess li').length);
 	  		$('#imagez li').live('click', function () {
@@ -155,9 +155,10 @@
 	    <?php
 	    foreach (new DirectoryIterator("./assets/uploads/images/") as $fn) {
 	    	$tpl = "/assets/uploads/images/";
+	    	$tmb = "/assets/uploads/images/thumbs/thumb_";
 	    	if ($fn->getExtension() == 'jpg' || $fn->getExtension() == 'png' || $fn->getExtension() == 'gif') {
 	    		echo "<li class='img-gal' style='float: left; padding: 0 6px 6px 0; list-style:none;'>";
-				echo "<img rel='".$fn->getFilename()."' src='".$tpl.$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";
+				echo "<img rel='".$fn->getFilename()."' src='".$tmb.$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";
 				echo "</li>";
 			}
 		}

@@ -28,13 +28,15 @@ function make_thumb($src, $dest, $desired_width) {
 }
 
 $targetFolder = '/assets/uploads/images/'; // Relative to the root
-$thumbFolder = $_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/images/thumbs/';
+//$thumbFolder = $_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/images/thumbs/';
 
 if (!empty($_FILES)) {
 	//var_dump("aw");
 	$tempFile = $_FILES['Filedata']['tmp_name'];
 	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
+
+	$thumbFolder = $_SERVER['DOCUMENT_ROOT'] . "/assets/uploads/images/thumbs/";
 	
 	// Validate the file type
 	$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
@@ -42,7 +44,7 @@ if (!empty($_FILES)) {
 	
 	if (in_array($fileParts['extension'],$fileTypes)) {
 		if (move_uploaded_file($tempFile,$targetFile)) {
-			make_thumb($tempFile, $thumbFolder, 200);
+			make_thumb($targetFile, $thumbFolder."thumb_".$_FILES['Filedata']['name'], 200);
 		}
 		echo 0;
 	} else {
