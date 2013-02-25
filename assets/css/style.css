@@ -1076,15 +1076,19 @@ blockquote p {
 			float: left;
 		}
 		
-		.thumb {
+		.img-slider a {
 			display: block;
 			margin-top: 8px;
 			margin-right: 8px;
 			float: left;
-			width: 100px;
+			width: 119px;
 			height: 71px;
 			overflow: hidden;
 			background: url('/assets/img/25.gif') no-repeat 50%;
+		}
+
+		.img-slider a:last-child {
+			margin-right: 0;
 		}
 		
 		.thumb-box {

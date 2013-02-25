@@ -78,7 +78,7 @@
   			<div id="screen"><img src="/assets/uploads/images/<?=$images[0];?>" alt="" class="screen"/></div>
   			<?php foreach ($images as $row) : ?>
   			<a href="#" rel="/assets/uploads/images/<?=$row;?>" class="thumb">
-  				<img src="/assets/uploads/images/<?=$row;?>" alt="" width="100px" class="thumb-1"/>
+  				<img src="/assets/uploads/images/<?=$row;?>" alt="" class="thumb-1"/>
   			</a>
   			<?php endforeach; ?>
   		
