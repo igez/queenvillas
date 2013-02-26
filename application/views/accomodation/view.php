@@ -47,7 +47,7 @@
         <div class="container">
           <div class="yellow">
             <h2><?=$content->title;?></h2>
-            <p>Lorem Ipsum Dolor Sit</p>
+            <p><i>Queen Villas & Spa</i></p>
           </div>
         </div>
       </div>

@@ -1,8 +1,17 @@
-<div class="row">
+	<style>
+	.rsvp p {
+		font-size: 11px;
+	}
+
+	.rsvp input {
+		
+	}
+	</style>
+<div class="row rsvp">
 	<div class="span12">
-		<h3>REQUEST MEETING INFORMATION</h3>
+		<h4>REQUEST MEETING INFORMATION</h4>
 		<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</p>
-		<h4>INFORMATION DESIRED</h4>
+		<h5>INFORMATION DESIRED</h5>
 		<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
 		<label class="radio">
 	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>

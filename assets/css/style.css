@@ -214,6 +214,13 @@ box-shadow:  0px 1px 2px 1px rgba(0, 0, 0, 0.2);*/
 		padding: 1px 10px;
 		text-align: left;
 	}
+
+	.navbar .nav-right li a {
+		left: 24%;
+		padding: 1px 20px;
+		text-align: center;
+}
+
 	
 	.navbar-inner {
 		width: 100%;

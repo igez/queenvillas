@@ -6,7 +6,7 @@
         <div class="container">
           <div class="yellow">
             <h2>Photo Gallery</h2>
-            <p>Lorem Ipsum Dolor Sit</p>
+            <p><i>Queen Villas & Spa</i></p>
           </div>
         </div>
       </div>
