@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="/assets/css/navbar-responsive.css" />
 	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
