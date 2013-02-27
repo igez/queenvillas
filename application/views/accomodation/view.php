@@ -308,15 +308,19 @@
 						  	url: "/reservation/do",  
 						  	data: dataString,
 						  	beforeSend: function(){
+						  		$('.expandRsvp-2').fadeTo('slow', '.3');
 						    	$('.loading-ajax').show();
 						    },
 
 						    complete: function(){
 						        $('.loading-ajax').hide();
+						        $('.expandRsvp-2').slideUp();
 						    },
 
 						    success: function() {  
-						    	alert("Success"); 
+						    	$('.loading-ajax').css('background' '#fff url(/assets/img/success-icon.png) no-repeat 10% 50%');
+						    	$('.loading-ajax p').text('<b>Success!</b>');
+						    	$('.loading-ajax').show();
 						  	},
 
 						    error: function () {
@@ -387,14 +391,31 @@
 				margin-top: 90px;
 			}
 
+			.loading-ajax {
+				display: block;
+				position: absolute;
+				width: 150px;
+				height: 24px;
+				background: #fff url('/assets/img/287.gif') no-repeat 10% 50%;
+				left: 50%;
+				z-index: 2;
+				margin-left: -75px;
+				margin-top: 200px;
+				top: 50%;
+				border: 1px solid #ccc;
+				padding: 10px;
+			}
+
 			.loading p {
-				padding-left: 40px;
+				padding-left: 50px;
 				padding-top: 1px;
+				font-size: 15px;
 			}
 
 			.loading-ajax p {
 				padding-left: 40px;
 				padding-top: 1px;
+				font-size: 15px;
 			}
 
 			.contactDetails {
@@ -433,7 +454,7 @@
 						<a href="#"><i>Book Your Stay <b class="icon-chevron-down"></b></i></a>
 					</div>
 					<div class="loading"><p style="font-family: arial"><i>Please Wait...</i></p></div>
-					<div class="loading-ajax"><p style="font-family: arial"><i>Submiting...</i></p></div>
+					<div class="loading-ajax"><p style="font-family: Georgia">Sending Data...</p></div>
 					<div class="expandRsvp-2" style="bac">
 						<div class="row">
 							<div class="span3"></div>
