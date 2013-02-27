@@ -98,7 +98,7 @@
       <hr class="featurette-divider">
 
       <div class="featurette">
-        <img class="featurette-image pull-right" src="/assets/img/feat01.png">
+        <img class="featurette-image pull-right" src="/assets/img/feat01.jpg">
         <h2 class="featurette-heading">Trust Us. <span class="muted">It'll blow your mind!</span></h2>
         <p class="lead">An island where no building is taller than a palm tree.</p>
       </div>
@@ -106,7 +106,7 @@
       <hr class="featurette-divider">
 
       <div class="featurette">
-        <img class="featurette-image pull-left" src="/assets/img/feat02.png">
+        <img class="featurette-image pull-left" src="/assets/img/feat02.jpg">
         <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
         <p class="lead">Often called "The Friendly Island" because the aloha spirit flourishes here.</p>
       </div>
@@ -114,7 +114,7 @@
       <hr class="featurette-divider">
 
       <div class="featurette">
-        <img class="featurette-image pull-right" src="/assets/img/feat03.png">
+        <img class="featurette-image pull-right" src="/assets/img/feat03.jpg">
         <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
         <p class="lead">Life here is slow and relaxed.
 
