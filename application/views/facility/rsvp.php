@@ -7,26 +7,27 @@
 		
 	}
 	</style>
-<div class="row rsvp">
+<div class="row rsvp" >
 	<div class="span12">
-		<h4>REQUEST MEETING INFORMATION</h4>
-		<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</p>
+		<h5>REQUEST MEETING INFORMATION</h5>
+		<p>Thank you for your interest in meetings at Queen Villa's & Spa . We look forward to helping you create a memorable and rewarding event experience.To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
 		<h5>INFORMATION DESIRED</h5>
-		<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+		<p>To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
 		<label class="radio">
 	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-	  	<strong>Request for Information</strong> (<i>You would like more details about specific property.</i>)
+	  	<h6>Request for Information</h6> <h5><small><i>(You would like more details about specific property.)</i></small></h5>
 	</label>
 	<label class="radio">
 	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-	  	<strong>Date Inquiry</strong> (<i>You would like more details about specific property.</i>)
+	  	<h6>Date Inquiry</h6> <h5><small>(<i>You would like more details about specific property.</i>)</small></h5>
 	</label>
 	<label class="radio">
 	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-	  	<strong>Request for Proposal</strong> (<i>You would like more details about specific property.</i>)
+	  	<h6>Request for Proposal</h6> <h5><small>(<i>You would like more details about specific property.</i>)</small></h5>
 	</label>
-	<p><i>Please Tell Us How We Can Reach You :</i></p>
-	<h4>CONTACT INFORMATION</h4>
+</br>
+	<p><h5>Please Tell Us How We Can Reach You :</p></br></h5>
+	<h5>CONTACT INFORMATION</h5>
 	<p><i>Fields marked with an * are required</i></p>
 	<form class="form-horizontal">
 		<div class="control-group">
