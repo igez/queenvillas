@@ -305,7 +305,7 @@
 						// ajax send
 						$.ajax({  
 						  	type: "POST",  
-						  	url: "reservation/do",  
+						  	url: "/reservation/do",  
 						  	data: dataString,
 						  	beforeSend: function(){
 						    	$('.loading-ajax').show();
