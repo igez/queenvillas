@@ -75,7 +75,7 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 	<script type="text/javascript">
-		
+		/*
 		$(document).ready(function () {
 			$('a.btn').on('click', function(e) {
 			    e.preventDefault();
@@ -83,7 +83,7 @@
 			    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true" src="'+url+'"></iframe>');
 			});
 		});
-		
+		*/
 	</script>
 	
 	
@@ -98,20 +98,23 @@
 	          <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
 	          <h2><?=$row->name;?></h2>
 	          <p><?=$row->desc;?></p>
-	          <a href="/package/show" data-toggle="modal" class="btn" data-target="#packageModal">View Detail</a>
+	          <a href="#" data-toggle="modal" class="btn" data-target="#<?=$row->slug;?>">View Detail</a>
 	        </div>
 	    <?php if ($i%3==0) echo "</div>"; ?>
         <?php $i++; ?>
       <?php endforeach; ?>
      <!-- Modal Start Here ! -->
-    	<div id="packageModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="color:black;">
-			<div class="modal-header">
-	   			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	    		<h3>Modal header</h3>
-	  		</div>
-	  		<div class="modal-body">
-	  		</div>
-		</div>
+     <?php foreach ($content as $row) : ?>
+    	<div id="<?=$row->slug;?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="color:black;">
+			 <div class="modal-header">
+	   	   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    	  <h3><?=$row->name;?></h3>
+	  	  </div>
+	  	  <div class="modal-body">
+	  	    <?=$row->detail;?>
+        </div>
+		  </div>
+    <?php endforeach; ?>
 
 
       <!-- START THE FEATURETTES -->
