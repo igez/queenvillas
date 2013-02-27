@@ -56,7 +56,7 @@ $route['admin/post/update'] = "admin/post_update";
 $route['admin/setting'] = "admin/setting";
 
 // RESERVATION
-$route['reservation/booking'] = "reservation/booking";
+$route['reservation/do'] = "reservation/booking";
 
 
 

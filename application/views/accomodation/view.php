@@ -297,7 +297,7 @@
 
 
 
-						var dataString = "?roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"+name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
+						var dataString = "roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"+name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
 
 						console.log(dataString);
 						
@@ -305,7 +305,7 @@
 						// ajax send
 						$.ajax({  
 						  	type: "POST",  
-						  	url: "reserve/do",  
+						  	url: "reservation/do",  
 						  	data: dataString,
 						  	beforeSend: function(){
 						    	$('.loading-ajax').show();
