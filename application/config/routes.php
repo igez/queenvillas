@@ -55,6 +55,9 @@ $route['admin/post/save'] = "admin/post_save";
 $route['admin/post/update'] = "admin/post_update";
 $route['admin/setting'] = "admin/setting";
 
+// RESERVATION
+$route['reservation/booking'] = "reservation/booking";
+
 
 
 /* End of file routes.php */
