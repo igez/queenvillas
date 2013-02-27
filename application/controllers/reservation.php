@@ -8,7 +8,6 @@ class Reservation extends CI_Controller {
 	}
 	
 	public function do() {
-		/*
 		$this->load->library('PHPMailer');
 		define('GUSER', 'robbiejobs@gmail.com'); // GMail username
 		define('GPWD', 'nithnoth'); // GMail password
@@ -21,11 +20,9 @@ class Reservation extends CI_Controller {
 		$message = "aw";
 		
 		if ($this->smtpmailer('robbiejobs@gmail.com', 'robbiejobs@gmal.com', 'Revervation From Aw !', 'Hello', $message)) {
-			die('success');
+			return true;
 		}
-		if (!empty($error)) echo $error;
-		*/
-		return false;
+		if (!empty($error)) return false;
 		
 		
 		
