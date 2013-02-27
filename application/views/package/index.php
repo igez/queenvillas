@@ -69,28 +69,19 @@
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
-      <div class="row">
         <?php $i=1; ?>
         <?php foreach ($content as $row) : ?>
-          <?php if ($i == 7): ?>
-              
-              <div class="span4">
-              <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
-              <h2><?=$row->name;?></h2>
-              <p><?=$row->desc;?></p>
-              <p><a class="btn" href="/package/<?=$row->slug;?>">View details &raquo;</a></p>
-            </div><!-- /.span4 -->
-          <?php else : ?>
-            <div class="span4">
-              <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
-              <h2><?=$row->name;?></h2>
-              <p><?=$row->desc;?></p>
-              <p><a class="btn" href="/package/<?=$row->slug;?>">View details &raquo;</a></p>
-            </div><!-- /.span4 -->
-          <?php endif; ?>
+        <?php if ($i == 1 || $i%3==0) echo "<div class='row' style='margin-bottom: 20px;'>"; ?>
+			<div class="span4">
+	          <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
+	          <h2><?=$row->name;?></h2>
+	          <p><?=$row->desc;?></p>
+	          <p><a class="btn" href="/package/<?=$row->slug;?>">View details &raquo;</a></p>
+	        </div>
+	    <?php if ($i%3==0) echo "</div>"; ?>
         <?php $i++; ?>
       <?php endforeach; ?>
-      </div><!-- /.row -->
+     
 
 
       <!-- START THE FEATURETTES -->
