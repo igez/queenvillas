@@ -107,25 +107,29 @@
 			});
 
 			$(function() {
-				$('.loading').hide();
-				$('.expandRsvp-2').hide();
-				$('#SendReserve').click(function(e) {
-					e.preventDefault();
-					$('.expandRsvp').fadeTo('slow' ,'.3');
-					$('.loading').fadeIn();
-					
-					$('.loading').fadeOut();
-					$('.expandRsvp').slideUp();
-					$('.expandRsvp-2').slideDown();
-					//$('.loading').fadeOut();
-					//$('.expandRsvp').fadeTo('fast', '1').html('ewe');
-				});
+				
 			});
 
+
 			$(function() {
-				$('#submitData').click(function(e) {
-					e.preventDefault();
-					$('.help-inline').remove();
+				function IsNumeric(sText){
+				    var ValidChars = "0123456789.";
+				    var IsNumber = true;
+				    var Char;
+				    for (i = 0; i < sText.length && IsNumber == true; i++) {
+				        Char = sText.charAt(i);
+				        if (ValidChars.indexOf(Char) == -1) {
+				            IsNumber = false;
+				        }
+				    }
+				    return IsNumber;
+				}
+
+				$('.loading').hide();
+				$('.loading-ajax').hide();
+				$('.expandRsvp-2').hide();
+				$('#SendReserve').click(function() {
+					
 					var roomId = $('.roomId').val();
 					var adults = $('.adults').val();
 					var child = $('.child').val();
@@ -135,51 +139,197 @@
 					var BookingRequest = $('.BookingRequest').val();
 					var bookingOnline = $('.bookingOnline').val();
 					// contact details
-					var title = $('.title').val();
-					var name = $('.name').val();
-					var surname = $('.surname').val();
-					var email = $('.email').val();
-					var ph = $('.email').val();
-					var fax = $('.email').val();
-					var city = $('.city').val();
-					var address = $('.address').val();
-					var country = $('.country').val();
 					
-					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-					if (name == '') {
-						$('.name').parent().parent().attr('class', 'control-group error');
-						$('.name').parent().append('<span class="help-inline">Required</span>');
+					if (adults == '') {
+						$('.adults').parent().parent().attr('class', 'control-group error');
 						return false;
 					}
 					else {
-						$('.name').parent().parent().attr('class', 'control-group success');
-						$('.name').parent().append('<span class="help-inline">OK !</span>');
+						$('.adults').parent().parent().attr('class', 'control-group success');
 					}
-					if (surname == '') {
-						$('.surname').parent().parent().attr('class', 'control-group error');
-						$('.surname').parent().append('<span class="help-inline">Required</span>');
+
+					if (child == '') {
+						$('.child').parent().parent().attr('class', 'control-group error');
+						return false;
 					}
 					else {
-						$('.surname').parent().parent().attr('class', 'control-group success');
-						$('.surname').parent().append('<span class="help-inline">OK !</span>');
-					}
-					if (email == '') {
-						$('.email').parent().parent().attr('class', 'control-group error');
-						$('.email').parent().append('<span class="help-inline">Required</span>');
-					}
-					else if (email.match(re)) {
-						$('.email').parent().parent().attr('class', 'control-group error');
-						$('.email').parent().append('<span class="help-inline">Email Invalid</span>');
+						$('.child').parent().parent().attr('class', 'control-group success');
 					}
 
+					if (rooms == '') {
+						$('.rooms').parent().parent().attr('class', 'control-group error');
+						return false;
+					}
+					else {
+						$('.rooms').parent().parent().attr('class', 'control-group success');
+					}
 
-					var dataset = "?roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"+name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
+					if (fromDate == '') {
+						$('#fromDate').parent().parent().attr('class', 'control-group error');
+						return false;
+					}
+					else {
+						$('#fromDate').parent().parent().attr('class', 'control-group success');
+					}
 
-					console.log(dataset);
+					if (toDate == '') {
+						$('#toDate').parent().parent().attr('class', 'control-group error');
+						return false;
+					}
+					else {
+						$('#toDate').parent().parent().attr('class', 'control-group success');
+					}
 
+					$('.expandRsvp').fadeTo('slow' ,'.3');
+					$('.expandRsvp').slideUp();
+					$('.expandRsvp-2').slideDown();
+					//$('.loading').fadeOut();
+					//$('.expandRsvp').fadeTo('fast', '1').html('ewe');
+					$('#submitData').click(function(e) {
+						var title = $('.title').val();
+						var name = $('.name').val();
+						var surname = $('.surname').val();
+						var email = $('.email').val();
+						var ph = $('.ph').val();
+						var fax = $('.fax').val();
+						var city = $('.city').val();
+						var address = $('.address').val();
+						var country = $('.country').val();
+						e.preventDefault();
+						$('.help-inline').remove();
+						
+						
+						var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+						
+						// Name Validation
+						
+						if (name == '') {
+							$('.name').parent().parent().attr('class', 'control-group error');
+							$('.name').parent().append('<span class="help-inline">Required</span>');
+							console.log(roomId);
+							return false;
+						}
+						else {
+							$('.name').parent().parent().attr('class', 'control-group success');
+							$('.name').parent().append('<span class="help-inline">OK !</span>');
+						}
+
+						// surname Validation
+						if (surname == '') {
+							$('.surname').parent().parent().attr('class', 'control-group error');
+							$('.surname').parent().append('<span class="help-inline">Required</span>');
+							return false;
+						}
+						else {
+							$('.surname').parent().parent().attr('class', 'control-group success');
+							$('.surname').parent().append('<span class="help-inline">OK !</span>');
+						}
+
+						// email Validation
+						if (email == '') {
+							$('.email').parent().parent().attr('class', 'control-group error');
+							$('.email').parent().append('<span class="help-inline">Required</span>');
+							return false;
+						}
+						else if (!email.match(re)) {
+							$('.email').parent().parent().attr('class', 'control-group error');
+							$('.email').parent().append('<span class="help-inline">Email Invalid</span>');
+							return false;
+						}
+						else {
+							$('.email').parent().parent().attr('class', 'control-group success');
+							$('.email').parent().append('<span class="help-inline">OK !</span>');
+						}
+
+						// email Validation
+						if (ph == '') {
+							$('.ph').parent().parent().attr('class', 'control-group error');
+							$('.ph').parent().append('<span class="help-inline">Required</span>');
+							return false;
+						}
+						else if (!IsNumeric(ph)) {
+							$('.ph').parent().parent().attr('class', 'control-group error');
+							$('.ph').parent().append('<span class="help-inline">Numbers Only</span>');
+							return false;
+						}
+						else if (ph.length < 8) {
+							$('.ph').parent().parent().attr('class', 'control-group error');
+							$('.ph').parent().append('<span class="help-inline">Must Contain at Least 8 Numbers</span>');
+							return false;
+						}
+						else {
+							$('.ph').parent().parent().attr('class', 'control-group success');
+							$('.ph').parent().append('<span class="help-inline">OK !</span>');
+						}
+
+						if (address == '') {
+							$('.address').parent().parent().attr('class', 'control-group error');
+							$('.address').parent().append('<span class="help-inline">Required</span>');
+							return false;
+						}
+						else {
+							$('.address').parent().parent().attr('class', 'control-group success');
+							$('.address').parent().append('<span class="help-inline">OK !</span>');
+						}
+
+						if (city == '') {
+							$('.city').parent().parent().attr('class', 'control-group error');
+							$('.city').parent().append('<span class="help-inline">Required</span>');
+							return false;
+						}
+						else {
+							$('.city').parent().parent().attr('class', 'control-group success');
+							$('.city').parent().append('<span class="help-inline">OK !</span>');
+						}
+
+						if (country == '') {
+							$('.country').parent().parent().attr('class', 'control-group error');
+							$('.country').parent().append('<span class="help-inline">Required</span>');
+							return false;
+						}
+						else {
+							$('.country').parent().parent().attr('class', 'control-group success');
+							$('.country').parent().append('<span class="help-inline">OK !</span>');
+						}
+						
+
+
+
+
+						var dataString = "?roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"+name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
+
+						console.log(dataString);
+						
+
+						// ajax send
+						$.ajax({  
+						  	type: "POST",  
+						  	url: "reserve/do",  
+						  	data: dataString,
+						  	beforeSend: function(){
+						    	$('.loading-ajax').show();
+						    },
+
+						    complete: function(){
+						        $('.loading-ajax').hide();
+						    },
+
+						    success: function() {  
+						    	alert("Success"); 
+						  	},
+
+						    error: function () {
+						        alert("There was an error. Image could not be added, please try again");
+						    },
+						  	 
+						});  
+						return false;
+					})
 					return false;
-				})	
+				});
+
+					
 			})
 		</script>
 		<style type="text/css">
@@ -242,6 +392,11 @@
 				padding-top: 1px;
 			}
 
+			.loading-ajax p {
+				padding-left: 40px;
+				padding-top: 1px;
+			}
+
 			.contactDetails {
 				margin-top: 30px;
 			}
@@ -278,6 +433,7 @@
 						<a href="#"><i>Book Your Stay <b class="icon-chevron-down"></b></i></a>
 					</div>
 					<div class="loading"><p style="font-family: arial"><i>Please Wait...</i></p></div>
+					<div class="loading-ajax"><p style="font-family: arial"><i>Submiting...</i></p></div>
 					<div class="expandRsvp-2" style="bac">
 						<div class="row">
 							<div class="span3"></div>
@@ -337,8 +493,256 @@
 								  </div>
 								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Country</label>
-								    <div class="controls">
-								      <input type="text" name="country" class="country">
+								    <div class="controls overide">
+								      <select name="country" class="country">
+										<option value="">Select Country</option>
+										<option value="AF">Afghanistan</option>
+										<option value="AL">Albania</option>
+										<option value="DZ">Algeria</option>
+										<option value="AS">American Samoa</option>
+										<option value="AD">Andorra</option>
+										<option value="AG">Angola</option>
+										<option value="AI">Anguilla</option>
+										<option value="AG">Antigua &amp; Barbuda</option>
+										<option value="AR">Argentina</option>
+										<option value="AA">Armenia</option>
+										<option value="AW">Aruba</option>
+										<option value="AU">Australia</option>
+										<option value="AT">Austria</option>
+										<option value="AZ">Azerbaijan</option>
+										<option value="BS">Bahamas</option>
+										<option value="BH">Bahrain</option>
+										<option value="BD">Bangladesh</option>
+										<option value="BB">Barbados</option>
+										<option value="BY">Belarus</option>
+										<option value="BE">Belgium</option>
+										<option value="BZ">Belize</option>
+										<option value="BJ">Benin</option>
+										<option value="BM">Bermuda</option>
+										<option value="BT">Bhutan</option>
+										<option value="BO">Bolivia</option>
+										<option value="BL">Bonaire</option>
+										<option value="BA">Bosnia &amp; Herzegovina</option>
+										<option value="BW">Botswana</option>
+										<option value="BR">Brazil</option>
+										<option value="BC">British Indian Ocean Ter</option>
+										<option value="BN">Brunei</option>
+										<option value="BG">Bulgaria</option>
+										<option value="BF">Burkina Faso</option>
+										<option value="BI">Burundi</option>
+										<option value="KH">Cambodia</option>
+										<option value="CM">Cameroon</option>
+										<option value="CA">Canada</option>
+										<option value="IC">Canary Islands</option>
+										<option value="CV">Cape Verde</option>
+										<option value="KY">Cayman Islands</option>
+										<option value="CF">Central African Republic</option>
+										<option value="TD">Chad</option>
+										<option value="CD">Channel Islands</option>
+										<option value="CL">Chile</option>
+										<option value="CN">China</option>
+										<option value="CI">Christmas Island</option>
+										<option value="CS">Cocos Island</option>
+										<option value="CO">Colombia</option>
+										<option value="CC">Comoros</option>
+										<option value="CG">Congo</option>
+										<option value="CK">Cook Islands</option>
+										<option value="CR">Costa Rica</option>
+										<option value="CT">Cote D'Ivoire</option>
+										<option value="HR">Croatia</option>
+										<option value="CU">Cuba</option>
+										<option value="CB">Curacao</option>
+										<option value="CY">Cyprus</option>
+										<option value="CZ">Czech Republic</option>
+										<option value="DK">Denmark</option>
+										<option value="DJ">Djibouti</option>
+										<option value="DM">Dominica</option>
+										<option value="DO">Dominican Republic</option>
+										<option value="TM">East Timor</option>
+										<option value="EC">Ecuador</option>
+										<option value="EG">Egypt</option>
+										<option value="SV">El Salvador</option>
+										<option value="GQ">Equatorial Guinea</option>
+										<option value="ER">Eritrea</option>
+										<option value="EE">Estonia</option>
+										<option value="ET">Ethiopia</option>
+										<option value="FA">Falkland Islands</option>
+										<option value="FO">Faroe Islands</option>
+										<option value="FJ">Fiji</option>
+										<option value="FI">Finland</option>
+										<option value="FR">France</option>
+										<option value="GF">French Guiana</option>
+										<option value="PF">French Polynesia</option>
+										<option value="FS">French Southern Ter</option>
+										<option value="GA">Gabon</option>
+										<option value="GM">Gambia</option>
+										<option value="GE">Georgia</option>
+										<option value="DE">Germany</option>
+										<option value="GH">Ghana</option>
+										<option value="GI">Gibraltar</option>
+										<option value="GB">Great Britain</option>
+										<option value="GR">Greece</option>
+										<option value="GL">Greenland</option>
+										<option value="GD">Grenada</option>
+										<option value="GP">Guadeloupe</option>
+										<option value="GU">Guam</option>
+										<option value="GT">Guatemala</option>
+										<option value="GN">Guinea</option>
+										<option value="GY">Guyana</option>
+										<option value="HT">Haiti</option>
+										<option value="HW">Hawaii</option>
+										<option value="HN">Honduras</option>
+										<option value="HK">Hong Kong</option>
+										<option value="HU">Hungary</option>
+										<option value="IS">Iceland</option>
+										<option value="IN">India</option>
+										<option value="ID">Indonesia</option>
+										<option value="IA">Iran</option>
+										<option value="IQ">Iraq</option>
+										<option value="IR">Ireland</option>
+										<option value="IM">Isle of Man</option>
+										<option value="IL">Israel</option>
+										<option value="IT">Italy</option>
+										<option value="JM">Jamaica</option>
+										<option value="JP">Japan</option>
+										<option value="JO">Jordan</option>
+										<option value="KZ">Kazakhstan</option>
+										<option value="KE">Kenya</option>
+										<option value="KI">Kiribati</option>
+										<option value="NK">Korea North</option>
+										<option value="KS">Korea South</option>
+										<option value="KW">Kuwait</option>
+										<option value="KG">Kyrgyzstan</option>
+										<option value="LA">Laos</option>
+										<option value="LV">Latvia</option>
+										<option value="LB">Lebanon</option>
+										<option value="LS">Lesotho</option>
+										<option value="LR">Liberia</option>
+										<option value="LY">Libya</option>
+										<option value="LI">Liechtenstein</option>
+										<option value="LT">Lithuania</option>
+										<option value="LU">Luxembourg</option>
+										<option value="MO">Macau</option>
+										<option value="MK">Macedonia</option>
+										<option value="MG">Madagascar</option>
+										<option value="MY">Malaysia</option>
+										<option value="MW">Malawi</option>
+										<option value="MV">Maldives</option>
+										<option value="ML">Mali</option>
+										<option value="MT">Malta</option>
+										<option value="MH">Marshall Islands</option>
+										<option value="MQ">Martinique</option>
+										<option value="MR">Mauritania</option>
+										<option value="MU">Mauritius</option>
+										<option value="ME">Mayotte</option>
+										<option value="MX">Mexico</option>
+										<option value="MI">Midway Islands</option>
+										<option value="MD">Moldova</option>
+										<option value="MC">Monaco</option>
+										<option value="MN">Mongolia</option>
+										<option value="MS">Montserrat</option>
+										<option value="MA">Morocco</option>
+										<option value="MZ">Mozambique</option>
+										<option value="MM">Myanmar</option>
+										<option value="NA">Nambia</option>
+										<option value="NU">Nauru</option>
+										<option value="NP">Nepal</option>
+										<option value="AN">Netherland Antilles</option>
+										<option value="NL">Netherlands (Holland, Europe)</option>
+										<option value="NV">Nevis</option>
+										<option value="NC">New Caledonia</option>
+										<option value="NZ">New Zealand</option>
+										<option value="NI">Nicaragua</option>
+										<option value="NE">Niger</option>
+										<option value="NG">Nigeria</option>
+										<option value="NW">Niue</option>
+										<option value="NF">Norfolk Island</option>
+										<option value="NO">Norway</option>
+										<option value="OM">Oman</option>
+										<option value="PK">Pakistan</option>
+										<option value="PW">Palau Island</option>
+										<option value="PS">Palestine</option>
+										<option value="PA">Panama</option>
+										<option value="PG">Papua New Guinea</option>
+										<option value="PY">Paraguay</option>
+										<option value="PE">Peru</option>
+										<option value="PH">Philippines</option>
+										<option value="PO">Pitcairn Island</option>
+										<option value="PL">Poland</option>
+										<option value="PT">Portugal</option>
+										<option value="PR">Puerto Rico</option>
+										<option value="QA">Qatar</option>
+										<option value="ME">Republic of Montenegro</option>
+										<option value="RS">Republic of Serbia</option>
+										<option value="RE">Reunion</option>
+										<option value="RO">Romania</option>
+										<option value="RU">Russia</option>
+										<option value="RW">Rwanda</option>
+										<option value="NT">St Barthelemy</option>
+										<option value="EU">St Eustatius</option>
+										<option value="HE">St Helena</option>
+										<option value="KN">St Kitts-Nevis</option>
+										<option value="LC">St Lucia</option>
+										<option value="MB">St Maarten</option>
+										<option value="PM">St Pierre &amp; Miquelon</option>
+										<option value="VC">St Vincent &amp; Grenadines</option>
+										<option value="SP">Saipan</option>
+										<option value="SO">Samoa</option>
+										<option value="AS">Samoa American</option>
+										<option value="SM">San Marino</option>
+										<option value="ST">Sao Tome &amp; Principe</option>
+										<option value="SA">Saudi Arabia</option>
+										<option value="SN">Senegal</option>
+										<option value="SC">Seychelles</option>
+										<option value="SL">Sierra Leone</option>
+										<option value="SG">Singapore</option>
+										<option value="SK">Slovakia</option>
+										<option value="SI">Slovenia</option>
+										<option value="SB">Solomon Islands</option>
+										<option value="OI">Somalia</option>
+										<option value="ZA">South Africa</option>
+										<option value="ES">Spain</option>
+										<option value="LK">Sri Lanka</option>
+										<option value="SD">Sudan</option>
+										<option value="SR">Suriname</option>
+										<option value="SZ">Swaziland</option>
+										<option value="SE">Sweden</option>
+										<option value="CH">Switzerland</option>
+										<option value="SY">Syria</option>
+										<option value="TA">Tahiti</option>
+										<option value="TW">Taiwan</option>
+										<option value="TJ">Tajikistan</option>
+										<option value="TZ">Tanzania</option>
+										<option value="TH">Thailand</option>
+										<option value="TG">Togo</option>
+										<option value="TK">Tokelau</option>
+										<option value="TO">Tonga</option>
+										<option value="TT">Trinidad &amp; Tobago</option>
+										<option value="TN">Tunisia</option>
+										<option value="TR">Turkey</option>
+										<option value="TU">Turkmenistan</option>
+										<option value="TC">Turks &amp; Caicos Is</option>
+										<option value="TV">Tuvalu</option>
+										<option value="UG">Uganda</option>
+										<option value="UA">Ukraine</option>
+										<option value="AE">United Arab Emirates</option>
+										<option value="GB">United Kingdom</option>
+										<option value="US">United States of America</option>
+										<option value="UY">Uruguay</option>
+										<option value="UZ">Uzbekistan</option>
+										<option value="VU">Vanuatu</option>
+										<option value="VS">Vatican City State</option>
+										<option value="VE">Venezuela</option>
+										<option value="VN">Vietnam</option>
+										<option value="VB">Virgin Islands (Brit)</option>
+										<option value="VA">Virgin Islands (USA)</option>
+										<option value="WK">Wake Island</option>
+										<option value="WF">Wallis &amp; Futana Is</option>
+										<option value="YE">Yemen</option>
+										<option value="ZR">Zaire</option>
+										<option value="ZM">Zambia</option>
+										<option value="ZW">Zimbabwe</option>
+									</select>
 								    </div>
 								  </div>
 								  <hr>
@@ -364,33 +768,53 @@
 									<div class="row">
 										<div class="span2">
 											<input type="hidden" class="roomId" name="roomId" value="<?=$content->id;?>">
-											<select name="adult" id="" class="span2 adults">
-												<option value="">Adults</option>
-												<?php for($i=1;$i<20;$i++) :?>
-													<option value="<?=$i;?>"><?=$i;?></option>
-												<?php endfor; ?>
-											</select>
-											<select name="child" id="" class="span2 child">
-												<option value="">Child</option>
-												<?php for($i=1;$i<20;$i++) :?>
-													<option value="<?=$i;?>"><?=$i;?></option>
-												<?php endfor; ?>
-											</select>
-											<select name="room" id="" class="span2 rooms">
-												<option value="">Rooms</option>
-												<?php for($i=1;$i<20;$i++) :?>
-													<option value="<?=$i;?>"><?=$i;?></option>
-												<?php endfor; ?>
-											</select>
+											<div class="control-group">
+												<div class="controls">
+											      	<select name="adult" id="" class="span2 adults">
+											      		<option value="">Adults</option>
+														<?php for($i=1;$i<20;$i++) :?>
+															<option value="<?=$i;?>"><?=$i;?></option>
+														<?php endfor; ?>
+											      	</select>
+											    </div>
+											</div>
+											<div class="control-group">
+												<div class="controls">
+											      	<select name="child" id="" class="span2 child">
+											      		<option value="">Child</option>
+														<?php for($i=1;$i<20;$i++) :?>
+															<option value="<?=$i;?>"><?=$i;?></option>
+														<?php endfor; ?>
+											      	</select>
+											    </div>
+											</div>
+											<div class="control-group">
+												<div class="controls">
+											      	<select name="room" id="" class="span2 rooms">
+											      		<option value="">Rooms</option>
+														<?php for($i=1;$i<20;$i++) :?>
+															<option value="<?=$i;?>"><?=$i;?></option>
+														<?php endfor; ?>
+											      	</select>
+											    </div>
+											</div>
 										</div>
 										<div class="span2">
-											<div class="input-append overide" style="margin-bottom: 10px;">
-											  <input class="span2" class="fromDate" id="fromDate" type="text" placeholder="Check in Date" name="fromDate" style="width:75%;">
-											  <span class="add-on"><i class="icon-calendar"></i></span>
+											<div class="control-group">
+												<div class="controls">
+											      	<div class="input-append overide" style="margin-bottom: 18px;">
+													  	<input class="span2" class="fromDate" id="fromDate" type="text" placeholder="Check in Date" name="fromDate" style="width:75%;">
+													  	<span class="add-on"><i class="icon-calendar"></i></span>
+													</div>
+											    </div>
 											</div>
-											<div class="input-append overide" style="margin-bottom: 10px;">
-											  <input class="span2" class="toDate" id="toDate" type="text" placeholder="Check out Date" name="toDate"  style="width:75%;">
-											  <span class="add-on"><i class="icon-calendar"></i></span>
+											<div class="control-group">
+												<div class="controls">
+											      	<div class="input-append overide" style="margin-bottom: 18x;">
+													  	<input class="span2" class="toDate" id="toDate" type="text" placeholder="Check out Date" name="toDate"  style="width:75%;">
+													  	<span class="add-on"><i class="icon-calendar"></i></span>
+													</div>
+											    </div>
 											</div>
 										</div>
 										<div class="clearfix"></div>
