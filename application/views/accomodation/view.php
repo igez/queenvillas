@@ -319,7 +319,7 @@
 
 						    success: function() {  
 						    	$('.loading-ajax').css('background' '#fff url(/assets/img/success-icon.png) no-repeat 10% 50%');
-						    	$('.loading-ajax p').text('<b>Success!</b>');
+						    	$('.loading-ajax p').html('<b>Success!</b>');
 						    	$('.loading-ajax').show();
 						  	},
 
