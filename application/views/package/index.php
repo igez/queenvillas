@@ -72,8 +72,8 @@
       <div class="row">
         <?php $i=1; ?>
         <?php foreach ($content as $row) : ?>
-          <?php if ($i == 5): ?>
-              <div class="span4"></div>
+          <?php if ($i == 7): ?>
+              
               <div class="span4">
               <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
               <h2><?=$row->name;?></h2>
@@ -100,7 +100,7 @@
       <div class="featurette">
         <img class="featurette-image pull-right" src="/assets/img/feat01.png">
         <h2 class="featurette-heading">Trust Us. <span class="muted">It'll blow your mind!</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">An island where no building is taller than a palm tree.</p>
       </div>
 
       <hr class="featurette-divider">
@@ -108,7 +108,7 @@
       <div class="featurette">
         <img class="featurette-image pull-left" src="/assets/img/feat02.png">
         <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">Often called "The Friendly Island" because the aloha spirit flourishes here.</p>
       </div>
 
       <hr class="featurette-divider">
@@ -116,7 +116,13 @@
       <div class="featurette">
         <img class="featurette-image pull-right" src="/assets/img/feat03.png">
         <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">Life here is slow and relaxed.
+
+It's rural and peaceful. 
+
+It's like stepping back in time 50 years.
+
+It's a place like no other.</p>
       </div>
 
       <hr class="featurette-divider">

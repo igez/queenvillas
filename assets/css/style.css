@@ -1076,7 +1076,7 @@ blockquote p {
 		.acco-desc {
 			font-size: 12px;
 			padding-left: 20px;
-			width: 650px;
+			width: 53%;
 			height: 300px;
 			float: left;
 		}
@@ -1174,7 +1174,7 @@ blockquote p {
 			background-size: cover;
 		}
 	footer {
-		background: url('/assets/img/footer-bg.gif') repeat-x;
+		/*background: url('/assets/img/footer-bg.gif') repeat-x;*/
 
 		height: 98px;
 		-webkit-box-shadow: 1px -1px 40px 1px #ccc;
