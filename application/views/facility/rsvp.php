@@ -10,7 +10,7 @@
 <div class="row rsvp" >
 	<div class="span12">
 		<h5>REQUEST MEETING INFORMATION</h5>
-		<p>Thank you for your interest in meetings at Queen Villa's & Spa . We look forward to helping you create a memorable and rewarding event experience.To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
+		<p>Thank you for your interest in meetings at Queen Villas & Spa . We look forward to helping you create a memorable and rewarding event experience.To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
 		<h5>INFORMATION DESIRED</h5>
 		<p>To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
 		<label class="radio">
