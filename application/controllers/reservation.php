@@ -7,7 +7,7 @@ class Reservation extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function booking() {
+	public function do() {
 		$this->load->library('PHPMailer');
 		define('GUSER', 'robbiejobs@gmail.com'); // GMail username
 		define('GPWD', 'nithnoth'); // GMail password
