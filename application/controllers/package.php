@@ -18,4 +18,8 @@ class Package extends CI_Controller {
 
 		$this->load->view('package_tpl',$data);
 	}
+	
+	public function show() {
+		$this->load->view('package/detail');
+	}
 }

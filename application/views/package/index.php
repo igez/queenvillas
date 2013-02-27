@@ -74,6 +74,19 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+	<script type="text/javascript">
+		
+		$(document).ready(function () {
+			$('a.btn').on('click', function(e) {
+			    e.preventDefault();
+			    var url = $(this).attr('href');
+			    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true" src="'+url+'"></iframe>');
+			});
+		});
+		
+	</script>
+	
+	
 	
     <div class="container marketing">
 
@@ -85,12 +98,20 @@
 	          <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
 	          <h2><?=$row->name;?></h2>
 	          <p><?=$row->desc;?></p>
-	          <p><a class="btn" href="/package/<?=$row->slug;?>">View details &raquo;</a></p>
+	          <a href="/package/show" data-toggle="modal" class="btn" data-target="#packageModal">View Detail</a>
 	        </div>
 	    <?php if ($i%3==0) echo "</div>"; ?>
         <?php $i++; ?>
       <?php endforeach; ?>
-     
+     <!-- Modal Start Here ! -->
+    	<div id="packageModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="color:black;">
+			<div class="modal-header">
+	   			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    		<h3>Modal header</h3>
+	  		</div>
+	  		<div class="modal-body">
+	  		</div>
+		</div>
 
 
       <!-- START THE FEATURETTES -->
@@ -128,7 +149,9 @@ It's a place like no other.</p>
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
+      
     </div><!-- /.container -->
+    
     <footer>
       <div class="footer-logo pull-left">
       </div>
@@ -153,7 +176,7 @@ It's a place like no other.</p>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<script src="/assets/js/jquery.js"></script>
+	
     <script src="/assets/js/bootstrap-transition.js"></script>
     <script src="/assets/js/bootstrap-alert.js"></script>
     <script src="/assets/js/bootstrap-modal.js"></script>

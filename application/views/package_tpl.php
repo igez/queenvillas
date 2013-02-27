@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+
+	<script src="/assets/js/jquery.js"></script>
     <!-- Le styles -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -221,6 +223,7 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
+    
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
