@@ -22,7 +22,10 @@ class Reservation extends CI_Controller {
 		if ($this->smtpmailer('robbiejobs@gmail.com', 'robbiejobs@gmal.com', 'Revervation From Aw !', 'Hello', $message)) {
 			return true;
 		}
-		if (!empty($error)) echo $error;
+		else {
+			return false;
+		}
+		//if (!empty($error)) return false;
 		
 		
 		
