@@ -1259,20 +1259,54 @@ blockquote p {
 	.navbar-inverse .nav-collapse .nav>li>a, .navbar-inverse .nav-collapse .dropdown-menu a { color: #fff;background-color: #111;font-weight: normal; }
 	.facility-desc { width: auto;}
 	.flame {margin-top: -400px;}
-	footer {background-image: none;background-color: #000;margin-left: 0;}
+	footer {background-image: none;background-color: #000;width: 100%}
+	.footer-logo {width: 100%;margin-left: 0px;}
 	.footer-desc { color: #fff;background-color: #000;width: 100%;text-align: center;}
 	.footer-soc { float: left;margin:auto 0; background:#000;width: 100%;padding-bottom: 5px;}
-
- 
+	.footer-soc ul { margin-left: 42%;}
+	.acco-desc { width: auto;height: auto;padding-bottom: 20px;padding-top: 20px;text-align: center;}
+ 	.img-slider { float: left;padding-left: 20px;margin-top: -40px;}
+ 	.facility-box { margin:10px 0 10px 10%;}
 /* Landscape phones and down */
 @media (max-width: 480px) {
 	.navbar .brand { float: left;margin: 0;left:0;}
 	.grad { height:0%;display: none;}
 	.navbar-inner { width: 100%;height: 40px; margin: 0;}
 	.navbar-wrapper { margin-top: 0px;}
-	.demo-2 .sl-slider h2 {font-size: 18pt;}
+	.demo-2 .sl-slider {font-size: 12pt;padding:2px;}
 	.demo-2 .sl-slider h2, .demo-2 .sl-slider blockquote { width: auto;margin-right: 25px;}
 	blockquote p { font-size: 9pt; line-height: 12pt;}
 	.navbar-inverse .nav-collapse .nav>li>a, .navbar-inverse .nav-collapse .dropdown-menu a { color: #fff;background-color: #111;font-weight: normal; }
 	.facility-desc { width: auto;}
+	.flame {margin-top: -400px;}
+	footer {background-image: none;background-color: #000;width: 100%}
+	.footer-logo {width: 100%;margin-left: 0px;}
+	.footer-desc { color: #fff;background-color: #000;width: 100%;text-align: center;}
+	.footer-soc { float: left;margin:auto 0; background:#000;width: 100%;padding-bottom: 5px;}
+	.footer-soc ul { margin-left: 42%;}
+	.acco-desc { width: auto;height: auto;padding-bottom: 20px;padding-top: 20px;text-align: center;}
+ 	.img-slider { float: left;padding-left: 20px;margin-top: -40px;}
+ 	.facility-box { margin:10px 0 10px 10%;}
+
+ /* Old Phone */
+ @media (max-width: 320px) {
+	.navbar .brand { float: left;margin: 0;left:0;}
+	.grad { height:0%;display: none;}
+	.navbar-inner { width: 100%;height: 40px; margin: 0;}
+	.navbar-wrapper { margin-top: 0px;}
+	.demo-2 .sl-slider {font-size: 12pt;padding:2px;}
+	.demo-2 .sl-slider h2, .demo-2 .sl-slider blockquote { width: auto;margin-right: 25px;}
+	blockquote p { font-size: 19pt; line-height: 12pt;}
+	.navbar-inverse .nav-collapse .nav>li>a, .navbar-inverse .nav-collapse .dropdown-menu a { color: #fff;background-color: #111;font-weight: normal; }
+	.facility-desc { width: auto;}
+	.flame {margin-top: -400px;}
+	footer {background-image: none;background-color: #000;width: 100%}
+	.footer-logo {width: 100%;margin-left: 0px;}
+	.footer-desc { color: #fff;background-color: #000;width: 100%;text-align: center;}
+	.footer-soc { float: left;margin:auto 0; background:#000;width: 100%;padding-bottom: 5px;}
+	.footer-soc ul { margin-left: 42%;}
+	.acco-desc { width: auto;height: auto;padding-bottom: 20px;padding-top: 20px;text-align: center;}
+ 	.img-slider { float: left;padding-left: 20px;margin-top: -40px;}
+ 	.facility-box { margin:10px 0 10px 10%;}
+}
 }
