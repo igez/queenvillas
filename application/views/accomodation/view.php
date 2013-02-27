@@ -6,14 +6,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/assets/css/style.css" />
-	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
+	<link rel="stylesheet" href="/assets/css/ui-lightness/jquery-ui-1.10.1.custom.css" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-ui-1.8.21.custom.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.ba-cond.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.slitslider.js"></script>
+
   </head>
   <style type="text/css">
   .dotbg {
@@ -105,12 +109,14 @@
 				background-position: 50% top;
 			}
 			
+			.expandBook {
+				background: url('/assets/img/rsvp-line.gif') repeat-x 50%;
+			}
+
 			.expandBook a {
 				display: block;
 				text-align: center;
-				border-bottom: 1px solid #ccc;
-				padding-bottom: 10px;
-				margin-bottom: 10px;
+				padding-bottom: 30px;
 				color: #000;
 				font-weight: bold;
 			}
@@ -121,8 +127,9 @@
 			
 			.expandRsvp {
 				border-bottom: 1px solid #ccc;
-				padding-bottom: 10px;
-				margin-bottom: 20px;
+				padding: 20px 0;
+				background: white;
+				margin-top: -23px;
 			}
 			
 			.expandRsvp form {
@@ -140,51 +147,75 @@
 				width: 220px;
 			}
 		</style>
-		<div class="bookingModule">
+		<script>
+			$(function() {
+		      $( "#fromDate" ).datepicker();
+		      $( "#toDate" ).datepicker();
+		    });
+		</script>
+		<div class="bookingModule" style="margin-bottom: 20px;">
 			<div class="row">
 				<div class="span12">
 					<div class="expandBook">
 						<a href="#"><i>Book Your Stay <b class="icon-chevron-down"></b></i></a>
 					</div>
-					<div class="expandRsvp">
+					<div class="expandRsvp" style="bac">
 						<div class="row">
 							<div class="span4"></div>
-							<form action="/reservation/booking" class="span4" method="GET">
-								<div class="row">
-									<div class="span2">
-										<select name="adult" id="" class="span2">
-											<option value="1">Adults</option>
-										</select>
-										<select name="child" id="" class="span2">
-											<option value="1">Child</option>
-										</select>
-										<select name="room" id="" class="span2">
-											<option value="1">Rooms</option>
-										</select>
-									</div>
-									<div class="span2">
-										<div class="input-append" style="margin-bottom: 10px;">
-										  <input class="span2" id="appendedInput" type="text" placeholder="Arrival" name="fromDate">
-										  <span class="add-on"><i class="icon-calendar"></i></span>
-										</div>
-										<div class="input-append" style="margin-bottom: 10px;">
-										  <input class="span2" id="appendedInput" type="text" placeholder="Departure" name="toDate">
-										  <span class="add-on"><i class="icon-calendar"></i></span>
-										</div>
-									</div>
-									<div class="span4">
-								  		<input type="radio" name="bookingRequest" id="optionsRadios1" value="true" checked>
-								  		Booking Request
-								  		<input type="radio" name="bookingOnline" id="optionsRadios1" value="true">
-								  		Booking Online
-									</div>
+							<div class="span4">
+								<form action="/reservation/booking" class="span4" method="GET">
 									<div class="row">
-										<div class="span4 pull-right">
-											<button class="btn btn-warning" type="submit" name="send" value="book">Send</button>
+										<div class="span2">
+											<select name="adult" id="" class="span2">
+												<option value="">Adults</option>
+												<?php for($i=1;$i<20;$i++) :?>
+													<option value="<?=$i;?>"><?=$i;?></option>
+												<?php endfor; ?>
+											</select>
+											<select name="child" id="" class="span2">
+												<option value="">Child</option>
+												<?php for($i=1;$i<20;$i++) :?>
+													<option value="<?=$i;?>"><?=$i;?></option>
+												<?php endfor; ?>
+											</select>
+											<select name="room" id="" class="span2">
+												<option value="">Rooms</option>
+												<?php for($i=1;$i<20;$i++) :?>
+													<option value="<?=$i;?>"><?=$i;?></option>
+												<?php endfor; ?>
+											</select>
+										</div>
+										<div class="span2">
+											<div class="input-append" style="margin-bottom: 10px;">
+											  <input class="span2" id="fromDate" type="text" placeholder="Arrival" name="fromDate" style="width:75%;">
+											  <span class="add-on"><i class="icon-calendar"></i></span>
+											</div>
+											<div class="input-append" style="margin-bottom: 10px;">
+											  <input class="span2" id="toDate" type="text" placeholder="Departure" name="toDate"  style="width:75%;">
+											  <span class="add-on"><i class="icon-calendar"></i></span>
+											</div>
+										</div>
+										<div class="clearfix"></div>
+										<div class="span2" style="text-align: left;">
+									  		<label class="radio">
+											  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											  Booking Request
+											</label>
+										</div>
+										<div class="span2"  style="text-align: left;">
+									  		<label class="radio">
+											  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											  Booking Request
+											</label>
+										</div>
+										<div class="row" >
+											<div class="span4 pull-right" style="margin-top: 14px;">
+												<button class="btn btn-block btn-warning" type="submit" name="send" value="book">Send</button>
+											</div>
 										</div>
 									</div>
-								</div>
-							</form>
+								</form>
+							</div>
 							<div class="span4"></div>
 						</div>
 					</div>
