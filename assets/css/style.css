@@ -1233,6 +1233,16 @@ blockquote p {
 		visibility: hidden;
 	}
 	
+.modal-header h3{
+		font-weight: normal;
+		text-align: center;
+	}
+.modal-body {
+		text-align: center;
+		background-image: url('/assets/img/atfot.jpg');
+		background-position: bottom;
+		background-repeat: no-repeat;
+	}
 
  /* Large desktop */
 @media (min-width: 1200px) { ... }
