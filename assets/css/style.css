@@ -1305,8 +1305,8 @@ blockquote p {
 	.footer-desc { color: #fff;background-color: #000;width: 100%;text-align: center;}
 	.footer-soc { float: left;margin:auto 0; background:#000;width: 100%;padding-bottom: 5px;}
 	.footer-soc ul { margin-left: 42%;}
-	.acco-desc { width: auto;height: auto;padding-bottom: 20px;padding-top: 20px;text-align: center;}
- 	.img-slider { float: left;padding-left: 20px;margin-top: -40px;}
+	.acco-desc { width: 100%;height: auto;padding-bottom: 20px;padding-top: 20px;text-align: center;}
+ 	.img-slider { float: left;padding-left: 0px;margin-top: -40px;width: 50%;height: auto;}
  	.facility-box { margin:10px 0 10px 10%;}
 }
 }
