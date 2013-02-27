@@ -91,13 +91,15 @@
 			$(function() {
 				$('.expandRsvp').hide();
 				$('.expandBook a').click(function() {
-					if ($('.expandRsvp').css('display') == 'none') {
+					if ($('.expandRsvp').css('display') == 'none' && $('.expandRsvp-2').css('display') == 'none') {
+						$('.expandRsvp').css('opacity', '1');
 						$('.expandRsvp').slideDown('slow');
 						$('.bookingModule').css('border-bottom', '1px solid #ccc');
 						return false;
 					}
 					else {
 						$('.expandRsvp').slideUp('slow');
+						$('.expandRsvp-2').slideUp('slow');
 						$('.bookingModule').css('border-bottom', '0')
 						return false;
 					}
@@ -119,6 +121,56 @@
 					//$('.expandRsvp').fadeTo('fast', '1').html('ewe');
 				});
 			});
+
+			$(function() {
+				$('#submitData').click(function(e) {
+					e.preventDefault();
+					$('.help-inline').remove();
+					var roomId = $('.roomId').val();
+					var adults = $('.adults').val();
+					var child = $('.child').val();
+					var rooms = $('.rooms').val();
+					var fromDate = $('#fromDate').val();
+					var toDate = $('#toDate').val();
+					var BookingRequest = $('.BookingRequest').val();
+					var bookingOnline = $('.bookingOnline').val();
+					// contact details
+					var title = $('.title').val();
+					var name = $('.name').val();
+					var surname = $('.surname').val();
+					var email = $('.email').val();
+					var ph = $('.email').val();
+					var fax = $('.email').val();
+					var city = $('.city').val();
+					var address = $('.address').val();
+					var country = $('.country').val();
+					
+					if (name == '') {
+						$('.name').parent().parent().attr('class', 'control-group error');
+						$('.name').parent().append('<span class="help-inline">Required</span>');
+						return false;
+					}
+					else {
+						$('.name').parent().parent().attr('class', 'control-group success');
+						$('.name').parent().append('<span class="help-inline">OK !</span>');
+					}
+					if (surname == '') {
+						$('.surname').parent().parent().attr('class', 'control-group error');
+						$('.surname').parent().append('<span class="help-inline">Required</span>');
+					}
+					else {
+						$('.surname').parent().parent().attr('class', 'control-group success');
+						$('.surname').parent().append('<span class="help-inline">OK !</span>');
+					}
+
+
+					var dataset = "?roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"+name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
+
+					console.log(dataset);
+
+					return false;
+				})	
+			})
 		</script>
 		<style type="text/css">
 			.bookingModule {
@@ -191,11 +243,15 @@
 				-webkit-box-shadow: none;
 			}
 
-			.overide select {
+			.overide select, .overide input {
 				width: 234px;
+				border-radius: 0;
+				-webkit-border-radius: 0;
+				box-shadow: none;
+				-webkit-box-shadow: none;
 			}
 
-			.control-contactDetail {
+			.control-group {
 				margin-bottom: 8px;
 			}
 		</style>
@@ -216,72 +272,72 @@
 						<div class="row">
 							<div class="span3"></div>
 							<div class="span6">
-								<form class="form-horizontal contactDetails">
-								  <div class="control-contactDetail">
+								<form class="form-horizontal contactDetails" method="GET" action="/reser">
+								  <div class="control-group">
 								    <label class="control-label" for="inputEmail">Title</label>
 								    <div class="controls overide">
-								      <select name="" id="">
+								      <select name="title" class="title" id="">
 								      	<option value="Mr">Mr.</option>
 								      	<option value="Mrs">Mrs.</option>
 								      </select>
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Name</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="name" class="name">
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Surname</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="surname" class="surname">
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Email Address</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="email" class="email">
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Ph.</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="ph" class="ph">
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Fax</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="fax" class="fax">
 								    </div>
 								  </div>
 								  <hr>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Address</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="address" class="address">
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">City</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="city" class="city">
 								    </div>
 								  </div>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <label class="control-label" for="inputPassword">Country</label>
 								    <div class="controls">
-								      <input type="text">
+								      <input type="text" name="country" class="country">
 								    </div>
 								  </div>
 								  <hr>
-								  <div class="control-contactDetail">
+								  <div class="control-group">
 								    <div class="controls">
 								      <label class="checkbox">
 								        <input type="checkbox"> Remember me
 								      </label>
-								      <button type="submit" class="btn">Sign in</button>
+								      <button type="submit" name="submitData" id="submitData" class="btn btn-block btn-warning">Submit</button>
 								    </div>
 								  </div>
 								</form>
@@ -297,20 +353,20 @@
 								<form action="/rsvp" class="span4" method="GET">
 									<div class="row">
 										<div class="span2">
-											<input type="hidden" name="roomId" value="<?=$content->id;?>">
-											<select name="adult" id="" class="span2">
+											<input type="hidden" class="roomId" name="roomId" value="<?=$content->id;?>">
+											<select name="adult" id="" class="span2 adults">
 												<option value="">Adults</option>
 												<?php for($i=1;$i<20;$i++) :?>
 													<option value="<?=$i;?>"><?=$i;?></option>
 												<?php endfor; ?>
 											</select>
-											<select name="child" id="" class="span2">
+											<select name="child" id="" class="span2 child">
 												<option value="">Child</option>
 												<?php for($i=1;$i<20;$i++) :?>
 													<option value="<?=$i;?>"><?=$i;?></option>
 												<?php endfor; ?>
 											</select>
-											<select name="room" id="" class="span2">
+											<select name="room" id="" class="span2 rooms">
 												<option value="">Rooms</option>
 												<?php for($i=1;$i<20;$i++) :?>
 													<option value="<?=$i;?>"><?=$i;?></option>
@@ -318,31 +374,31 @@
 											</select>
 										</div>
 										<div class="span2">
-											<div class="input-append" style="margin-bottom: 10px;">
-											  <input class="span2" id="fromDate" type="text" placeholder="Arrival" name="fromDate" style="width:75%;">
+											<div class="input-append overide" style="margin-bottom: 10px;">
+											  <input class="span2" class="fromDate" id="fromDate" type="text" placeholder="Check in Date" name="fromDate" style="width:75%;">
 											  <span class="add-on"><i class="icon-calendar"></i></span>
 											</div>
-											<div class="input-append" style="margin-bottom: 10px;">
-											  <input class="span2" id="toDate" type="text" placeholder="Departure" name="toDate"  style="width:75%;">
+											<div class="input-append overide" style="margin-bottom: 10px;">
+											  <input class="span2" class="toDate" id="toDate" type="text" placeholder="Check out Date" name="toDate"  style="width:75%;">
 											  <span class="add-on"><i class="icon-calendar"></i></span>
 											</div>
 										</div>
 										<div class="clearfix"></div>
 										<div class="span2" style="text-align: left;">
 									  		<label class="radio">
-											  <input type="radio" name="BookingRequest" id="optionsRadios1" value="true" checked>
+											  <input type="radio" name="BookingRequest" class="BookingRequest" id="optionsRadios1" value="true" checked>
 											  Booking Request
 											</label>
 										</div>
 										<div class="span2"  style="text-align: left;">
 									  		<label class="radio">
-											  <input type="radio" name="BookingOnline" id="optionsRadios1" value="true">
+											  <input type="radio" name="BookingOnline" class="BookingOnline"id="optionsRadios1" value="true">
 											  Booking Online
 											</label>
 										</div>
 										<div class="row" >
 											<div class="span4 pull-right" style="margin-top: 14px;">
-												<button id="SendReserve" class="btn btn-block btn-warning" type="submit" name="send" value="book">Send</button>
+												<button id="SendReserve" class="btn btn-block btn-warning" type="submit" name="send" value="book">Next &raquo</button>
 											</div>
 										</div>
 									</div>
