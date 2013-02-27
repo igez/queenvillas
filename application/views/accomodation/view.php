@@ -93,12 +93,23 @@
 				$('.expandBook a').click(function() {
 					if ($('.expandRsvp').css('display') == 'none') {
 						$('.expandRsvp').slideDown('slow');
+						$('.bookingModule').css('border-bottom', '1px solid #ccc');
 						return false;
 					}
 					else {
 						$('.expandRsvp').slideUp('slow');
+						$('.bookingModule').css('border-bottom', '0')
 						return false;
 					}
+				});
+			});
+
+			$(function() {
+				$('.loading').hide();
+				$('#SendReserve').click(function(e) {
+					e.preventDefault();
+					$('.expandRsvp').fadeTo('slow' ,'.3');
+					$('.loading').fadeIn();
 				});
 			});
 		</script>
@@ -123,10 +134,10 @@
 			
 			.expandBook a:hover {
 				text-decoration: none;
+				color:#feca28;
 			}
 			
 			.expandRsvp {
-				border-bottom: 1px solid #ccc;
 				padding: 20px 0;
 				background: white;
 				margin-top: -23px;
@@ -146,6 +157,23 @@
 			input {
 				width: 220px;
 			}
+
+			.loading {
+				position: absolute;
+				width: 200px;
+				height: 24px;
+				background: url('/assets/img/287.gif') no-repeat;
+				left: 50%;
+				z-index: 1;
+				margin-left: -100px;
+				margin-top: 75px;
+			}
+
+			.loading p {
+				padding-left: 40px;
+				font-weight: bold;
+				padding-top: 1px;
+			}
 		</style>
 		<script>
 			$(function() {
@@ -159,13 +187,16 @@
 					<div class="expandBook">
 						<a href="#"><i>Book Your Stay <b class="icon-chevron-down"></b></i></a>
 					</div>
+					<div class="loading"><p>Sending Request</p></div>
 					<div class="expandRsvp" style="bac">
 						<div class="row">
 							<div class="span4"></div>
 							<div class="span4">
-								<form action="/reservation/booking" class="span4" method="GET">
+								<!-- <form action="/reservation/booking" class="span4" method="GET"> -->
+								<form action="/rsvp" class="span4" method="GET">
 									<div class="row">
 										<div class="span2">
+											<input type="hidden" name="roomId" value="<?=$content->id;?>">
 											<select name="adult" id="" class="span2">
 												<option value="">Adults</option>
 												<?php for($i=1;$i<20;$i++) :?>
@@ -198,19 +229,19 @@
 										<div class="clearfix"></div>
 										<div class="span2" style="text-align: left;">
 									  		<label class="radio">
-											  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											  <input type="radio" name="BookingRequest" id="optionsRadios1" value="true" checked>
 											  Booking Request
 											</label>
 										</div>
 										<div class="span2"  style="text-align: left;">
 									  		<label class="radio">
-											  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-											  Booking Request
+											  <input type="radio" name="BookingOnline" id="optionsRadios1" value="true">
+											  Booking Online
 											</label>
 										</div>
 										<div class="row" >
 											<div class="span4 pull-right" style="margin-top: 14px;">
-												<button class="btn btn-block btn-warning" type="submit" name="send" value="book">Send</button>
+												<button id="SendReserve" class="btn btn-block btn-warning" type="submit" name="send" value="book">Send</button>
 											</div>
 										</div>
 									</div>
