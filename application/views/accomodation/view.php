@@ -145,6 +145,8 @@
 					var address = $('.address').val();
 					var country = $('.country').val();
 					
+					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 					if (name == '') {
 						$('.name').parent().parent().attr('class', 'control-group error');
 						$('.name').parent().append('<span class="help-inline">Required</span>');
@@ -161,6 +163,14 @@
 					else {
 						$('.surname').parent().parent().attr('class', 'control-group success');
 						$('.surname').parent().append('<span class="help-inline">OK !</span>');
+					}
+					if (email == '') {
+						$('.email').parent().parent().attr('class', 'control-group error');
+						$('.email').parent().append('<span class="help-inline">Required</span>');
+					}
+					else if (email.match(re)) {
+						$('.email').parent().parent().attr('class', 'control-group error');
+						$('.email').parent().append('<span class="help-inline">Email Invalid</span>');
 					}
 
 
@@ -386,13 +396,13 @@
 										<div class="clearfix"></div>
 										<div class="span2" style="text-align: left;">
 									  		<label class="radio">
-											  <input type="radio" name="BookingRequest" class="BookingRequest" id="optionsRadios1" value="true" checked>
+											  <input type="radio" name="BookingType" class="BookingRequest" id="optionsRadios1" value="true" checked>
 											  Booking Request
 											</label>
 										</div>
 										<div class="span2"  style="text-align: left;">
 									  		<label class="radio">
-											  <input type="radio" name="BookingOnline" class="BookingOnline"id="optionsRadios1" value="true">
+											  <input type="radio" name="BookingType" class="BookingOnline" id="optionsRadios2" value="true">
 											  Booking Online
 											</label>
 										</div>
