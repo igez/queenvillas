@@ -47,6 +47,15 @@
             </div>
           </div>
         </div>
+        <div class="item">
+          <img src="/assets/img/slide-06.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+
 		<div class="item">
           <img src="/assets/img/slide-05.jpg" alt="">
           <div class="container">
