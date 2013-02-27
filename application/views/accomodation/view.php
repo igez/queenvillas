@@ -106,10 +106,17 @@
 
 			$(function() {
 				$('.loading').hide();
+				$('.expandRsvp-2').hide();
 				$('#SendReserve').click(function(e) {
 					e.preventDefault();
 					$('.expandRsvp').fadeTo('slow' ,'.3');
 					$('.loading').fadeIn();
+					
+					$('.loading').fadeOut();
+					$('.expandRsvp').slideUp();
+					$('.expandRsvp-2').slideDown();
+					//$('.loading').fadeOut();
+					//$('.expandRsvp').fadeTo('fast', '1').html('ewe');
 				});
 			});
 		</script>
@@ -121,15 +128,15 @@
 			}
 			
 			.expandBook {
-				background: url('/assets/img/rsvp-line.gif') repeat-x 50%;
+				border-bottom: 1px solid #ccc;
 			}
 
 			.expandBook a {
 				display: block;
 				text-align: center;
-				padding-bottom: 30px;
 				color: #000;
 				font-weight: bold;
+				
 			}
 			
 			.expandBook a:hover {
@@ -140,7 +147,6 @@
 			.expandRsvp {
 				padding: 20px 0;
 				background: white;
-				margin-top: -23px;
 			}
 			
 			.expandRsvp form {
@@ -160,19 +166,37 @@
 
 			.loading {
 				position: absolute;
-				width: 200px;
+				width: 150px;
 				height: 24px;
 				background: url('/assets/img/287.gif') no-repeat;
 				left: 50%;
 				z-index: 1;
-				margin-left: -100px;
-				margin-top: 75px;
+				margin-left: -75px;
+				margin-top: 90px;
 			}
 
 			.loading p {
 				padding-left: 40px;
-				font-weight: bold;
 				padding-top: 1px;
+			}
+
+			.contactDetails {
+				margin-top: 30px;
+			}
+
+			.controls input, select {
+				border-radius: 0;
+				-webkit-border-radius: 0;
+				box-shadow: none;
+				-webkit-box-shadow: none;
+			}
+
+			.overide select {
+				width: 234px;
+			}
+
+			.control-contactDetail {
+				margin-bottom: 8px;
 			}
 		</style>
 		<script>
@@ -187,7 +211,84 @@
 					<div class="expandBook">
 						<a href="#"><i>Book Your Stay <b class="icon-chevron-down"></b></i></a>
 					</div>
-					<div class="loading"><p>Sending Request</p></div>
+					<div class="loading"><p style="font-family: arial"><i>Please Wait...</i></p></div>
+					<div class="expandRsvp-2" style="bac">
+						<div class="row">
+							<div class="span3"></div>
+							<div class="span6">
+								<form class="form-horizontal contactDetails">
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputEmail">Title</label>
+								    <div class="controls overide">
+								      <select name="" id="">
+								      	<option value="Mr">Mr.</option>
+								      	<option value="Mrs">Mrs.</option>
+								      </select>
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Name</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Surname</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Email Address</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Ph.</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Fax</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <hr>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Address</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">City</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <div class="control-contactDetail">
+								    <label class="control-label" for="inputPassword">Country</label>
+								    <div class="controls">
+								      <input type="text">
+								    </div>
+								  </div>
+								  <hr>
+								  <div class="control-contactDetail">
+								    <div class="controls">
+								      <label class="checkbox">
+								        <input type="checkbox"> Remember me
+								      </label>
+								      <button type="submit" class="btn">Sign in</button>
+								    </div>
+								  </div>
+								</form>
+							</div>
+							<div class="span3"></div>
+						</div>
+					</div>				
 					<div class="expandRsvp" style="bac">
 						<div class="row">
 							<div class="span4"></div>
