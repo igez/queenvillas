@@ -77,7 +77,120 @@
 					return false;
 				});
 			});
+			$(function() {
+				$('#doReserve').click(function() {
+					$('#reservationModal').modal('show');
+					return false;
+				});
+			});
+			
+			$(function() {
+				$('.expandRsvp').hide();
+				$('.expandBook a').click(function() {
+					if ($('.expandRsvp').css('display') == 'none') {
+						$('.expandRsvp').slideDown('slow');
+						return false;
+					}
+					else {
+						$('.expandRsvp').slideUp('slow');
+						return false;
+					}
+				});
+			});
 		</script>
+		<style type="text/css">
+			.bookingModule {
+				width: 100%;
+				background: transparent;
+				background-position: 50% top;
+			}
+			
+			.expandBook a {
+				display: block;
+				text-align: center;
+				border-bottom: 1px solid #ccc;
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+				color: #000;
+				font-weight: bold;
+			}
+			
+			.expandBook a:hover {
+				text-decoration: none;
+			}
+			
+			.expandRsvp {
+				border-bottom: 1px solid #ccc;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+			
+			.expandRsvp form {
+				display: block;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.rsvpLeft {
+				width: 50%;
+				float: left;
+			}
+			
+			input {
+				width: 220px;
+			}
+		</style>
+		<div class="bookingModule">
+			<div class="row">
+				<div class="span12">
+					<div class="expandBook">
+						<a href="#"><i>Book Your Stay <b class="icon-chevron-down"></b></i></a>
+					</div>
+					<div class="expandRsvp">
+						<div class="row">
+							<div class="span4"></div>
+							<form action="/reservation/booking" class="span4" method="GET">
+								<div class="row">
+									<div class="span2">
+										<select name="adult" id="" class="span2">
+											<option value="1">Adults</option>
+										</select>
+										<select name="child" id="" class="span2">
+											<option value="1">Child</option>
+										</select>
+										<select name="room" id="" class="span2">
+											<option value="1">Rooms</option>
+										</select>
+									</div>
+									<div class="span2">
+										<div class="input-append" style="margin-bottom: 10px;">
+										  <input class="span2" id="appendedInput" type="text" placeholder="Arrival" name="fromDate">
+										  <span class="add-on"><i class="icon-calendar"></i></span>
+										</div>
+										<div class="input-append" style="margin-bottom: 10px;">
+										  <input class="span2" id="appendedInput" type="text" placeholder="Departure" name="toDate">
+										  <span class="add-on"><i class="icon-calendar"></i></span>
+										</div>
+									</div>
+									<div class="span4">
+								  		<input type="radio" name="bookingRequest" id="optionsRadios1" value="true" checked>
+								  		Booking Request
+								  		<input type="radio" name="bookingOnline" id="optionsRadios1" value="true">
+								  		Booking Online
+									</div>
+									<div class="row">
+										<div class="span4 pull-right">
+											<button class="btn btn-warning" type="submit" name="send" value="book">Send</button>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div class="span4"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
   		<div class="img-slider">
   			<div id="screen"><img src="/assets/uploads/images/<?=$images[0];?>" alt="" class="screen"/></div>
   			<?php foreach ($images as $row) : ?>
@@ -90,9 +203,8 @@
 
   		<div class="acco-desc">
   			<?=$content->content;?>
-        <!-- <a href="#" class="btn btn-primary pull-right">Book Now!</a> -->
   		</div>
-      <div class="btn btn-warning btn-small pull-right" style="visibility:hidden;"><p>Book Now!</p></div>
+      	<div class="btn btn-warning btn-small pull-right" style="visibility:hidden;"><p>Book Now!</p></div>
   		<div class="facility-box">
   			<ul>
   				<li>
