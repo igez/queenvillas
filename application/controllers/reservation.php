@@ -14,12 +14,12 @@ class Reservation extends CI_Controller {
 		
 		$user = 'Robby Prima S';
 		
-		$message = file_get_contents('/assets/email_templates/rsvp_client.html');
+		//$message = file_get_contents('/assets/email_templates/rsvp_client.html');
 		//$message = str_replace('%username%', $user, $message);
 		
-		//$message = "aw";
+		$message = "aw";
 		
-		if ($this->smtpmailer('robbiejobs@gmail.com', 'robbiejobs@gmail.com', 'Queen Villas & Spa Reservation', 'Reservation Success', $message)) {
+		if ($this->smtpmailer('robbiejobs@gmail.com', 'gez@gmail.com', 'Queen Villas & Spa Reservation', 'Reservation Success', $message)) {
 			return true;
 		}
 		else {
