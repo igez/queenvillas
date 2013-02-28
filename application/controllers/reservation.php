@@ -24,9 +24,13 @@ class Reservation extends CI_Controller {
 		$message = str_replace('%country%', $_POST['country'], $message);
 		
 		//$message = "aw";
-		
-		if ($this->smtpmailer('robbiejobs@gmail.com', 'gez@gmail.com', 'Queen Villas & Spa Reservation', 'Reservation Success', $message)) {
-			return true;
+		// send email to RSVP MANAGER
+		if ($this->smtpmailer('robbiejobs@gmail.com', 'donotreply@queenvillas.com', 'Do Not Reply', 'Reservation Request', $message)) {
+			// send email to Client
+			if ($this->smtpmailer($_POST['email'], 'info@queenvillas.com', 'Queen Villas & Spa Reservation', 'Reservation Request', $message)) {
+			i
+				return true;
+			}
 		}
 		else {
 			return false;
