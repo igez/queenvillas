@@ -340,12 +340,64 @@
                                                     <tr>
                                                         <td valign="top" class="bodyContent">
                                                             <div mc:edit="std_content00">
-                                                                <h1 class="h1">Heading 1</h1>
-                                                                <h2 class="h2">Heading 2</h2>
-                                                                <h3 class="h3">Heading 3</h3>
-                                                                <h4 class="h4">Heading 4</h4>
-                                                                <strong>Getting started:</strong> Transactional emails serve a defined and simple purpose. They differ from traditional mass-emails because they're generally sent on a user-by-user basis, instead of large list of users, and are generally used to deliver purchase receipts, account updates, security notifications, and more.
-                                                                <br />
+                                                                <h4 class="h4" style="text-align: center;background: #ccc; padding: 10px 0;">Contact Details</h4>
+                                                                <h4 class="h4" style="text-align: center;background: #ccc; padding: 10px 0;">Reservation Details</h4>
+                                                                <table border="0" cellpadding="" cellspacing="0" width="100%"> 
+                                                                	<tr>
+                                                                		<td width="100"></td>
+                                                                		<td width="125">Title</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%title%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                		<td width="100"></td>
+                                                                		<td width="125">Fullname</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%name%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                		<td width="100"></td>
+                                                                		<td width="125">Surname</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%surname%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                	<td width="100"></td>
+                                                                		<td width="125">Email</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%email%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                		<td width="100"></td>
+                                                                		<td width="125">Phone Number</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%ph%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                	<td width="100"></td>
+                                                                		<td width="125">Fax</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%fax%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                		<td width="100"></td>
+                                                                		<td width="125">Address</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%address%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                		<td width="100"></td>
+                                                                		<td width="125">City</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%city%</td>
+                                                                	</tr>
+                                                                	<tr>
+                                                                	<td width="100"></td>
+                                                                		<td width="125">Country</td>
+                                                                		<td width="20">:</td>
+                                                                		<td>%country%</td>
+                                                                	</tr>
+                                                                </table>
                                                                 <br />
                                                                 Where <a href="http://www.mailchimp.com/" target="_blank">MailChimp</a> can be used to send newsletters to several subscribers in one large blast, <a href="http://www.mandrill.com/" target="_blank">Mandrill</a> is specifically positioned to send transactional emails, and offers relevant tracking and metrics that isn't necessarily available through a traditional email platform.
                                                             </div>
