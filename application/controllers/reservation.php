@@ -12,10 +12,16 @@ class Reservation extends CI_Controller {
 		define('GUSER', 'robbiejobs@gmail.com'); // GMail username
 		define('GPWD', 'nithnoth'); // GMail password
 		
-		$user = 'Robby Prima S';
-		
-		$message = file_get_contents('/assets/email_templates/rsvp_client.html');
-		//$message = str_replace('%username%', $user, $message);
+		$message = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/assets/email_templates/rsvp_client.html');
+		$message = str_replace('%title%', $_POST['name'], $message);
+		$message = str_replace('%name%', $_POST['name'], $message);
+		$message = str_replace('%surname%', $_POST['surname'], $message);
+		$message = str_replace('%email%', $_POST['email'], $message);
+		$message = str_replace('%ph%', $_POST['ph'], $message);
+		$message = str_replace('%fax%', $_POST['fax'], $message);
+		$message = str_replace('%address%', $_POST['address'], $message);
+		$message = str_replace('%city%', $_POST['city'], $message);
+		$message = str_replace('%country%', $_POST['country'], $message);
 		
 		//$message = "aw";
 		

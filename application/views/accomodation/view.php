@@ -203,7 +203,7 @@
 						var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 						
 						// Name Validation
-						/*
+						
 						if (name == '') {
 							$('.name').parent().parent().attr('class', 'control-group error');
 							$('.name').parent().append('<span class="help-inline">Required</span>');
@@ -292,7 +292,7 @@
 							$('.country').parent().parent().attr('class', 'control-group success');
 							$('.country').parent().append('<span class="help-inline">OK !</span>');
 						}
-						*/
+						
 
 
 
