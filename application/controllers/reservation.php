@@ -28,8 +28,10 @@ class Reservation extends CI_Controller {
 		if ($this->smtpmailer('robbiejobs@gmail.com', 'donotreply@queenvillas.com', 'Do Not Reply', 'Reservation Request', $message)) {
 			// send email to Client
 			if ($this->smtpmailer($_POST['email'], 'info@queenvillas.com', 'Queen Villas & Spa Reservation', 'Reservation Request', $message)) {
-			i
 				return true;
+			}
+			else {
+				return false;
 			}
 		}
 		else {
