@@ -297,7 +297,7 @@
 
 
 
-						var dataString = "roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"+name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
+						var dataString = "roomId="+roomId+"&adults="+adults+"&child="+child+"&rooms="+rooms+"&fromDate="+fromDate+"&toDate="+toDate+"&BookingRequest="+BookingRequest+"&title="+title+"&name="+name+"&surname="+surname+"&email="+email+"&ph="+ph+"&fax="+fax+"&city="+city+"&address="+address+"&country="+country;
 
 						console.log(dataString);
 						
@@ -466,8 +466,8 @@
 								    <label class="control-label" for="inputEmail">Title</label>
 								    <div class="controls overide">
 								      <select name="title" class="title" id="">
-								      	<option value="Mr">Mr.</option>
-								      	<option value="Mrs">Mrs.</option>
+								      	<option value="Mr.">Mr.</option>
+								      	<option value="Mrs.">Mrs.</option>
 								      </select>
 								    </div>
 								  </div>
