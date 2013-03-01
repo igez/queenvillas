@@ -13,7 +13,7 @@ class Reservation extends CI_Controller {
 		define('GPWD', 'nithnoth'); // GMail password
 		
 		$message = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/assets/email_templates/rsvp_client.html');
-		$message = str_replace('%title%', $_POST['name'], $message);
+		$message = str_replace('%title%', $_POST['title'], $message);
 		$message = str_replace('%name%', $_POST['name'], $message);
 		$message = str_replace('%surname%', $_POST['surname'], $message);
 		$message = str_replace('%email%', $_POST['email'], $message);
