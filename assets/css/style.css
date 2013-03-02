@@ -1,6 +1,26 @@
 body {
 	font-family: Georgia;
 }
+
+.controls input, select {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	}
+
+	.overide select, .overide input {
+	width: 234px;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	}
+
+	.control-group {
+	margin-bottom: 8px;
+	}
+
 #big_screen {
 	width: 100%;
 	overflow: hidden;
