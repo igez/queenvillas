@@ -26,7 +26,7 @@ class Contact extends CI_Controller {
 			$message = $_POST['body'];
 			$target = $_POST['email'];
 			if ($this->message_model->saveMessage($_POST)) {
-				if ($this->smtpmailer($_POST['email'], $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+				if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
 					return true;
 				}
 			}
