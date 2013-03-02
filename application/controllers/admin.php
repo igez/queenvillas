@@ -155,5 +155,26 @@ class Admin extends CI_Controller {
 			}
 			// execute setting_landing.php view
 	}
+
+	public function message() {
+		$this->load->model('message_model');
+		$data['data'] = $this->message_model->fetchAllMessage();
+		$data['content'] = 'contents/message';
+		$this->load->view('admin/index', $data);
+	}
+
+	public function msgIsRead() {
+		$this->load->model('message_model');
+		$id = $this->uri->segment(4);
+		$d = $this->message_model->chkIsRead($id);
+
+		if ($d->read == NULL) {
+			$this->message_model->isRead($id);
+		}
+
+		$result = array("status" => 1);
+		
+		echo json_encode($result);
+	}
 	
 }

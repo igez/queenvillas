@@ -18,4 +18,27 @@ class message_model extends CI_Model {
 			return false;
 		}
 	}
+
+	public function fetchAllMessage() {
+		$q = $this->db->get('messages');
+
+		return $q->result();
+	}
+
+	public function chkIsRead($id) {
+		$q = $this->db->get_where('messages', array('id' => $id));
+
+		if ($q) {
+			return $q->row();
+		}
+	}
+
+	public function isRead($id) {
+		$data = array(
+               'read' => 1,
+            );
+
+		$this->db->where('id', $id);
+		$this->db->update('messages', $data); 
+	}
 }
