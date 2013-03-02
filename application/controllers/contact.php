@@ -24,6 +24,7 @@ class Contact extends CI_Controller {
 			$gpwd = $this->config->item('info_email_password');
 			$this->load->model('message_model');
 			$message = $_POST['body'];
+			$target = $_POST['email'];
 			if ($this->message_model->saveMessage($_POST)) {
 				if ($this->smtpmailer($_POST['email'], $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
 					return true;
@@ -47,8 +48,9 @@ class Contact extends CI_Controller {
 		$this->load->config('admin');
 		$guser = $this->config->item('info_email_username');
 		$gpwd = $this->config->item('info_email_password');
-		$message = 'aw';
-		if ($this->smtpmailer('robbiejobs@gmail.com', $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+		$message = $_GET['body'];
+		$target = $_GET['target'];
+		if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
 			$result = array("status" => $error);
 			echo json_encode($result);
 		}
