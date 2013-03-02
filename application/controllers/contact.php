@@ -30,7 +30,7 @@ class Contact extends CI_Controller {
 			// send thank you email to client
 			$this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd);
 			// send email to admin_info
-			$this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', $_POST['subject'], $message, $guser, $gpwd);
+			$this->smtpmailer($hrd, $guser, 'donotreply@queenvillas.com', $_POST['subject'], $message, $guser, $gpwd);
 		}
 		else {
 			$result = array(
