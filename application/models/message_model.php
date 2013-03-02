@@ -17,6 +17,9 @@ class message_model extends CI_Model {
 		if ($q) {
 			return false;
 		}
+		else {
+			return true;
+		}
 	}
 
 	public function fetchAllMessage() {

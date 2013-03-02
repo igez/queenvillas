@@ -22,13 +22,18 @@ class Contact extends CI_Controller {
 			$this->load->library('PHPMailer');
 			$guser = $this->config->item('info_email_username');
 			$gpwd = $this->config->item('info_email_password');
+			$hrd = $this->config->item('hrd_email');
 			$this->load->model('message_model');
 			$message = $_POST['body'];
 			$target = $_POST['email'];
-			$this->message_model->saveMessage($_POST);
-
-			if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
-					return true;
+			if ($this->message_model->saveMessage($_POST)) {
+				// send thank you email to client
+				if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+					// send email to admin_info
+					if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+						return true;
+					}
+				}
 			}
 			else {
 				return false;
