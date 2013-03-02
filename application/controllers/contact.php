@@ -12,6 +12,18 @@ class Contact extends CI_Controller {
 	}
 
 	public function index() {
+		//$this->load->library('recaptchalib');
 		$this->load->view('contact_page');
+	}
+
+	public function sendMessage() {
+		$this->load->model('message_model');
+
+		if ($this->message_model->saveMessage($_POST)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
