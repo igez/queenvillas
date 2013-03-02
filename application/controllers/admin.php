@@ -173,7 +173,7 @@ class Admin extends CI_Controller {
 		}
 
 		$result = array("status" => 1);
-		
+
 		echo json_encode($result);
 	}
 	

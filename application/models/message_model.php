@@ -20,7 +20,10 @@ class message_model extends CI_Model {
 	}
 
 	public function fetchAllMessage() {
-		$q = $this->db->get('messages');
+		$this->db->select('*');
+		$this->db->from('messages');
+		$this->db->order_by('timestamp' , 'DESC');
+		$q = $this->db->get();
 
 		return $q->result();
 	}

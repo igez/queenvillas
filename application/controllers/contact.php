@@ -17,13 +17,66 @@ class Contact extends CI_Controller {
 	}
 
 	public function sendMessage() {
-		$this->load->model('message_model');
-
-		if ($this->message_model->saveMessage($_POST)) {
-			return true;
+		if (!empty($_POST['fname'])) {
+			$this->load->config('admin');
+			$guser = $this->config->item('info_email_username');
+			$gpwd = $this->config->item('info_email_password');
+			$this->load->model('message_model');
+			if ($this->message_model->saveMessage($_POST)) {
+				$this->load->library('PHPMailer');
+				$message = $_POST['body'];
+				if ($this->smtpmailer($_POST['rcpt_email'], $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+					$result = array("status" => $error);
+					echo json_encode($result);
+				}
+			}
+			else {
+				return false;
+			}
 		}
 		else {
+			$result = array(
+						"status" => 'Access Violation',
+						"response" => 'You cannot directly access this page'
+						);
+			echo json_encode($result);
+		}
+	}
+
+	public function testSend() {
+		$this->load->library('PHPMailer');
+		$this->load->config('admin');
+		$guser = $this->config->item('info_email_username');
+		$gpwd = $this->config->item('info_email_password');
+		$message = 'aw';
+		if ($this->smtpmailer('robbiejobs@gmail.com', $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+			$result = array("status" => $error);
+			echo json_encode($result);
+		}
+	}
+
+	function smtpmailer($to, $from, $from_name, $subject, $message, $guser, $gpwd) { 
+		global $error;
+		$mail = new PHPMailer();  // create a new object
+		$mail->IsSMTP(); // enable SMTP
+		$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+		$mail->SMTPAuth = true;  // authentication enabled
+		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 465; 
+		$mail->Username = $guser;  
+		$mail->Password = $gpwd;           
+		$mail->SetFrom($from, $from_name);
+		$mail->Subject = $subject;
+		$mail->MsgHTML($message);
+		$mail->AltBody = strip_tags($message);
+		$mail->AddAddress($to);
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo; 
 			return false;
+		} else {
+			$error = 'Message sent!';
+			return true;
 		}
 	}
 }
