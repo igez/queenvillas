@@ -21,7 +21,8 @@
         map = new GMaps({
           div: '#map',
           lat: -8.348365,
-          lng: 116.028821
+          lng: 116.028821,
+          zoom: 12
         });
         map.addMarker({
           lat: -8.348365,
@@ -49,40 +50,186 @@
   	<!-- -->
     <style>
       #map {
-        height: 300px;
+        height: 320px;
+      }
+      .statusMessage {
+        position: absolute;
+        left: 50%;
+        margin-top: 110px;
+        margin-left: -170px;
+        background: #fff url('/assets/img/287.gif') no-repeat 10% 50%;
+        display: block;
+        border: 2px solid #bebebe;
+        padding: 10px 50px 10px 8px;
       }
     </style>
+
+    <script>
+      var a = Math.ceil(Math.random() * 10);
+      var b = Math.ceil(Math.random() * 10);       
+      var c = a + b
+
+      function DrawBotBoot()
+      {
+          document.write("<div class=\"span3\"><p style='width: 120px; float: left; margin-top: 3px;'>What is "+ a + " + " + b +"?</p>");
+          document.write("<input placeholder='Please Answer' id='BotBootInput' type='text' style='width: 135px;'/></div>");
+      }    
+
+      $('#submitMessage').live('click', function () {
+        var fname = $('.fname').val();
+        var lname = $('.lname').val();
+        var email = $('.email').val();
+        var subject = $('.subject').val();
+        var body = $('.body').val();
+        
+        if (fname == '') {
+          $('.fname').parent().parent().attr('class', 'control-group error');
+          $('.fname').popover('show')
+          return false;
+        }
+        else {
+          $('.fname').parent().parent().attr('class', 'control-group success');
+        }
+
+        if (lname == '') {
+          $('.lname').parent().parent().attr('class', 'control-group error');
+          return false;
+        }
+        else {
+          $('.lname').parent().parent().attr('class', 'control-group success');
+        }
+
+        if (email == '') {
+          $('.email').parent().parent().attr('class', 'control-group error');
+          return false;
+        }
+        else {
+          $('.email').parent().parent().attr('class', 'control-group success');
+        }
+
+        if (subject == '') {
+          $('.subject').parent().parent().attr('class', 'control-group error');
+          return false;
+        }
+        else {
+          $('.subject').parent().parent().attr('class', 'control-group success');
+        }
+
+        if (body == '') {
+          $('.body').parent().parent().attr('class', 'control-group error');
+          return false;
+        }
+        else {
+          $('.body').parent().parent().attr('class', 'control-group success');
+        }
+
+        if ($('#BotBootInput').val() == '') {
+          $('#BotBootInput').css('border', '1px solid #b94a48');
+          return false;
+        }
+        else if ($('#BotBootInput').val() == c) {
+          console.log($('#BotBootInput').val());
+        }
+        else {
+          $('#BotBootInput').css('border', '1px solid #b94a48');
+          return false;
+        }
+
+        dataString = "fname="+fname+"&lname="+lname+"&email="+email+"&subject="+subject+"&body="+body;
+        console.log(dataString);
+
+        $.ajax({  
+          type: "POST",  
+          url: "/contact/do",  
+          data: dataString,
+          beforeSend: function(){
+            $('#ContactForm').fadeTo('slow', '0.2');
+            $('.statusMessage').fadeTo('very slow', '1');
+          },
+
+          success: function() {  
+            // If Success!
+            $('.statusMessage').css('background', '#fff url(/assets/img/yes.png) no-repeat 10% 50%');
+            $('.statusMessage h4').html('Message Submited!');
+            $('.statusMessage p').html('Thank you! We\'ll Be In Touch Soon!');
+          },
+
+          error: function () {
+              $('.statusMessage').css('background', '#fff url(/assets/img/yes.png) no-repeat 10% 50%');
+              $('.statusMessage h4').html('Message Submission Error!');
+              $('.statusMessage p').html('Oops.. Something went wrong.');
+          },
+                 
+        });  
+
+
+      });
+      
+    </script>
+
     <div class="content container">
-        <form>
           <div class="row">
-            <div class="span5">
-              <div id="map"></div>
-            </div>
-            <div class="span3">
-              <label>First Name</label>
-              <input type="text" class="span3" placeholder="Your First Name">
-              <label>Last Name</label>
-              <input type="text" class="span3" placeholder="Your Last Name">
-              <label>Email Address</label>
-              <div class="input-prepend">
-                <span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="inputIcon" class="span2" style="width:233px" placeholder="Your email address">
+            <div class="span12" id="ContactForm">
+              <div class="row">
+                <div class="span5">
+                  <div id="map"></div>
+                </div>
+                <div class="span7">
+                  <div class="row">
+                    <div class="span3">
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">First Name</label>
+                        <div class="controls">
+                          <input type="text" id="inputEmail" class="span3 fname" placeholder="Your First Name">
+                          <div class="popover fade top in">
+                            <div class="arrow"></div>
+                            <h3 class="popover-title">Popover on top</h3>
+                            <div class="popover-content">Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Last Name</label>
+                        <div class="controls">
+                          <input type="text" id="inputEmail" class="span3 lname" placeholder="Your Last Name">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Email</label>
+                        <div class="controls">
+                          <input type="text" id="inputEmail" class="span3 email" placeholder="Your Email Address">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Subject</label>
+                        <div class="controls">
+                          <input type="text" id="inputEmail" class="span3 subject" placeholder="Subject Message">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span4">
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Message</label>
+                        <div class="controls">
+                          <textarea name="message" id="message" class="input-xlarge span4 body" rows="12"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+                      <script type="text/javascript">DrawBotBoot()</script>
+                      <div class="span4 pull-right">
+                        <a class="btn btn-block btn-primary pull-right" id="submitMessage">Submit Message !</a>
+                      </div>
+                    </div>
+                </div>
               </div>
-              <label>Subject
-              <select id="subject" name="subject" class="span3">
-                <option value="na" selected="">Choose One:</option>
-                <option value="service">General Customer Service</option>
-                <option value="suggestions">Suggestions</option>
-                <option value="product">Product Support</option>
-              </select>
-              </label>
-            </div>
-            <div class="span4">
-              <label>Message</label>
-              <textarea name="message" id="message" class="input-xlarge span4" rows="10"></textarea>
-            </div>
+              </div>
+              <div class="statusMessage" style="display: none;">
+                <h4 style="text-align: left; margin-left: 70px;">Sending Message</h4>
+                <p style="margin-left: 70px;">Please Wait a Moment.</p>
+              </div>
           </div>
-          <button type="submit" class="btn btn-primary pull-right">Send</button>
-        </form>
     </div>
     <!-- -->
     <div class="flame">
