@@ -59,6 +59,9 @@ $route['admin/setting'] = "admin/setting";
 $route['reservation/do'] = "reservation/booking";
 
 
+$route['contact/do'] = 'contact/sendMessage';
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
