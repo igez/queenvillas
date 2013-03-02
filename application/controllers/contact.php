@@ -25,10 +25,10 @@ class Contact extends CI_Controller {
 			$this->load->model('message_model');
 			$message = $_POST['body'];
 			$target = $_POST['email'];
-			if ($this->message_model->saveMessage($_POST)) {
-				if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+			$this->message_model->saveMessage($_POST);
+
+			if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
 					return true;
-				}
 			}
 			else {
 				return false;
