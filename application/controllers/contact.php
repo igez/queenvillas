@@ -19,15 +19,14 @@ class Contact extends CI_Controller {
 	public function sendMessage() {
 		if (!empty($_POST['fname'])) {
 			$this->load->config('admin');
+			$this->load->library('PHPMailer');
 			$guser = $this->config->item('info_email_username');
 			$gpwd = $this->config->item('info_email_password');
 			$this->load->model('message_model');
+			$message = $_POST['body'];
 			if ($this->message_model->saveMessage($_POST)) {
-				$this->load->library('PHPMailer');
-				$message = $_POST['body'];
-				if ($this->smtpmailer($_POST['rcpt_email'], $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
-					$result = array("status" => $error);
-					echo json_encode($result);
+				if ($this->smtpmailer($_POST['email'], $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+					return true;
 				}
 			}
 			else {
