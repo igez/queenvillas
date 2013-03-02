@@ -26,11 +26,11 @@ class Contact extends CI_Controller {
 			$this->load->model('message_model');
 			$message = $_POST['body'];
 			$target = $_POST['email'];
-			if ($this->message_model->saveMessage($_POST)) {
+			if ($this->message_model->saveMessage($_POST) === TRUE) {
 				// send thank you email to client
-				if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd)) {
+				if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd) === TRUE) {
 					// send email to admin_info
-					if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', $_POST['subject'], $message, $guser, $gpwd)) {
+					if ($this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', $_POST['subject'], $message, $guser, $gpwd) === TRUE) {
 						return true;
 					}
 				}
