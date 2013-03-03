@@ -88,5 +88,9 @@ class Main extends CI_Controller {
 	public function package() {
 		$this->load->view('package_tpl');
 	}
+
+	public function notFound() {
+		$this->load->view('404');
+	}
 	
 }
