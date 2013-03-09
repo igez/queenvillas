@@ -12,6 +12,8 @@ class Events extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('events/index');
+		$data['content'] = $this->post_model->fetchByCategory(3);
+		var_dump($data['content']);
+		$this->load->view('events/index', $data);
 	}
 }

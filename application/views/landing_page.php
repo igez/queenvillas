@@ -49,7 +49,7 @@
 		<div class="sl-slider">
 		<?php $i=1;?>
 		<?php foreach ($slide->slides as $row): ?>
-			<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+			<div class="sl-slide" data-orientation="<?php if ($i % 2) : echo 'vertical'; else: echo 'horizontal'; endif; ?>" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 				<div class="sl-slide-inner">
 					<div class="bg-img bg-img-<?=$i;?>"></div>
 					<h2><a href="">Hello From The Queen of Gilis</a></h2>
@@ -93,7 +93,7 @@
 					// maximum possible scale
 					maxScale : 2,
 					// slideshow on / off
-					autoplay : false,
+					autoplay : true,
 					// keyboard navigation
 					keyboard : true,
 					// time between transitions
