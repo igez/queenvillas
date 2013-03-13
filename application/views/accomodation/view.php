@@ -7,9 +7,9 @@
     <meta name="author" content="">
 
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/assets/css/style.css" />
 	<link rel="stylesheet" href="/assets/css/ui-lightness/jquery-ui-1.10.1.custom.css" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/assets/css/style.css" />
 
 	<script type="text/javascript" src="/assets/js/jquery.js"></script>
 	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
@@ -445,8 +445,10 @@
 		</style>
 		<script>
 			$(function() {
-		      $( "#fromDate" ).datepicker();
-		      $( "#toDate" ).datepicker();
+		    	$( "#fromDate" ).datepicker({
+		    		minDate: 0
+		      	});
+		    	$( "#toDate" ).datepicker();
 		    });
 		</script>
 		<div class="bookingModule" style="margin-bottom: 20px;">
@@ -801,7 +803,7 @@
 											<div class="control-group">
 												<div class="controls">
 											      	<select name="child" id="" class="span2 child">
-											      		<option value="">Child</option>
+											      		<option value="0">Child</option>
 														<?php for($i=1;$i<20;$i++) :?>
 															<option value="<?=$i;?>"><?=$i;?></option>
 														<?php endfor; ?>

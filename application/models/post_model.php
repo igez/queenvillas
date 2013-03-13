@@ -12,9 +12,16 @@ class post_model extends CI_Model {
 		
 		return $q->result();
 	}
+
+	function categoryId($id) {
+		$q = $this->db->get_where('categories', array('category' => $id));
+
+		return $q->row()->id;
+	}
 	
 	public function fetchByCategory($cat) {
-		$q = $this->db->get_where('posts', array('category_id' => $cat));
+		$id = $this->categoryId($cat);
+		$q = $this->db->get_where('posts', array('category_id' => $id));
 		
 		return $q->result();
 	}

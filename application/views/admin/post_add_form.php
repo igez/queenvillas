@@ -41,7 +41,11 @@
 					<div class="controls">
 						<select name="category" id="category">
 							<?php foreach ($category as $row) : ?>
-							<option value="<?=$row->id;?>"><?=$row->category;?></option>
+								<?php if ($_GET['category'] == $row->category): ?>
+									<option value="<?=$row->id;?>" selected><?=$row->category;?></option>
+								<?php else : ?>
+									<option value="<?=$row->id;?>"><?=$row->category;?></option>
+								<?php endif; ?>
 							<?php endforeach; ?>
 						</select>
 					</div>

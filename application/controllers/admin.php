@@ -39,8 +39,8 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/index', $data);
 		}
 		elseif ($this->input->get('action') == 'add') {
-			$data->content = "post_add_form";
-			$data->category = $this->category_model->fetchAll();
+			$data['content'] = "post_addEvent_form";
+			$data['category'] = $this->category_model->fetchAll();
 			$this->load->view('admin/index', $data);
 		}
 		elseif ($this->input->get('action') == 'edit' && ($this->input->get('id') != NULL)) {

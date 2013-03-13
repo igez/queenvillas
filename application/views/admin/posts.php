@@ -8,7 +8,8 @@
 		</li>
 	</ul>
 </div>
-<a class="btn btn-large btn-primary" href="/admin/posts?action=add">Add Post</a>
+
+<a class="btn btn-large btn-primary" href="/admin/posts?action=add&category=<?php echo $_GET['category']; ?>">Add Post</a>
 
 <?php if ($this->session->flashdata('success')) : ?>
 <div class="alert alert-success" style="margin-top: 10px;">

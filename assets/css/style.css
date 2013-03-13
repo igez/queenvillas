@@ -2,6 +2,10 @@ body {
 	font-family: Georgia;
 }
 
+.ui-datepicker {
+	font-size: 12px;
+}
+
 .controls input, select {
 	border-radius: 0;
 	-webkit-border-radius: 0;
