@@ -35,9 +35,9 @@
 
 	<style type="text/css">
 		<?php $i=1;?>
-		<?php foreach ($slide->slides as $row): ?>
+		<?php foreach ($slide as $row): ?>
 		.demo-2 .bg-img-<?=$i;?> {
-			background-image: url(/assets/img/sliders/<?=$row['img'];?>);
+			background-image: url(/assets/img/sliders/<?=$row->image;?>);
 		}
 		<?php $i++; ?>
 		<?php endforeach; ?>
@@ -48,12 +48,12 @@
 
 		<div class="sl-slider">
 		<?php $i=1;?>
-		<?php foreach ($slide->slides as $row): ?>
+		<?php foreach ($slide as $row): ?>
 			<div class="sl-slide" data-orientation="<?php if ($i % 2) : echo 'vertical'; else: echo 'horizontal'; endif; ?>" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 				<div class="sl-slide-inner">
 					<div class="bg-img bg-img-<?=$i;?>"></div>
 					<h2><a href="">Hello From The Queen of Gilis</a></h2>
-					<blockquote><p><?=$row['caption'];?></p></blockquote>
+					<blockquote><p><?=$row->caption;?></p></blockquote>
 				</div>
 			</div>
 		<?php $i++; ?>
@@ -61,11 +61,14 @@
 		</div><!-- /sl-slider -->
 
 		<nav id="nav-dots" class="nav-dots">
-			<span class="nav-dot-current"></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
+			<?php $i=0;?>
+			<?php foreach ($slide as $row): ?>
+				<?php if($i==0) : echo '<span class="nav-dot-current"></span>'; ?>
+				<?php else: ?>
+					<span></span>
+				<?php endif; ?>
+				<?php $i++;?>
+			<?php endforeach;?>
 		</nav>
 
 	</div><!-- /slider-wrapper -->
