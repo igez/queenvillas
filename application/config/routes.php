@@ -54,7 +54,8 @@ $route['admin/posts'] = "admin/posts";
 $route['admin/post/save'] = "admin/post_save";
 $route['admin/post/update'] = "admin/post_update";
 $route['admin/setting'] = "admin/setting";
-$route['admin/setting/landing_page'] = "admin/setting_landing";
+$route['admin/setting/slideshow'] = "admin/setting_slideshow";
+$route['admin/setting/slideshow/delete'] = "admin/setting_slideshow_delete";
 $route['admin/message/isread/(:any)'] = "admin/msgIsRead";
 
 // RESERVATION
