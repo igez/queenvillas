@@ -180,5 +180,67 @@ class Admin extends CI_Controller {
 	public function setting_landing() {
 		
 	}
+
+	// Slideshow Manager Function :
+	public function setting_slideshow () {
+		// some comment
+		if ($_POST) {
+			if ($_FILES['img']['size'] != 0) {
+				$width = getimagesize($_FILES['img']['tmp_name']);
+				if ($width[0] < 1281) {
+					die('Please upload another image, minimum image width is 1280px');
+				}
+				else {
+					if (file_exists($_SERVER['DOCUMENT_ROOT']."/assets/img/sliders/".$_FILES['img']['name'])) {
+						$_FILES['img']['name'] = $_FILES['img']['name']."-".strtotime('now');
+					}
+					
+					if(move_uploaded_file($_FILES['img']['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/assets/img/sliders/".$_FILES['img']['name'])) {
+						$this->setting_model->insertNewSlide($_FILES['img']);
+						redirect('admin/setting/slideshow');
+					}
+					
+				}
+			}
+			else {
+				
+				$i=0;
+				$c=0;
+				$dd = array();
+				foreach ($_POST['id'] as $row) {
+					$dd[$i]['id'] = $_POST['id'][$i];
+					$dd[$i]['caption'] = $_POST['caption'][$i];
+					$dd[$i]['status'] = $_POST['status'][$i];
+					$dd[$i]['weight'] = $_POST['weightFor'][$i];
+					if ($this->setting_model->saveSlider($dd[$i])) {
+						$c++;
+					}
+					$i++;
+				}
+				//print_r('<pre>');
+				//print_r($dd);
+				//print_r('</pre>');
+				//die();
+				if ($c==$i) {
+					redirect('admin/setting/slideshow');
+				}
+				
+			}
+		}
+		else {
+			$data['content'] = 'contents/setting_slideshow';
+			$data['sliders'] = $this->setting_model->fetchAllSlide();
+			$this->load->view('admin/index', $data);
+		}
+	}
+
+	public function setting_slideshow_delete() {
+		if ($this->setting_model->deleteSlide($_POST['id'])) {
+			return true;
+		}
+		else {
+			die('Error!');
+		}
+	}
 	
 }

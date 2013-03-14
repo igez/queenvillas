@@ -12,7 +12,7 @@
 			<li><a class="ajax-link" href="/admin/posts?category=Event"><i class="icon-th"></i><span class="hidden-tablet"> Events</span></a></li>
 			<li class="nav-header hidden-tablet">Settings</li>
 			<li><a href="/admin/setting/general"><i class="icon-align-justify"></i><span class="hidden-tablet"> General</span></a></li>
-			<li><a href="/admin/setting/landing_page"><i class="icon-align-justify"></i><span class="hidden-tablet"> Landing Page</span></a></li>
+			<li><a href="/admin/setting/slideshow"><i class="icon-align-justify"></i><span class="hidden-tablet"> Slideshow</span></a></li>
 			<li><a href="/admin/setting/reservation"><i class="icon-align-justify"></i><span class="hidden-tablet"> Reservation</span></a></li>
 			<li><a href="/admin/setting/users"><i class="icon-align-justify"></i><span class="hidden-tablet"> Users</span></a></li>
 		</ul>

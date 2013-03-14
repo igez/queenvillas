@@ -78,7 +78,7 @@
 	<script src='/assets/js/fullcalendar.min.js'></script>
 	<!-- data table plugin -->
 	<script src='/assets/js/jquery.dataTables.min.js'></script>
-
+	<script src="/assets/js/holder.js"></script>
 	<!-- chart libraries start -->
 	<script src="/assets/js/excanvas.js"></script>
 	<script src="/assets/js/jquery.flot.min.js"></script>
