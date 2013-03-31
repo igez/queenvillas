@@ -14,8 +14,8 @@
 	<meta charset="utf-8">
 	<title>Queen Villas Administration Page</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-	<meta name="author" content="Muhammad Usman">
+	<meta name="description" content="QueenVillas Admin.">
+	<meta name="author" content="Robby Prima">
 
 	<!-- The styles -->
 	<link id="bs-css" href="/assets/css/bootstrap-classic.css" rel="stylesheet">
@@ -28,6 +28,7 @@
 	  }
 	</style>
 	<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/assets/css/bootstrap-classic.css" rel="stylesheet">
 	<link href="/assets/css/charisma-app.css" rel="stylesheet">
 	<link href="/assets/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
 	<link href='/assets/css/fullcalendar.css' rel='stylesheet'>
@@ -43,7 +44,6 @@
 	<link href='/assets/css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='/assets/css/opa-icons.css' rel='stylesheet'>
 	<link href='/assets/css/uploadify.css' rel='stylesheet'>
-	
 	<script src="/assets/js/jquery-1.7.2.min.js"></script>
 	<script src="/assets/js/jquery.slugify.js"></script>
 	
@@ -88,9 +88,6 @@
 				<!-- user dropdown ends -->
 				
 				<div class="top-nav nav-collapse">
-					<ul class="nav">
-						<li><a href="/">Visit Site</a></li>
-					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
 		</div>

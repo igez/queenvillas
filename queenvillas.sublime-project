@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/D/_Projects/queenvillas",
+			"folder_exclude_patterns": ["system", "phptmpdir", "logs"]
+		}
+	]
+}

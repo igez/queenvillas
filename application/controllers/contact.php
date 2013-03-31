@@ -3,7 +3,7 @@
 class Contact extends CI_Controller {
 
 	var $data;
-	
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->model(array('post_model', 'category_model', 'gallery_model'));
@@ -78,4 +78,5 @@ class Contact extends CI_Controller {
 			return true;
 		}
 	}
+
 }

@@ -57,6 +57,7 @@ $route['admin/setting'] = "admin/setting";
 $route['admin/setting/slideshow'] = "admin/setting_slideshow";
 $route['admin/setting/slideshow/delete'] = "admin/setting_slideshow_delete";
 $route['admin/message/isread/(:any)'] = "admin/msgIsRead";
+$route['admin/setting/users'] = "admin_user";
 
 // RESERVATION
 $route['reservation/do'] = "reservation/booking";

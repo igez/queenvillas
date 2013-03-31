@@ -37,13 +37,12 @@
         <div class="yellow-s"></div>
         <div class="container">
           <div class="yellow">
-            <h2>Events</h2>
+            <h2>Events1</h2>
             <p><i>Queen Villas & Spa</i></p>
           </div>
         </div>
       </div>
     </div>
-    
     <div class="content container">
       <?php $this->load->view('events/fetch'); ?>
     </div>
