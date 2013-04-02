@@ -27,7 +27,7 @@
 	  	</ul>
 		
 	  	<ul class="nav nav-right" style="left:20%;">
-			<li><a href="#">Testimonials</a></li>
+			<li><a href="#">Tour</a></li>
 	  		<li><a href="/events/">Events</a></li>
 	  		<li><a href="/gallery/">Gallery</a></li>
 	  		<li><a href="/contact/">Contact</a></li>
