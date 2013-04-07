@@ -14,6 +14,15 @@ class Contact extends CI_Controller {
 	public function index() {
 		//$this->load->library('recaptchalib');
 		$this->load->view('contact_page');
+
+		$this->load->library('PHPMailer');
+		$this->load->config('admin');
+
+		$guser = $this->config->item('info_email_username');
+		$gpwd = $this->config->item('info_email_password');
+		$hrd = $this->config->item('hrd_email');
+		$this->smtpmailer('robbiejobs@gmail.com', $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', 'aw', $guser, $gpwd);
+		//var_dump($gpwd);
 	}
 
 	public function sendMessage() {
