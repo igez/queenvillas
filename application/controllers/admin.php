@@ -243,6 +243,12 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function setting_general() {
+		$this->load->config('admin');
+		$data['content'] = 'setting_general';
+		$this->load->view('admin/index', $data);
+	}
+
 	public function comment_index() {
 		$this->load->model('comment_model');
 
