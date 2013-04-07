@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Shojumaru);
-
+body { text-shadow:none !important;}
 select{
 background-color:#fff;
 }
@@ -139,15 +139,18 @@ box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
 border:none;
 padding-top:5px;
 border-bottom: 1px solid #DEDEDE;
+/*
 border-radius:3px 3px 0 0;
 -webkit-border-radius:3px 3px 0 0;
--moz-border-radius:3px 3px 0 0;
+-moz-border-radius:3px 3px 0 0;*/
+background-color: #e9e9e9;
 height:12px;
 min-height:12px;
 margin-bottom: 0;
 cursor:move;
 font-weight:bold;
 font-size:16px;
+/*
 background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(0,0,0,0.1) 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(0,0,0,0.1)));
 background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
@@ -155,7 +158,7 @@ background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%
 background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
 background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a000000',GradientType=0 );
-
+*/
 }
 
 .box-header h2{
@@ -328,16 +331,29 @@ height:0px;
 }
 
 .sidebar-nav{
-min-height:0;
+min-height:0;/*
 box-shadow: 0 0 10px #BDBDBD;
 -webkit-box-shadow: 0 0 10px #BDBDBD;
 -moz-box-shadow: 0 0 10px #BDBDBD;
 border-radius: 5px;
 -webkit-border-radius: 5px;
--moz-border-radius: 5px;
+-moz-border-radius: 5px;*/	
 margin-bottom: 0;
 padding-bottom:0;
 }
+
+.well { border-radius: 0 !important;box-shadow: 0 !important;}
+.btn { border-radius: 0 !important;-webkit-border-radius:0 !important;}
+.btn-success { background-image: none;background-color: #00a504;border: none;}
+.btn-info {background-image: none;background-color: #109cd0;border: none; }
+.btn-danger {background-image: none;background-color: #d10000;border: none; }
+.breadcrumb { box-shadow: 0;-webkit-box-shadow:0;border-radius: 0;-webkit-border-radius:0;}
+.fsa { color: black;text-transform: uppercase;font-weight: bold;font-size: 8pt;}
+.fsa a { color: #000;}
+.fsa a:hover { color: #109cd0;}
+
+
+
 .sidebar-nav > ul > li:not(.nav-header){
 margin-right:-2px;
 margin-left:-2px;
@@ -350,8 +366,8 @@ width:166px;
 }
 .brand img{
 float:left;
-height:20px;
-width:20px;
+height:auto;
+width:auto;
 margin-right:5px;
 }
 .brand span{
@@ -386,9 +402,9 @@ margin-bottom:0;
 margin-left:10px;
 }
 .navbar-inner{
-border-radius:0 0 10px 10px;
--webkit-border-radius:0 0 10px 10px;
--moz-border-radius:0 0 10px 10px;
+border-radius:0;
+-webkit-border-radius:0;
+-moz-border-radius:0;
 padding-top:5px; 
 padding-bottom:5px; 
 }

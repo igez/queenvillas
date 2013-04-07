@@ -20,7 +20,7 @@
 		</ul>
 		
         </div>
-        <div class="span3 offset2 ">
+        <div class="span3 offset1 ">
           <h4 class="bgfeca">Latest Events</h4>
           <ul class="nav nav-pills nav-stacked pull10">
 			  <?php foreach ($content as $row): ?>
@@ -28,7 +28,7 @@
 			  <?php endforeach ?>
 		  </ul>
        </div>
-        <div class="span3 offset2 ">
+        <div class="span3 offset1 ">
           <h4 class="bgfeca">Newsletter</h4>
         <p class="feca bg">Sign up to receive our email newsletter and we'll let you know about upcoming events and promotions and of course, special, email-only coupons and offers.</p>
         <form><input type="text" name="you"><a href="#" class="btn btn-primary btn-spc">Subscribe</a></form>

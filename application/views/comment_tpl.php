@@ -38,14 +38,14 @@
         <div class="yellow-s"></div>
         <div class="container">
           <div class="yellow">
-            <h2>What's On</h2>
+            <h2>Testimonials</h2>
             <p><i>Queen Villas & Spa</i></p>
           </div>
         </div>
       </div>
     </div>
     <div class="content container e10">
-      <?php $this->load->view('events/fetch'); ?>
+      <?php $this->load->view('comment/index'); ?>
     </div>
       <div class="flame">
       </div>

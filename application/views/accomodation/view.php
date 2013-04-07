@@ -27,7 +27,12 @@
     background-image:url('/assets/img/atfot.gif') no-repeat; 
     background-size:cover;
   }
-  </style>
+   .bahe {
+        background: url('/assets/img/atfot.gif') repeat-x;
+        width: 100%;
+        height: 300px;
+      }
+   </style>
   <body>
   
   	<?php $this->load->view('static/nav'); ?>
@@ -38,13 +43,7 @@
   	<?php endif ;?>
   		
   	</div>
-    <style>
-      .bahe {
-        background: url('/assets/img/atfot.gif') repeat-x;
-        width: 100%;
-        height: 300px;
-      }
-    </style>
+ 
     <div class="bahe">
       <div class="title-container">
         <div class="yellow-s"></div>
@@ -363,7 +362,7 @@
 			}
 			
 			.expandRsvp {
-				padding: 20px 0;
+				padding: 20px;
 				background: white;
 			}
 			
@@ -917,7 +916,7 @@
   		</div>
   		<div class="clearfix"></div>
   	</div>
-    <div class="flame" style="margin-top:-250px;">
+    <div class="flame">
     </div>
     <footer>
     	<div class="footer-logo pull-left">

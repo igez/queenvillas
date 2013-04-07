@@ -25,6 +25,7 @@
 				color: #fff;
 				text-shadow: 0 1px 1px rgba(0,0,0,0.7);
 			}
+			h2 { font-weight: normal;font-family: sans-serif;font-size: 14pt;color: #fff;}
 		</style>
     </head>
     <body>
@@ -38,7 +39,7 @@
 			
 			<section class="main">
 				<form class="form-4">
-				    <h1>Login</h1>
+				    <h2>Administrator Login</h2>
 				    <p>
 				        <label for="login">Username or email</label>
 				        <input type="text" name="login" placeholder="Username or email" required>

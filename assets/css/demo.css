@@ -5,7 +5,9 @@ html { height: 100%; }
 
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    background: #ddd url(/assets/img/bg.jpg) repeat top left;
+    background: #ddd url(/assets/img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     font-weight: 300;
     font-size: 15px;
     color: #333;

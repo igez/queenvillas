@@ -1,4 +1,4 @@
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style type="text/css">
   @font-face {
   font-family: "Redacted";
@@ -6,15 +6,15 @@
   .lead { font-family: Redacted,sans-serif;
   }
   </style>
-
+  
     <!-- NAVBAR
     ================================================== -->
     <?php $this->load->view('static/nav'); ?>
 
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner hidden-phone hidden-tablet">
+    <div id="myCarousel" class="carousel slide hidden-phone ">
+      <div class="carousel-inner">
         <div class="item active">
           <img src="/assets/img/slide-01.jpg" alt="">
           <div class="container">
@@ -94,7 +94,7 @@
         <?php $i=1; ?>
         <?php foreach ($content as $row) : ?>
         <?php if ($i == 1 || $i%3==0) echo "<div class='row' style='margin-bottom: 20px;'>"; ?>
-			<div class="span4">
+			<div class="span4 mpx">
 	          <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
 	          <h2><?=$row->name;?></h2>
 	          <p><?=$row->desc;?></p>

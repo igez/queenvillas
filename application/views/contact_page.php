@@ -4,6 +4,7 @@
     <title>Queen Villas</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="/assets/js/gmap.js"></script>
     <script type="text/javascript" src="/assets/js/prettify.js"></script>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
@@ -37,7 +38,7 @@
   		<div class="bg-head" style="background: url('/assets/img/contactcover.jpg'); background-size: cover;">
   	 </div>
   	<div class="bahe">
-      <div class="title-container">
+      <div class="title-container" style="top:245px;">
         <div class="yellow-s"></div>
         <div class="container">
           <div class="yellow">
@@ -167,7 +168,7 @@
       
     </script>
 
-    <div class="content container">
+    <div class="content container ctx">
           <div class="row">
             <div class="span12" id="ContactForm">
               <div class="row">
@@ -219,7 +220,7 @@
                     <div class="row">
                       <script type="text/javascript">DrawBotBoot()</script>
                       <div class="span4 pull-right">
-                        <a class="btn btn-block btn-primary pull-right" id="submitMessage">Submit Message !</a>
+                        <a class="btn btn-block btn-primary" id="submitMessage">Submit Message !</a>
                       </div>
                     </div>
                 </div>

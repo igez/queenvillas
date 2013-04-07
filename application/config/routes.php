@@ -58,6 +58,11 @@ $route['admin/setting/slideshow'] = "admin/setting_slideshow";
 $route['admin/setting/slideshow/delete'] = "admin/setting_slideshow_delete";
 $route['admin/message/isread/(:any)'] = "admin/msgIsRead";
 $route['admin/setting/users'] = "admin_user";
+$route['admin/comment'] = "admin/comment_index";
+$route['admin/comment/view/(:num)'] = "admin/comment_view";
+$route['admin/comment/edit/(:num)'] = "admin/comment_edit";
+$route['admin/comment/new'] = "admin/comment_add";
+$route['admin/comment/delete/(:num)'] = "admin/comment_delete";
 
 // RESERVATION
 $route['reservation/do'] = "reservation/booking";

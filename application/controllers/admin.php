@@ -242,5 +242,73 @@ class Admin extends CI_Controller {
 			die('Error!');
 		}
 	}
+
+	public function comment_index() {
+		$this->load->model('comment_model');
+
+		$data['contents'] = $this->comment_model->fetchAll();
+		$data['content'] = 'comment_index';
+		$this->load->view('admin/index', $data);
+	}
+
+	public function comment_add() {
+		$this->load->model('comment_model');
+		if (isset($_POST['submit'])) {
+			if (!$this->comment_model->add($_POST)) {
+				$this->session->set_flashdata('success', '<b>Error!</b> Something went wrong, please contact your Administrator.');
+				redirect('/admin/comment', 'refresh');
+			}
+			else {
+				$this->session->set_flashdata('success', '<b>Success!</b> Comment has been saved.');
+				redirect('/admin/comment', 'refresh');
+			}
+		}
+
+		else {
+			$data['content'] = 'comment_add';
+			$this->load->view('admin/index', $data);
+		}
+	}
+
+	public function comment_view() {
+		$id = $this->uri->segment(4);
+		$this->load->model('comment_model');
+		$data['data'] = $this->comment_model->fetch($id);
+		$data['content'] = 'comment_view';
+		$this->load->view('admin/index', $data);
+	}
+
+	public function comment_edit() {
+		$this->load->model('comment_model');
+		if (isset($_POST['submit'])) {
+			if (!$this->comment_model->update($_POST)) {
+				$this->session->set_flashdata('success', '<b>Error!</b> Something went wrong, please contact your Administrator.');
+				redirect('/admin/comment', 'refresh');
+			}
+			else {
+				$this->session->set_flashdata('success', '<b>Success!</b> Comment has been saved.');
+				redirect('/admin/comment', 'refresh');
+			}
+		}
+		else {
+			$id = $this->uri->segment(4);
+			$data['data'] = $this->comment_model->fetch($id);
+			$data['content'] = 'comment_edit';
+			$this->load->view('admin/index', $data);
+		}
+	}
+
+	public function comment_delete() {
+		$this->load->model('comment_model');
+		$id = $this->uri->segment(4);
+		if ($this->comment_model->delete($id)) {
+			$this->session->set_flashdata('success', '<b>Success!</b> Comment has been successfully deleted.');
+			redirect('/admin/comment', 'refresh');
+		}
+		else {
+			$this->session->set_flashdata('success', '<b>Error!</b> Something went wrong, please contact your Administrator.');
+				redirect('/admin/comment', 'refresh');
+		}
+	} 
 	
 }

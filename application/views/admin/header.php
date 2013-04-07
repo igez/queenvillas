@@ -67,7 +67,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="/admin"><img alt="Charisma Logo" src="/assets/img/qv-logo.png" /></a>
+				<a class="brand" href="/admin"><img alt="Charisma Logo" src="/assets/img/logo_resp.png" /></a>
 				
 				<!-- theme selector starts -->
 
