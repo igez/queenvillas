@@ -881,6 +881,19 @@
       	<div class="btn btn-warning btn-small pull-right" style="visibility:hidden;"><p>Book Now!</p></div>
   		<div class="facility-box">
   			<ul>
+  				<?php if ($facility != NULL): ?>
+	  				<?php foreach ($facility as $row) : ?>
+						<li>
+							<p style="text-align: center;"><img src="/assets/img/<?=$row->image;?>" alt="" /></p>
+							<span>
+								<p><?=$row->name;?></p>
+							</span>
+						</li>
+	  				<?php endforeach; ?>
+	  			<?php endif; ?>
+  			</ul>
+  			<!--
+  			<ul>
   				<li>
 					<p style="text-align: center;"><img src="/assets/img/icon-facility-swim.gif" alt="" /></p>
 					<span>
@@ -912,6 +925,7 @@
 					</span>
 				</li>
   			</ul>
+  			-->
   			<div class="clearfix"></div>
   		</div>
   		<div class="clearfix"></div>

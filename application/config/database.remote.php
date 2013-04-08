@@ -55,8 +55,8 @@ $db['default']['password'] = 'txwzz6';
 $db['default']['database'] = 'queen_villas';
 */
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
+$db['default']['username'] = 'queenvillas.com';
+$db['default']['password'] = 'kxyzv4';
 $db['default']['database'] = 'queen_villas';
 
 $db['default']['dbdriver'] = 'mysql';

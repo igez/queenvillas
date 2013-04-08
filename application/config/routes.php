@@ -42,12 +42,15 @@ $route['default_controller'] = "main";
 $route['404_override'] = 'main/notFound';
 
 $route['admin/login'] = "user/adm_login";
+$route['admin/logout'] = "user/adm_logout";
 
 $route['admin/gallery'] = "main/gallery";
 $route['accomodation/(:any)'] = "main/accomodation";
 $route['facilities/(:any)'] = "main/facilities"; 
 $route['reservation/(:any)'] = "main/rsvp";
 $route['package'] = "package/index";
+$route['booking/meeting'] = "main/booking_meeting";
+$route['verify/bot'] = "main/strToimg";
 
 
 $route['admin/posts'] = "admin/posts";

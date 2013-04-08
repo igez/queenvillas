@@ -56,7 +56,7 @@
 							<i class="icon-edit icon-white"></i>  
 							Edit                                            
 						</a>
-						<a class="btn btn-danger" href="/admin/posts?action=delete&id=<?=$row->id;?>">
+						<a class="btn btn-danger" onclick="return confirm('Are you sure?');" href="/admin/posts?action=delete&id=<?=$row->id;?>&category=<?=$this->input->get('category');?>">
 							<i class="icon-trash icon-white"></i> 
 							Delete
 						</a>

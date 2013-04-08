@@ -4,13 +4,13 @@ class User extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-		if ($this->ion_auth->logged_in())	{
-			redirect('admin');
-		}
 		
 	}
 	
 	public function adm_login() {
+		if ($this->ion_auth->logged_in())	{
+			redirect('admin');
+		}
 		$this->load->library('form_validation');
 		
 		$this->data['title'] = "Login - Queen Villas Administration Page";
@@ -48,5 +48,10 @@ class User extends CI_Controller {
 
 			$this->load->view('login/adm.php', $this->data);
 		}
+	}
+
+	public function adm_logout() {
+		$this->ion_auth->logout();
+		redirect('admin');
 	}
 }

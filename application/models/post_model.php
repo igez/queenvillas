@@ -9,7 +9,6 @@ class post_model extends CI_Model {
 	
 	public function fetchAll() {
 		$q = $this->db->get('posts');
-		
 		return $q->result();
 	}
 
@@ -40,24 +39,58 @@ class post_model extends CI_Model {
 	}
 	
 	public function updatePost($post, $fn=NULL) {
-		if ($fn) {
-		$data = array(
-					'title' => $post['title'],
-					'content' => $post['desc'],
-					'category_id' => $post['category'],
-					'slug' => $post['slug'],
-					'images' => $post['files'],
-					'cover_image' => $fn
-				);
+		if ($post['category'] == 1) {
+			$fac = '';
+			foreach ($post['facil'] as $row) {
+				if ($fac == NULL) {
+					$fac = $row;
+				}
+				else {
+					$fac = $fac.', '.$row;
+				}
+			}
+			if ($fn) {
+				$data = array(
+							'title' => $post['title'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files'],
+							'facilities' => $fac,
+							'cover_image' => $fn
+						);
+			}
+			else {
+				$data = array(
+							'title' => $post['title'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files'],
+							'facilities' => $fac,
+						);
+			}
 		}
 		else {
-		$data = array(
-					'title' => $post['title'],
-					'content' => $post['desc'],
-					'category_id' => $post['category'],
-					'slug' => $post['slug'],
-					'images' => $post['files'],
-				);
+			if ($fn) {
+				$data = array(
+							'title' => $post['title'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files'],
+							'cover_image' => $fn
+						);
+			}
+			else {
+				$data = array(
+							'title' => $post['title'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files'],
+						);
+			}
 		}
 		$this->db->where('id', $post['id']);
 		if ($this->db->update('posts', $data)) {
@@ -68,13 +101,35 @@ class post_model extends CI_Model {
 	}
 	
 	public function savePost($post) {
-		$data = array(
-					'title' => $post['title'],
-					'content' => $post['desc'],
-					'category_id' => $post['category'],
-					'slug' => $post['slug'],
-					'images' => $post['files']
-				);
+		if ($post['category'] == 1) {
+			$fac = '';
+			foreach ($post['facil'] as $row) {
+				if ($fac == NULL) {
+					$fac = $row;
+				}
+				else {
+					$fac = $fac.', '.$row;
+				}
+			}
+
+			$data = array(
+						'title' => $post['title'],
+						'content' => $post['desc'],
+						'category_id' => $post['category'],
+						'slug' => $post['slug'],
+						'images' => $post['files'],
+						'facilities' => $fac
+					);
+		}
+		else {
+			$data = array(
+						'title' => $post['title'],
+						'content' => $post['desc'],
+						'category_id' => $post['category'],
+						'slug' => $post['slug'],
+						'images' => $post['files']
+					);
+		}
 				
 		if ($this->db->insert('posts', $data)) {
 			return TRUE;
@@ -97,5 +152,11 @@ class post_model extends CI_Model {
 				return false;
 			}
 		}
+	}
+
+	function getFacility($id) {
+		$q = $this->db->get_where('facilities', array('id' => $id));
+
+		return $q->row();
 	}
 }

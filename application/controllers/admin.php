@@ -38,8 +38,8 @@ class Admin extends CI_Controller {
 			$data['content'] = "posts";
 			$this->load->view('admin/index', $data);
 		}
-		elseif ($this->input->get('action') == 'add') {
-			$data['content'] = "post_addEvent_form";
+		elseif ($this->input->get('action') == 'add' && ($this->input->get('category') == 'Accomodation' || $this->input->get('category') == 'Facility')) {
+			$data['content'] = "post_add_form";
 			$data['category'] = $this->category_model->fetchAll();
 			$this->load->view('admin/index', $data);
 		}
@@ -55,13 +55,15 @@ class Admin extends CI_Controller {
 		elseif ($this->input->get('action') == 'delete' && ($this->input->get('id') != NULL)) {
 			// begin delete process
 			// die("Begin Delete Process id=".$this->input->get('id'));
+			$cat = $this->input->get('category');
 			if ($this->post_model->deletePost($this->input->get('id'))) {
 				$this->session->set_flashdata('success', '<b>Success!</b> Your post has been deleted.');
-				redirect('/admin/posts?category=1', 'refresh');
+				redirect("/admin/posts?category=$cat", 'refresh');
 			}
 		}
 		else {
-			$data->content = "post_add_form";
+			$data['content'] = "post_addEvent_form";
+			$data['category'] = $this->category_model->fetchAll();
 			$this->load->view('admin/index', $data);
 		}
 		
@@ -82,11 +84,11 @@ class Admin extends CI_Controller {
 				if (move_uploaded_file($tempFile,$targetFile)) {
 					if ($this->post_model->updatePost($this->input->post(), $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION))) {
 						$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-						redirect('/admin/posts?category=1', 'refresh');
+						redirect('/admin/posts?category=Accomodation', 'refresh');
 					}
 					else {
 						$this->session->set_flashdata('success', '<b>Failed!</b> Something went wrong.');
-						redirect('/admin/posts?category=1', 'refresh');
+						redirect('/admin/posts?category=Accomodation', 'refresh');
 					}
 				}
 				else {
@@ -96,23 +98,50 @@ class Admin extends CI_Controller {
 			else {
 				if ($this->post_model->updatePost($this->input->post())) {
 					$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-					redirect('/admin/posts?category=1', 'refresh');
+					redirect('/admin/posts?category=Accomodation', 'refresh');
 				}
 				else {
 					$this->session->set_flashdata('success', '<b>Failed!</b> Something went wrong.');
-					redirect('/admin/posts?category=1', 'refresh');
+					redirect('/admin/posts?category=Accomodation', 'refresh');
 				}
 			}
 		}
 	}
 	
 	public function post_save() {
+		
 		if ($this->input->post('submit') === 'doSave') {
-			if ($this->post_model->savePost($this->input->post())) {
-				$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-				redirect('/admin/posts?category=1', 'refresh');
+			$targetFolder = "/assets/uploads/images/cover/";
+			if ($_FILES['cover']['error'] == 0) {
+				$tempFile = $_FILES['cover']['tmp_name'];
+				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
+				$targetFile = rtrim($targetPath,'/') . '/' . $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION);
+				
+				// Validate the file type
+				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+				$fileParts = pathinfo($_FILES['cover']['name']);
+				
+				if (move_uploaded_file($tempFile,$targetFile)) {
+					if ($this->post_model->savePost($this->input->post())) {
+						$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
+						redirect('/admin/posts?category=Accomodation', 'refresh');
+					}
+				}
+
+				else {
+					die('Error While Uploading Image');
+				}
+			}
+
+			else {
+				if ($this->post_model->savePost($this->input->post())) {
+					$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
+					redirect('/admin/posts?category=Accomodation', 'refresh');
+				}
 			}
 		}
+		
+	var_dump($_POST);
 	}
 	
 	/*

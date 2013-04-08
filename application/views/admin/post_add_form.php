@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal" action="/admin/post/save" method="POST">
+			<form class="form-horizontal" action="/admin/post/save" method="POST" enctype="multipart/form-data">
 			  <fieldset>
 				<div class="control-group">
 				  <label class="control-label" for="typeahead">Title </label>
@@ -50,7 +50,12 @@
 						</select>
 					</div>
 				</div>
-       
+       			<div class="control-group">
+					<label class="control-label" for="fileInput">Cover Image</label>
+				  	<div class="controls">
+						<div class="uploader" id="uniform-fileInput"><input class="input-file uniform_on" id="fileInput" type="file" size="19" style="opacity: 0;" name="cover"><span class="filename">No file selected</span><span class="action">Choose File</span></div>
+				 	</div>
+				</div>
 				<div class="control-group">
 				  <label class="control-label" for="textarea2">Description</label>
 				  <div class="controls">
@@ -63,8 +68,28 @@
 						<div class="imagess"></div>
 						<input type="hidden" name="files" value="" id="files"/>
 						<div class="clearfix"></div>
-						<a href="#" class="btn btn-primary btn-small gallery-open">Select Image(s)</a>
+						<a href="#" class="btn btn-primary btn-small gallery-open">Selsect Image(s)</a>
 						<!-- <input data-no-uniform="true" type="file" name="file_upload" id="file_upload" /> -->
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="fileInput" class="control-label">Facilities</label>
+					<div class="controls">
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="1"> Private Pool
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="2"> Spring Airbed
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="3"> Safe Deposit Box
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="4"> LED TV
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="5"> Tea & Coffee Maker
+						</label>
 					</div>
 				</div>
 				<div class="form-actions">

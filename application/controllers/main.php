@@ -33,8 +33,20 @@ class Main extends CI_Controller {
 		else {
 			if ($this->post_model->fetchById($id) !== FALSE) {
 				$data['content'] = $this->post_model->fetchById($id);
+				
 				$data['images'] = explode(', ', $data['content']->images);
-				//var_dump($data['images']);
+				
+				if ($data['content']->facilities != NULL) {
+					$fac = explode(', ', $data['content']->facilities);
+					$data['facility'] = [];
+					foreach ($fac as $row) {
+						$data['facility'][] = $this->post_model->getFacility($row);
+					}
+				}
+				else {
+					$data['facility'] = '';
+				}
+				
 				$this->load->view('accomodation/view', $data);
 			}
 			
@@ -77,7 +89,7 @@ class Main extends CI_Controller {
 	}
 	
 	public function rsvp() {
-		$id = $this->uri->segment(2);
+		$id = $this->uri->segment(5);
 		if ($id == 'meeting-room') {
 			$this->load->view('rsvp/meeting');
 		}
@@ -92,5 +104,25 @@ class Main extends CI_Controller {
 	public function notFound() {
 		$this->load->view('404');
 	}
-	
+
+	public function booking_meeting() {
+		print_r("<pre>");
+		var_dump($_POST);
+		print_r("</pre>");
+		
+	}
+
+	public function strToimg() {
+		echo $_GET['str'];
+		$im = imagecreatefromstring($_GET['str']);
+		if ($im !== false) {
+		    header('Content-Type: image/png');
+		    imagepng($im);
+		    imagedestroy($im);
+		}
+		else {
+		    echo 'An error occurred.';
+		}
+	}
+			
 }

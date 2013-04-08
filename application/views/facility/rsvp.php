@@ -7,99 +7,113 @@
 		
 	}
 	</style>
+
+	<script>
+		$(document).ready(function() {
+			$('#booking').on('submit', function(e) {
+				e.preventDefault();
+				var title = $('#title').val();
+					firstname = $('#firstname').val();
+					lastname = $('#lastname').val();
+					firstname = $('#firstname').val();
+					lastname = $('#lastname').val();
+					position = $('#position').val();
+					address1 = $('#address1').val();
+					address2 = $('#address2').val();
+					city = $('#city').val();
+					state = $('#state').val();
+					zip = $('#zip').val();
+					country = $('#country').val();
+					phone = $('#phone').val();
+					email = $('#email').val();
+					confirm = $('#confirm').val();
+					
+					dataSet = "title="+title+"&firstname="+fname;
+
+					console.log(dataSet);
+				
+			});
+		});
+	</script>
+
 <div class="row rsvp" >
+	<?php echo validation_errors(); ?>
+
+	<form class="form-horizontal" id="booking">
 	<div class="span12">
 		<h5>REQUEST MEETING INFORMATION</h5>
 		<p>Thank you for your interest in meetings at Queen Villas & Spa. We look forward to helping you create a memorable and rewarding event experience. To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
 		<h5>INFORMATION DESIRED</h5>
 		<p>To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
 		<label class="radio">
-	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+	  	<input type="radio" name="option" id="option" value="request" checked>
 	  	<h6>Request for Information</h6> <h5><small><i>(You would like more details about specific property.)</i></small></h5>
 	</label>
 	<label class="radio">
-	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+	  	<input type="radio" name="option" id="option" value="inquiry" checked>
 	  	<h6>Date Inquiry</h6> <h5><small>(<i>You would like more details about specific property.</i>)</small></h5>
 	</label>
 	<label class="radio">
-	  	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+	  	<input type="radio" name="option" id="option" value="request proposal" checked>
 	  	<h6>Request for Proposal</h6> <h5><small>(<i>You would like more details about specific property.</i>)</small></h5>
 	</label>
 </br>
 	<p><h5>Please Tell Us How We Can Reach You :</p></br></h5>
 	<h5>CONTACT INFORMATION</h5>
 	<p><i>Fields marked with an * are required</i></p>
-	<form class="form-horizontal">
+	
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*Title</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Title" class="input-xxlarge">
+		    	<input type="text" name="title" id="title" placeholder="Title" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*First Name</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="First Name" class="input-xxlarge">
-		    </div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="inputEmail">Maiden Initial</label>
-			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="First Name" class="input-xxlarge">
+		    	<input type="text" name="firstname" placeholder="First Name" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*Last Name</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Last Name" class="input-xxlarge">
-		    </div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="inputEmail">Suffix</label>
-			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Suffix" class="input-xxlarge">
+		    	<input type="text" name="lastname" placeholder="Last Name" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">Position</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Position" class="input-xxlarge">
+		    	<input type="text" name="position" placeholder="Position" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*Address Line 1</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Address Line 1" class="input-xxlarge">
+		    	<input type="text" name="address1" placeholder="Address Line 1" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">Address Line 2</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Address Line 2" class="input-xxlarge">
-		    </div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="inputEmail">Address Line 3</label>
-			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Address Line 3" class="input-xxlarge">
+		    	<input type="text" name="address2" placeholder="Address Line 2" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">* City</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="City" class="input-xxlarge">
+		    	<input type="text" name="city" placeholder="City" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">* State/Province</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="State/Province" class="input-xxlarge">
+		    	<input type="text" name="state" placeholder="State/Province" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">* Zip/Postal Code</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Zip/Postal Code" class="input-xxlarge">
+		    	<input type="text" name="zip" placeholder="Zip/Postal Code" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
@@ -359,19 +373,19 @@
 		    <div class="control-group">
 			<label class="control-label" for="inputEmail">* Phone Number</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Phone Number" class="input-xxlarge">
+		    	<input type="text" name="phone" placeholder="Phone Number" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">* Email Address</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Email Address" class="input-xxlarge">
+		    	<input type="text" name="email" placeholder="Email Address" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">* Confirm Email Address</label>
 			<div class="controls">
-		    	<input type="text" id="inputEmail" placeholder="Confirm Email Address" class="input-xxlarge">
+		    	<input type="text" name="email-confirm" placeholder="Confirm Email Address" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">

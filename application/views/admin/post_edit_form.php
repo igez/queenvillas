@@ -115,6 +115,26 @@
 						<!-- <input data-no-uniform="true" type="file" name="file_upload" id="file_upload" /> -->
 					</div>
 				</div>
+				<div class="control-group">
+					<label for="fileInput" class="control-label">Facilities</label>
+					<div class="controls">
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="1" checked> Private Pool
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="2" checked> Spring Airbed
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="3" checked> Safe Deposit Box
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="4" checked> LED TV
+						</label>
+						<label class="checkbox inline">
+						  	<input type="checkbox" name="facil[]" value="5" checked> Tea & Coffee Maker
+						</label>
+					</div>
+				</div>
 				<div class="form-actions">
 				  <button type="submit" name="submit" class="btn btn-primary" value="doSave">Save</button>
 				  <button type="reset" class="btn">Cancel</button>
