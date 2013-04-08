@@ -38,7 +38,7 @@ class Main extends CI_Controller {
 				
 				if ($data['content']->facilities != NULL) {
 					$fac = explode(', ', $data['content']->facilities);
-					$data['facility'] = [];
+					$data['facility'] = array();
 					foreach ($fac as $row) {
 						$data['facility'][] = $this->post_model->getFacility($row);
 					}
