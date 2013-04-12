@@ -9,7 +9,8 @@
 			<li class="nav-header hidden-tablet">Contents</li>
 			<li><a class="ajax-link" href="/admin/posts?category=Accomodation"><i class="icon-align-justify"></i><span class="hidden-tablet"> Accomodation</span></a></li>
 			<li><a class="ajax-link" href="/admin/posts?category=Facility"><i class="icon-calendar"></i><span class="hidden-tablet"> Facility</span></a></li>
-			<li><a class="ajax-link" href="/admin/posts?category=Event"><i class="icon-th"></i><span class="hidden-tablet"> Events</span></a></li>
+			<li><a class="ajax-link" href="/admin/posts?category=Event"><i class="icon-th"></i><span class="hidden-tablet"> Event</span></a></li>
+			<li><a class="ajax-link" href="/admin/posts?category=Package"><i class="icon-th"></i><span class="hidden-tablet"> Package</span></a></li>
 			<li><a class="ajax-link" href="/admin/comment"><i class="icon-th"></i><span class="hidden-tablet"> Comment</span></a></li>
 			<li class="nav-header hidden-tablet">Settings</li>
 			<li><a href="/admin/setting/general"><i class="icon-align-justify"></i><span class="hidden-tablet"> General</span></a></li>

@@ -30,7 +30,7 @@
 		</div>
 		<div class="box-content">
 			<form action="" method="POST">
-				<table class="table table-striped table-bordered bootstrap-datatable datatable">  
+				<table class="table table-striped table-bordered">  
 				  <tbody>
 					<tr>
 						<input type="hidden" name="admin" value="<?=$this->ion_auth->user()->row()->id;?>">

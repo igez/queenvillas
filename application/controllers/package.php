@@ -7,14 +7,14 @@ class Package extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-		$this->load->model(array('post_model', 'category_model', 'package_model'));
+		$this->load->model(array('post_model', 'category_model'));
 		$this->data['nav'] = $this->post_model->fetchAll();
 		$this->load->vars($this->data);
 	}
 
 	public function index() {
 		// load necessary data from package_model
-		$data['content'] = $this->package_model->fetchAll();
+		$data['content'] = $this->post_model->fetchByCategory('Package');
 
 		$this->load->view('package_tpl',$data);
 	}

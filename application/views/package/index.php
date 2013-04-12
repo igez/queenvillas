@@ -95,9 +95,9 @@
         <?php foreach ($content as $row) : ?>
         <?php if ($i == 1 || $i%3==0) echo "<div class='row' style='margin-bottom: 20px;'>"; ?>
 			<div class="span4 mpx">
-	          <img src="<?=$row->image;?>" class="img-circle" data-src="holder.js/140x140">
-	          <h2><?=$row->name;?></h2>
-	          <p><?=$row->desc;?></p>
+	          <img src="/assets/uploads/images/<?=$row->images;?>" class="img-circle" data-src="holder.js/140x140">
+	          <h2><?=$row->title;?></h2>
+	          <p><?=$row->meta_desc;?></p>
 	          <a href="#" data-toggle="modal" class="btn" data-target="#<?=$row->slug;?>">View Detail</a>
 	        </div>
 	    <?php if ($i%3==0) echo "</div>"; ?>
@@ -108,10 +108,10 @@
     	<div id="<?=$row->slug;?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="color:black;">
 			 <div class="modal-header">
 	   	   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	    	  <h3><?=$row->name;?></h3>
+	    	  <h3><?=$row->title;?></h3>
 	  	  </div>
 	  	  <div class="modal-body">
-	  	    <?=$row->detail;?>
+	  	    <?=$row->content;?>
         </div>
 		  </div>
     <?php endforeach; ?>

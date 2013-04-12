@@ -21,7 +21,6 @@ class Admin extends CI_Controller {
 	}
 	
 	public function posts() {
-		
 		// load the post_model library
 		// if action not exist or null
 		if ($this->input->get('action') == NULL) {
@@ -32,10 +31,16 @@ class Admin extends CI_Controller {
 			}
 			// if category has data and empty
 			else {
+				if ($this->post_model->fetchByCategory($this->input->get('category')) !== FALSE) {
+					$data['data'] = $this->post_model->fetchByCategory($this->input->get('category'));
+					$data['content'] = "posts";
+				}
+
+				else {
+					$data['content'] = "404";
+				}
 				// fetch necessary data from post_model according to category and add them variable $data
-				$data['data'] = $this->post_model->fetchByCategory($this->input->get('category'));
 			}
-			$data['content'] = "posts";
 			$this->load->view('admin/index', $data);
 		}
 		elseif ($this->input->get('action') == 'add' && ($this->input->get('category') == 'Accomodation' || $this->input->get('category') == 'Facility')) {
@@ -43,11 +48,22 @@ class Admin extends CI_Controller {
 			$data['category'] = $this->category_model->fetchAll();
 			$this->load->view('admin/index', $data);
 		}
+		elseif ($this->input->get('action') == 'add' && $this->input->get('category') == 'Package') {
+			$data['content'] = "post_package_add_form";
+			$data['category'] = $this->category_model->fetchAll();
+			$this->load->view('admin/index', $data);
+		}
 		elseif ($this->input->get('action') == 'edit' && ($this->input->get('id') != NULL)) {
 			
 			$data['data'] = $this->post_model->fetchById($this->input->get('id'));
 			$data['category'] = $this->category_model->fetchAll();
-			$data['content'] = "post_edit_form";
+			// check if category is package
+			if ($this->input->get('category') == 4) {
+				$data['content'] = "post_package_edit_form";
+			}
+			else {
+				$data['content'] = "post_edit_form";
+			}
 			//var_dump($data->data);
 			$this->load->view('admin/index', $data);
 			
@@ -72,7 +88,9 @@ class Admin extends CI_Controller {
 	public function post_update() {
 		if ($this->input->post('submit') === 'doSave') {
 			$targetFolder = "/assets/uploads/images/cover/";
-			if ($_FILES['cover']['error'] == 0) {
+			$rtrn = $this->post_model->categoryById($_POST['category']);
+			var_dump($rtrn);
+			if ($_FILES['cover'] && $_FILES['cover']['error'] == 0) {
 				$tempFile = $_FILES['cover']['tmp_name'];
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
 				$targetFile = rtrim($targetPath,'/') . '/' . $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION);
@@ -98,7 +116,7 @@ class Admin extends CI_Controller {
 			else {
 				if ($this->post_model->updatePost($this->input->post())) {
 					$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-					redirect('/admin/posts?category=Accomodation', 'refresh');
+					redirect("/admin/posts?category=".$rtrn, 'refresh');
 				}
 				else {
 					$this->session->set_flashdata('success', '<b>Failed!</b> Something went wrong.');
@@ -109,10 +127,10 @@ class Admin extends CI_Controller {
 	}
 	
 	public function post_save() {
-		
+		$rtrn = $this->post_model->categoryById($_POST['category']);
 		if ($this->input->post('submit') === 'doSave') {
 			$targetFolder = "/assets/uploads/images/cover/";
-			if ($_FILES['cover']['error'] == 0) {
+			if ($_FILES['cover'] && $_FILES['cover']['error'] == 0) {
 				$tempFile = $_FILES['cover']['tmp_name'];
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
 				$targetFile = rtrim($targetPath,'/') . '/' . $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION);
@@ -124,7 +142,7 @@ class Admin extends CI_Controller {
 				if (move_uploaded_file($tempFile,$targetFile)) {
 					if ($this->post_model->savePost($this->input->post())) {
 						$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-						redirect('/admin/posts?category=Accomodation', 'refresh');
+						redirect("/admin/posts?category=$rtrn", 'refresh');
 					}
 				}
 
@@ -135,8 +153,8 @@ class Admin extends CI_Controller {
 
 			else {
 				if ($this->post_model->savePost($this->input->post())) {
-					$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-					redirect('/admin/posts?category=Accomodation', 'refresh');
+					$this->session->set_flashdata('success', "<b>Success!</b> New $rtrn has been saved.");
+					redirect("/admin/posts?category=$rtrn", 'refresh');
 				}
 			}
 		}
@@ -344,6 +362,45 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('success', '<b>Error!</b> Something went wrong, please contact your Administrator.');
 				redirect('/admin/comment', 'refresh');
 		}
-	} 
+	}
+
+	// Users !
+	public function user_index() {
+
+		$this->load->model('user_model');
+
+		if (isset($_GET['action']) && $_GET['action'] == 'add') {
+			$data['content'] = 'contents/setting_user_add';
+		}
+		else {
+			$data['users'] = $this->user_model->get_all();
+			$data['content'] = 'contents/setting_user';
+		}
+
+		$this->load->view('admin/index',$data);
+	}
+
+	public function user_save() {
+		var_dump($_POST);
+		$user = $_POST['username'];
+		$email = $_POST['email'];
+		$pass = $_POST['password'];
+		$conf = $_POST['passconf'];
+		$group = array('1');
+		if ($pass !== $conf) {
+			die('Password and Password Confirmation mismatch, please press back button on your browser!');
+		}
+		else if (empty($user)) {
+			die('Username cannot be empty!');
+		}
+		$additional_data = array(
+								'first_name' => $_POST['firstname'],
+								'last_name' => $_POST['lastname'],
+								);
+
+		if ($this->ion_auth->register($user, $pass, $email, $additional_data, $group)) {
+			redirect('/admin/setting/users');
+		}
+	}
 	
 }

@@ -17,12 +17,24 @@ class post_model extends CI_Model {
 
 		return $q->row()->id;
 	}
+
+	function categoryById($id) {
+		$q = $this->db->get_where('categories', array('id' => $id));
+
+		return $q->row()->category;
+	}
 	
 	public function fetchByCategory($cat) {
 		$id = $this->categoryId($cat);
 		$q = $this->db->get_where('posts', array('category_id' => $id));
 		
-		return $q->result();
+		if ($q->num_rows() > 0) {
+			return $q->result();
+		}
+
+		else {
+			return false;
+		}
 	}
 	
 	public function fetchById($id) {
@@ -83,13 +95,25 @@ class post_model extends CI_Model {
 						);
 			}
 			else {
-				$data = array(
+				if ($post['category'] == 4) {
+					$data = array(
+							'title' => $post['title'],
+							'meta_desc' => $post['metadesc'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files'],
+						);
+				}
+				else {
+					$data = array(
 							'title' => $post['title'],
 							'content' => $post['desc'],
 							'category_id' => $post['category'],
 							'slug' => $post['slug'],
 							'images' => $post['files'],
 						);
+				}
 			}
 		}
 		$this->db->where('id', $post['id']);
@@ -122,18 +146,31 @@ class post_model extends CI_Model {
 					);
 		}
 		else {
-			$data = array(
-						'title' => $post['title'],
-						'content' => $post['desc'],
-						'category_id' => $post['category'],
-						'slug' => $post['slug'],
-						'images' => $post['files']
-					);
+			if ($post['category'] == 4) {
+					$data = array(
+							'title' => $post['title'],
+							'meta_desc' => $post['metadesc'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files']
+						);
+				}
+				else {
+					$data = array(
+							'title' => $post['title'],
+							'content' => $post['desc'],
+							'category_id' => $post['category'],
+							'slug' => $post['slug'],
+							'images' => $post['files']
+						);
+				}
 		}
 				
 		if ($this->db->insert('posts', $data)) {
 			return TRUE;
 		}
+		die();
 	}
 	
 	public function deletePost() {

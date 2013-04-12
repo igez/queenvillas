@@ -69,23 +69,16 @@
 						</select>
 					</div>
 				</div>
-       			<div class="control-group">
-					<label class="control-label" for="fileInput">Cover Image</label>
-					<?php if ($data->cover_image) : ?>
-					<div class="controls">
-						<img src="/assets/uploads/images/cover/<?=$data->cover_image;?>" alt="" width="300px"/>
-					</div>
-					<?php endif;?>
-				  	<div class="controls">
-						<div class="uploader" id="uniform-fileInput"><input class="input-file uniform_on" id="fileInput" type="file" size="19" style="opacity: 0;" name="cover"><span class="filename">No file selected</span><span class="action">Choose File</span></div>
-				 	</div>
+				<div class="control-group">
+				  <label class="control-label" for="textarea2">Meta Desc</label>
+				  <div class="controls">
+					<textarea class="cleditor" id="textarea2" rows="3" name="metadesc"><?=$data->meta_desc;?></textarea>
+				  </div>
 				</div>
 				<div class="control-group">
-				  <label class="control-label" for="textarea2">Description</label>
+				  <label class="control-label" for="textarea2">Detailed Description</label>
 				  <div class="controls">
-					<textarea class="cleditor" id="textarea2" rows="3" name="desc">
-						<?=$data->content;?>
-					</textarea>
+					<textarea class="cleditor" id="textarea2" rows="3" name="desc"><?=$data->content;?></textarea>
 				  </div>
 				</div>
 				<div class="control-group">
@@ -157,8 +150,8 @@
 	  		console.log($('.imagess li').length);
 	  		$('#imagez li').live('click', function () {
 		      console.log($('.imagess li').length);
-		      if ($('.imagess li').length > 3) {
-		      	alert('You Have Excedeed Maximum Images. Max = 4');
+		      if ($('.imagess li').length > 1) {
+		      	alert('Sorry only 1 image per Post');
 		      }
 		      else {
 			      $('.selected').append("<span style='margin: 4px 4px 4px 0;' class='label'>"+$('img', this).attr('rel')+"</span>");

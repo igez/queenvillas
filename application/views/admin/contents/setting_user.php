@@ -34,6 +34,7 @@
 			</div>
 		</div>
 		<div class="box-content">
+			<a href="/admin/setting/users?action=add" class="btn btn-success" style="margin-bottom:10px;">Add User</a>
 			<table class="table table-striped table-bordered ">
 			  <thead>
 				  <tr>
@@ -46,17 +47,16 @@
 				  </tr>
 			  </thead>   
 			  <tbody>
-			  	<tr>
 			  		<?php foreach ($users as $row) : ?>
+			  		<tr>
 			  			<td><?=$row->first_name . ' ' . $row->last_name;?></td>
 				  		<td><?=$row->username;?></td>
 				  		<td><a href="/admin/setting/user/chpass?id=<?=$row->id;?>&token=session_id">Change Password</a></td>
 				  		<td><?=$row->email;?></td>
 				  		<td>Administrator</td>
 				  		<td><?=date('H:i:s l, n F Y', $row->last_login);?></td>
+				  	</tr>
 			  		<?php endforeach; ?>
-			  	</tr>
-
 			  </tbody>
 		  </table>            
 		</div>
