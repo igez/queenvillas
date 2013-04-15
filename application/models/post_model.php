@@ -196,4 +196,16 @@ class post_model extends CI_Model {
 
 		return $q->row();
 	}
+
+	public function fetchOffer() {
+		$q = $this->db->get('offers');
+
+		return $q->result();
+	}
+
+	function getRoomName($id) {
+		$q = $this->db->get_where('posts', array('id' =>$id));
+
+		return $q->row();
+	}
 }

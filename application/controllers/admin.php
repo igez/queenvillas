@@ -33,7 +33,13 @@ class Admin extends CI_Controller {
 			else {
 				if ($this->post_model->fetchByCategory($this->input->get('category')) !== FALSE) {
 					$data['data'] = $this->post_model->fetchByCategory($this->input->get('category'));
-					$data['content'] = "posts";
+					if ($this->input->get('category') == 'Accomodation') {
+						$data['offers'] = $this->post_model->fetchOffer();
+						$data['content'] = "posts_accomodation";
+					}
+					else {
+						$data['content'] = "posts";
+					}
 				}
 
 				else {
