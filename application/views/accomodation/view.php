@@ -838,6 +838,12 @@
 											    </div>
 											</div>
 										</div>
+										<div class="span2"  style="text-align: left; margin-top:13px; margin-left: 20px;">
+									  		<label class="radio" style="padding-left: 10px;">
+											  <input type="checkbox" name="SpecialOffer" class="BookingOnline" id="1" value="" style="margin-right:10px;margin-top:-4px;">
+											  <b style="padding-top: 5px;"><i>Special Offer!</i></b>
+											</label>
+										</div>
 										<div class="clearfix"></div>
 										<div class="span2" style="text-align: left;">
 									  		<label class="radio">
@@ -851,6 +857,7 @@
 											  Booking Online
 											</label>
 										</div>
+
 										<div class="row" >
 											<div class="span4 pull-right" style="margin-top: 14px;">
 												<button id="SendReserve" class="btn btn-block btn-warning" type="submit" name="send" value="book">Next &raquo</button>
