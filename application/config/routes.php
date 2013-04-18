@@ -68,6 +68,7 @@ $route['admin/comment/view/(:num)'] = "admin/comment_view";
 $route['admin/comment/edit/(:num)'] = "admin/comment_edit";
 $route['admin/comment/new'] = "admin/comment_add";
 $route['admin/comment/delete/(:num)'] = "admin/comment_delete";
+$route['ajax/accomodation/save'] = "ajax/accomodation_save";
 
 // RESERVATION
 $route['reservation/do'] = "reservation/booking";
