@@ -203,6 +203,13 @@ class post_model extends CI_Model {
 		return $q->result();
 	}
 
+	public function update_offer($data) {
+		$this->db->where('id', $data['id']);
+		if ($this->db->update('offers', $data)) {
+			return TRUE;
+		}
+	}
+
 	function getRoomName($id) {
 		$q = $this->db->get_where('posts', array('id' =>$id));
 
