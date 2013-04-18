@@ -48,17 +48,17 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-/* ORIGINAL DB SETTINGS
+# ORIGINAL DB SETTINGS
 $db['default']['hostname'] = '103.10.60.70';
 $db['default']['username'] = 'queenvillas';
 $db['default']['password'] = 'txwzz6';
 $db['default']['database'] = 'queen_villas';
-*/
+/*
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
 $db['default']['database'] = 'queen_villas';
-
+*/
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
