@@ -141,9 +141,10 @@
 				<h3>Drop Zone</h3>
 				<div id="holder">
   				</div>
-			  	<p>
-					<div class="progress progress-striped active">
-					  	<div id="uploadprogress" class="bar" style="width: 0%;"></div>
+			  	<p style="margin-top: 5px;">
+			  		Uploading:
+					<div class="progress progress-striped active" style="width: 95%;">
+					  	<div id="uploadprogress" class="bar" style="width: 1%;"></div>
 					</div>
 			  	</p>
 			</div>
@@ -183,6 +184,13 @@
 			xhr.onload = function() {
 				progress.val = $(progress).css('width', '100%');
 			};
+
+			xhr.upload.onprogress = function (event) {
+	          	if (event.lengthComputable) {
+	            	var complete = (event.loaded / event.total * 100 | 0);
+	            	console.log(complete);
+	          	}
+	        }
 
 			xhr.send(files);
 
