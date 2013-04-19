@@ -76,7 +76,7 @@
 				<!-- user dropdown starts -->
 				<div class="btn-group pull-right" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i><span class="hidden-phone"> admin</span>
+						<i class="icon-user"></i><span class="hidden-phone"> <?=$this->ion_auth->user()->row()->first_name.' '.$this->ion_auth->user()->row()->last_name;?></span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
