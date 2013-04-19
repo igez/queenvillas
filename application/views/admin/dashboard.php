@@ -141,21 +141,16 @@
 				<h3>Drop Zone</h3>
 				<div id="holder">
   				</div>
-			  	<p style="margin-top: 5px;">
-			  		Uploading:
-					<div class="progress progress-striped active" style="width: 95%;">
-					  	<div id="uploadprogress" class="bar" style="width: 1%;"></div>
-					</div>
-			  	</p>
+  				<p style="margin-top: 15px;" class="dropzone">
+  				</div>
+			  	
 			</div>
 		</div>
 	</div><!--/span-->
 
 	<script>
 	var holder = document.getElementById('holder'),
-		dnd = 'draggable',
-		progress = document.getElementById('uploadprogress');
-
+		dnd = 'draggable';
 	if (dnd) {
 		console.log('aw');
 		holder.ondragover = function () { this.className = 'hover'; return false; };
@@ -168,16 +163,20 @@
 	}
 	// read the dropped files
 	function readFiles(dataFiles) {
-		
 		var formData = new FormData();
 		for (var i = 0; i < dataFiles.length; i++) {
+			var progressbar = '<div class="progress progress-striped active" style="width: 95%;"><div id="uploadprogress-'+i+'" class="bar" style="width: 0%;"></div></div>';
 			formData.append('file', dataFiles[i]);
-			sendFiles(formData);
+			$('.dropzone').append('Uploading: '+dataFiles[i].name);
+			$('.dropzone').append(progressbar);
+			progress = document.getElementById('uploadprogress-'+i);
+			console.log(dataFiles[i].name);
+			sendFiles(formData, progress);
 		}
 		
 	}
 
-	function sendFiles(files) {
+	function sendFiles(files, progress) {
   		var xhr = new XMLHttpRequest();
 			xhr.open('POST', '/admin/gallery/upload');
 
