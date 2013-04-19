@@ -408,5 +408,49 @@ class Admin extends CI_Controller {
 			redirect('/admin/setting/users');
 		}
 	}
+
+	public function mail_test() {
+		$this->load->library('PHPMailer');
+		define('GUSER', 'root@gezdev.com');
+		define('GPWD', 'gez0104');
+		$target = 'robbiejobs@hotmail.com';
+
+		$message = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/assets/email_templates/email_draft.html');
+		// Footer
+		$message = str_replace('*|CURRENT_YEAR|*', '2013', $message);
+		$message = str_replace('*|LIST:COMPANY|*', 'QueenVillas Resorts & Spas', $message);
+		$message = str_replace('*|UNSUB|*', 'http://robbyprima.com/unsubscribe/ASd8UASHDiods909ASdjlas9ASASd4556asd5a6sd4', $message);
+
+		// send email to RSVP MANAGER
+		if ($this->smtpmailer($target, 'root@gezdev.com', 'Relay Server Test', 'Relay Test', $message)) {
+			echo 'Success!';
+		}
+		//if (!empty($error)) return false;
+	}
+
+	function smtpmailer($to, $from, $from_name, $subject, $message) { 
+		global $error;
+		$mail = new PHPMailer();  // create a new object
+		$mail->IsSMTP(); // enable SMTP
+		$mail->SMTPDebug = 1;  // debugging: 1 = errors and messages, 2 = messages only
+		$mail->SMTPAuth = true;  // authentication enabled
+		// $mail->SMTPSecure = ''; // secure transfer enabled REQUIRED for GMail
+		$mail->Host = 'mail.gezdev.com';
+		$mail->Port = 25; 
+		$mail->Username = GUSER;  
+		$mail->Password = GPWD;           
+		$mail->SetFrom($from, $from_name);
+		$mail->Subject = $subject;
+		$mail->MsgHTML($message);
+		$mail->AltBody = strip_tags($message);
+		$mail->AddAddress($to);
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo; 
+			return false;
+		} else {
+			$error = 'Message sent!';
+			return true;
+		}
+	}
 	
 }

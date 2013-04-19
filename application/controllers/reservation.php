@@ -50,7 +50,7 @@ class Reservation extends CI_Controller {
 		$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
 		$mail->SMTPAuth = true;  // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-		$mail->Host = 'smtp.gmail.com';
+		$mail->Host = 'smtp.robbyprima.com';
 		$mail->Port = 465; 
 		$mail->Username = GUSER;  
 		$mail->Password = GPWD;           
