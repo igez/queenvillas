@@ -188,7 +188,7 @@
 			xhr.upload.onprogress = function (event) {
 	          	if (event.lengthComputable) {
 	            	var complete = (event.loaded / event.total * 100 | 0);
-	            	console.log(complete);
+	            	progress.val = $(progress).css('width', complete+'%');
 	          	}
 	        }
 
