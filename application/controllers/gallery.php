@@ -16,4 +16,18 @@ class Gallery extends CI_Controller {
 		$this->load->view('gallery_tpl', $data);
 	}
 
+	public function upload() {
+		if ($_FILES || $_POST) {
+			var_dump($_FILES);
+			
+			if (move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/assets/upload-test/".$_FILES['file']['name'])) {
+				echo '1';
+			}
+			
+		}
+		else {
+			echo "no post triggered";
+		}
+	}
+
 }

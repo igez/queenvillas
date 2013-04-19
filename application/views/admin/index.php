@@ -111,6 +111,7 @@
 	
 	<!-- application script for Charisma demo -->
 	<script src="/assets/js/charisma.js"></script>
+	<script src="/assets/js/html5.utils.js"></script>
 	
 	
 	

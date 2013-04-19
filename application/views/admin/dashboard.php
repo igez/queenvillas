@@ -74,8 +74,8 @@
 			#holder.hover { border: 10px dashed #0c0; }
 			#holder img { display: block; margin: 10px auto; }
 			#holder p { margin: 10px; font-size: 14px; }
-			progress { width: 100%; }
-			progress:after { content: '%'; }
+			#progress { width: 100%; }
+			#progress:after { content: '%'; }
 			.fail { background: #c00; padding: 2px; color: #fff; }
 			.hidden { display: none !important;}
 		</style>
@@ -89,10 +89,6 @@
 				</ul>
 				<hr>
 				<h3>System Alerts</h3>
-				<ul class="dashboard-notif" style="margin-left: -10px;">
-					<li><div class="alert alert-danger">/assets/uploads/ is not writable!</div></li>
-					<li><div class="alert">Admin password should be change.</div></li>
-				</ul>
 			</div>
 			<div class="box-dashboard span5" style="min-height: 400px;">
 				<h3>Shortcuts</h3>
@@ -144,9 +140,58 @@
 			<div class="box-dashboard span4" style="min-height: 400px;">
 				<h3>Drop Zone</h3>
 				<div id="holder">
-  				</div>        
+  				</div>
+			  	<p>
+					<div class="progress progress-striped active">
+					  	<div id="uploadprogress" class="bar" style="width: 0%;"></div>
+					</div>
+			  	</p>
 			</div>
 		</div>
 	</div><!--/span-->
+
+	<script>
+	var holder = document.getElementById('holder'),
+		dnd = 'draggable',
+		progress = document.getElementById('uploadprogress');
+
+	if (dnd) {
+		console.log('aw');
+		holder.ondragover = function () { this.className = 'hover'; return false; };
+  		holder.ondragend = function () { this.className = ''; return false; };
+  		holder.ondrop = function (e) {
+			this.className = '';
+			e.preventDefault();
+			readFiles(e.dataTransfer.files);
+		}
+	}
+	// read the dropped files
+	function readFiles(dataFiles) {
+		
+		var formData = new FormData();
+		for (var i = 0; i < dataFiles.length; i++) {
+			formData.append('file', dataFiles[i]);
+			sendFiles(formData);
+		}
+		
+	}
+
+	function sendFiles(files) {
+  		var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/admin/gallery/upload');
+
+			xhr.onload = function() {
+				progress.val = $(progress).css('width', '100%');
+			};
+
+			xhr.send(files);
+
+			xhr.onreadystatechange = function() {
+		    if (xhr.readyState == 4) {
+		        console.log(xhr.responseText);
+		    }
+		}
+	}
+	</script>
 
 </div><!--/row-->
