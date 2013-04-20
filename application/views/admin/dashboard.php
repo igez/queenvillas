@@ -178,24 +178,24 @@
 
 	function sendFiles(files, progress) {
   		var xhr = new XMLHttpRequest();
-			xhr.open('POST', '/admin/gallery/upload');
+		xhr.open('POST', '/admin/gallery/upload');
 
-			xhr.onload = function() {
-				progress.val = $(progress).css('width', '100%');
-			};
+		xhr.onload = function() {
+			//progress.val = $(progress).css('width', '100%');
+		};
 
-			xhr.upload.onprogress = function (event) {
-	          	if (event.lengthComputable) {
-	            	var complete = (event.loaded / event.total * 100 | 0);
-	            	progress.val = $(progress).css('width', complete+'%');
-	          	}
-	        }
+		xhr.upload.onprogress = function (event) {
+          	if (event.lengthComputable) {
+            	var complete = (event.loaded / event.total * 100 | 0);
+            	progress.val = $(progress).css('width', complete+'%');
+          	}
+        }
 
-			xhr.send(files);
+		xhr.send(files);
 
-			xhr.onreadystatechange = function() {
+		xhr.onreadystatechange = function() {
 		    if (xhr.readyState == 4) {
-		        console.log(xhr.responseText);
+		        //$(progress).parent().slideUp();
 		    }
 		}
 	}
