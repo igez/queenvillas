@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/assets/css/style.css" />
 	<link rel="stylesheet" href="/assets/css/navbar-responsive.css" />
 	<script type="text/javascript" src="/assets/js/modernizr.custom.79639.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.ba-cond.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.slitslider.js"></script>
@@ -88,13 +88,13 @@
 					// transitions speed
 					speed : 1200,
 					// if true the item's slices will also animate the opacity value
-					optOpacity : true,
+					optOpacity : false,
 					// amount (%) to translate both slices - adjust as necessary
 					translateFactor : 230,
 					// maximum possible angle
-					maxAngle : 25,
+					maxAngle : 1,
 					// maximum possible scale
-					maxScale : 2,
+					maxScale : 1,
 					// slideshow on / off
 					autoplay : true,
 					// keyboard navigation

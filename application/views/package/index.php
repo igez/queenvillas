@@ -69,7 +69,9 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 
-
+    <div class="row visible-phone">
+      <img src="assets/img/eventscover.jpg"/>
+    </div>
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -116,8 +118,23 @@
 		  </div>
     <?php endforeach; ?>
 
+    <div class="row stop40">
 
-      <!-- START THE FEATURETTES -->
+      <div class="span4">
+        <img src="assets/img/package_1.jpg"/>
+      </div>
+
+
+      <div class="span4">
+        <img src="assets/img/package_2.jpg"/>
+      </div>
+
+
+      <div class="span4">
+        <img src="assets/img/package_3.jpg"/>
+      </div>
+    </div>
+      <!-- START THE FEATURETTES 
 
       <hr class="featurette-divider">
 
@@ -153,10 +170,10 @@ It's a place like no other.</p>
 
       <!-- /END THE FEATURETTES -->
       
-    </div><!-- /.container -->
+    </div><!-- /.container --> 
     
     <footer>
-      <div class="footer-logo pull-left">
+      <div class="footer-logo pull-left bort">
       </div>
       <div class="footer-desc pull-left">
         <p style="color: #695d58; font-weight: bold; font-size: 12px; padding-top: 10px;">Queen Villas & Spa</p>
@@ -192,6 +209,7 @@ It's a place like no other.</p>
     <script src="/assets/js/bootstrap-carousel.js"></script>
     <script src="/assets/js/bootstrap-collapse.js"></script>
     <script src="/assets/js/bootstrap-typeahead.js"></script>
+    <script src="/assets/js/modalfix.js"></script>
     <script>
       !function ($) {
         $(function(){

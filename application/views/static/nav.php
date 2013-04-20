@@ -73,7 +73,7 @@
 					<?php endforeach; ?>
 	  			</ul>
                 <li><a href="/package">Packages</a></li>
-                <li><a href="#">Testimonial</a></li>
+                <li><a href="/comment">Testimonial</a></li>
                 <li><a href="/events">What's On</a></li>
                 <li><a href="/gallery">Gallery</a></li>
                 <li><a href="/contact">Contact</a></li>
@@ -93,7 +93,7 @@
 	    <div class="tablogo">
 	    	<img src="/assets/img/logo_resp.png"/>
 		</div>
-		<ul class="nav nav-tabs blx hidden-desktop hidden-phone">
+		<ul class="nav nav-tabs blx ">
 		  <li><a href="/">Home</a></li>
 		  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Facilities<b class="caret"></b>
 	      			  <ul class="dropdown-menu" role="menu">
@@ -114,7 +114,7 @@
 		  			</ul>
 	      
 		 			<li><a href="/package">Packages</a></li>
-	                <li><a href="#">Testimonial</a></li>
+	                <li><a href="/comment">Testimonial</a></li>
 	                <li><a href="/events">What's On</a></li>
 	                <li><a href="/gallery">Gallery</a></li>
 	                <li><a href="/contact">Contact</a></li>
