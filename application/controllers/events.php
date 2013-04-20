@@ -15,4 +15,12 @@ class Events extends CI_Controller {
 		$data['content'] = $this->post_model->fetchByCategory('Event');
 		$this->load->view('events/index', $data);
 	}
+
+	public function read() {
+		$id = $this->uri->segment(5);
+		$cc =  $this->uri->segment(2). $this->uri->segment(3). $this->uri->segment(4);
+		$cc = strtotime($cc);
+
+		$data['content'] = $this->post_model->readEvent($id, $cc);
+	}
 }

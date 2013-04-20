@@ -95,7 +95,6 @@ class Admin extends CI_Controller {
 		if ($this->input->post('submit') === 'doSave') {
 			$targetFolder = "/assets/uploads/images/cover/";
 			$rtrn = $this->post_model->categoryById($_POST['category']);
-			var_dump($rtrn);
 			if ($_FILES['cover'] && $_FILES['cover']['error'] == 0) {
 				$tempFile = $_FILES['cover']['tmp_name'];
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
@@ -108,11 +107,11 @@ class Admin extends CI_Controller {
 				if (move_uploaded_file($tempFile,$targetFile)) {
 					if ($this->post_model->updatePost($this->input->post(), $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION))) {
 						$this->session->set_flashdata('success', '<b>Success!</b> Your post has been saved.');
-						redirect('/admin/posts?category=Accomodation', 'refresh');
+						redirect('/admin/posts?category='.$rtrn, 'refresh');
 					}
 					else {
 						$this->session->set_flashdata('success', '<b>Failed!</b> Something went wrong.');
-						redirect('/admin/posts?category=Accomodation', 'refresh');
+						redirect('/admin/posts?category='.$rtrn, 'refresh');
 					}
 				}
 				else {
@@ -126,7 +125,7 @@ class Admin extends CI_Controller {
 				}
 				else {
 					$this->session->set_flashdata('success', '<b>Failed!</b> Something went wrong.');
-					redirect('/admin/posts?category=Accomodation', 'refresh');
+					redirect('/admin/posts?category='.$rtrn, 'refresh');
 				}
 			}
 		}
@@ -136,7 +135,7 @@ class Admin extends CI_Controller {
 		$rtrn = $this->post_model->categoryById($_POST['category']);
 		if ($this->input->post('submit') === 'doSave') {
 			$targetFolder = "/assets/uploads/images/cover/";
-			if ($_FILES['cover'] && $_FILES['cover']['error'] == 0) {
+			if (isset($_FILES['cover']) && $_FILES['cover'] && $_FILES['cover']['error'] == 0) {
 				$tempFile = $_FILES['cover']['tmp_name'];
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
 				$targetFile = rtrim($targetPath,'/') . '/' . $this->input->post('slug').".".pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION);
@@ -164,8 +163,6 @@ class Admin extends CI_Controller {
 				}
 			}
 		}
-		
-	var_dump($_POST);
 	}
 	
 	/*

@@ -41,7 +41,17 @@
 			  <tbody>
 				<?php foreach ($data as $row) : ?>
 				<tr>
-					<td><a href="/accomodation/<?=$row->slug;?>"><?=$row->title;?></a></td>
+					<td>
+						<?php if ($row->category_id != 4) : ?>
+							<a href="/<?=$this->post_model->categoryById($row->category_id);?>/<?=$row->slug;?>" target="_blank">
+								<?=$row->title;?>
+							</a>
+						<?php else : ?>
+							<a href="/package"  target="_blank">
+								<?=$row->title;?>
+							</a>
+						<?php endif; ?>
+					</td>
 					<td class="center"><?=$this->category_model->findById($row->category_id);?></td>
 					<td class="center">Administrator</td>
 					<td class="center">

@@ -70,6 +70,17 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="fileInput">Cover Image</label>
+					<?php if ($data->cover_image) : ?>
+					<div class="controls">
+						<img src="/assets/uploads/images/cover/<?=$data->cover_image;?>" alt="" width="300px"/>
+					</div>
+					<?php endif;?>
+				  	<div class="controls">
+						<div class="uploader" id="uniform-fileInput"><input class="input-file uniform_on" id="fileInput" type="file" size="19" style="opacity: 0;" name="cover"><span class="filename">No file selected</span><span class="action">Choose File</span></div>
+				 	</div>
+				</div>
+				<div class="control-group">
 				  <label class="control-label" for="textarea2">Meta Desc</label>
 				  <div class="controls">
 					<textarea class="cleditor" id="textarea2" rows="3" name="metadesc"><?=$data->meta_desc;?></textarea>

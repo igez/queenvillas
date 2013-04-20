@@ -51,6 +51,7 @@ $route['reservation/(:any)'] = "main/rsvp";
 $route['package'] = "package/index";
 $route['booking/meeting'] = "main/booking_meeting";
 $route['verify/bot'] = "main/strToimg";
+$route['event/:num/:num/:num/:any'] = "events/read";
 
 
 $route['admin/posts'] = "admin/posts";

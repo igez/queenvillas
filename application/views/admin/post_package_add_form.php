@@ -69,6 +69,12 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="fileInput">Cover Image</label>
+				  	<div class="controls">
+						<div class="uploader" id="uniform-fileInput"><input class="input-file uniform_on" id="fileInput" type="file" size="19" style="opacity: 0;" name="cover"><span class="filename">No file selected</span><span class="action">Choose File</span></div>
+				 	</div>
+				</div>
+				<div class="control-group">
 				  <label class="control-label" for="textarea2">Meta Desc</label>
 				  <div class="controls">
 					<textarea class="cleditor" id="textarea2" rows="3" name="metadesc">
@@ -116,7 +122,7 @@
 	  		console.log($('.imagess li').length);
 	  		$('#imagez li').live('click', function () {
 		      console.log($('.imagess li').length);
-		      if ($('.imagess li').length > 1) {
+		      if ($('.imagess li').length >= 1) {
 		      	alert('Sorry only 1 image per Post');
 		      }
 		      else {

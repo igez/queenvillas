@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal" action="/admin/post/save" method="POST">
+			<form class="form-horizontal" action="/admin/post/save" method="POST" enctype="multipart/form-data">
 			  <fieldset>
 				<div class="control-group">
 				  <label class="control-label" for="typeahead">Title </label>
@@ -50,7 +50,6 @@
 						</select>
 					</div>
 				</div>
-       
 				<div class="control-group">
 				  <label class="control-label" for="textarea2">Description</label>
 				  <div class="controls">

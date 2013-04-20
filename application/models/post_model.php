@@ -96,6 +96,7 @@ class post_model extends CI_Model {
 			}
 			else {
 				if ($post['category'] == 4) {
+					var_dump($_FILES);
 					$data = array(
 							'title' => $post['title'],
 							'meta_desc' => $post['metadesc'],
@@ -147,30 +148,38 @@ class post_model extends CI_Model {
 		}
 		else {
 			if ($post['category'] == 4) {
-					$data = array(
-							'title' => $post['title'],
-							'meta_desc' => $post['metadesc'],
-							'content' => $post['desc'],
-							'category_id' => $post['category'],
-							'slug' => $post['slug'],
-							'images' => $post['files']
-						);
-				}
-				else {
-					$data = array(
-							'title' => $post['title'],
-							'content' => $post['desc'],
-							'category_id' => $post['category'],
-							'slug' => $post['slug'],
-							'images' => $post['files']
-						);
-				}
+				$data = array(
+						'title' => $post['title'],
+						'meta_desc' => $post['metadesc'],
+						'content' => $post['desc'],
+						'category_id' => $post['category'],
+						'slug' => $post['slug'],
+						'images' => $post['files'],
+						'cover_image' => $_FILES['cover']['name']
+					);
+			}
+			else if ($post['category'] != 3) {
+				$data = array(
+						'title' => $post['title'],
+						'content' => $post['desc'],
+						'category_id' => $post['category'],
+						'slug' => $post['slug'],
+						'images' => $post['files']
+					);
+			}
+			else {
+				$data = array(
+						'title' => $post['title'],
+						'content' => $post['desc'],
+						'category_id' => $post['category'],
+						'slug' => $post['slug'],
+					);
+			}
 		}
 				
 		if ($this->db->insert('posts', $data)) {
 			return TRUE;
 		}
-		die();
 	}
 	
 	public function deletePost() {
@@ -214,5 +223,15 @@ class post_model extends CI_Model {
 		$q = $this->db->get_where('posts', array('id' =>$id));
 
 		return $q->row();
+	}
+
+	public function readEvent($slug, $date) {
+		$date1 = date('Y-m-d H:i:s', $date);
+		$date2 = strtotime(date("Y-m-d H:i:s", strtotime($date1)) . " +1 day");
+		$array = array('slug' => $slug, 'timestamp >' => $date1, 'timestamp <' => date("Y-m-d H:i:s", $date2));
+		$this->db->where($array);
+		$this->db->from('posts');
+		$q = $this->db->get();
+		return $q->row(); 
 	}
 }
