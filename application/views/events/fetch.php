@@ -2,7 +2,12 @@
 	    <div class="row">
         <div class="span7">
         	<?php foreach ($content as $row) : ?>
-        		<h3><?=$row->title;?></h3>
+            <?php
+              $year = date('Y', strtotime($row->timestamp));
+              $month = date('m', strtotime($row->timestamp));
+              $date = date('d', strtotime($row->timestamp));
+            ?>
+        		<a href="/event/<?=$year;?>/<?=$month;?>/<?=$date;?>/<?=$row->slug;?>"><h3><?=$row->title;?></h3></a>
         		<h6><?="Published : ".date('M d, Y', strtotime($row->timestamp));?></h6>
         		<div class="event-content">
         			<?=$row->content;?>
@@ -10,13 +15,9 @@
         		</br>
         		</hr>
         	<?php endforeach ?>
+
 		<ul class="pager">
-		  <li class="previous">
-			<a href="#">&larr; Older</a>
-		  </li>
-		  <li class="next">
-			<a href="#">Newer &rarr;</a>
-		  </li>
+      <?=$this->pagination->create_links();?>
 		</ul>
 		
         </div>
@@ -24,7 +25,12 @@
           <h4 class="bgfeca">Latest Events</h4>
           <ul class="nav nav-pills nav-stacked pull10">
 			  <?php foreach ($content as $row): ?>
-			  	<li><a href="/events/<?=$row->slug;?>"><?=$row->title;?></a></li>
+           <?php
+              $year = date('Y', strtotime($row->timestamp));
+              $month = date('m', strtotime($row->timestamp));
+              $date = date('d', strtotime($row->timestamp));
+            ?>
+			  	<li><a href="/event/<?=$year;?>/<?=$month;?>/<?=$date;?>/<?=$row->slug;?>"><?=$row->title;?></a></li>
 			  <?php endforeach ?>
 		  </ul>
        </div>

@@ -234,4 +234,18 @@ class post_model extends CI_Model {
 		$q = $this->db->get();
 		return $q->row(); 
 	}
+
+	public function fetchEvent($start, $limit) {
+		$this->db->where('category_id', 3)->order_by('timestamp', 'desc');
+		//$this->db->from('posts', $start, $limit);
+
+		$q = $this->db->get('posts', $limit, $start);
+		return $q->result();
+	}
+
+	public function totalEvents() {
+		$q = $this->db->get_where('posts', array('category_id' => 3));
+
+		return $q->num_rows();
+	}
 }

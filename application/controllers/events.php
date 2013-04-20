@@ -12,7 +12,25 @@ class Events extends CI_Controller {
 	}
 
 	public function index() {
-		$data['content'] = $this->post_model->fetchByCategory('Event');
+		$this->load->library('pagination');
+		$config['uri_segment'] = 2;
+		$start = $this->uri->segment($config['uri_segment']);
+		$config['display_pages'] = FALSE;
+		$config['base_url'] = '/events';
+		$config['per_page'] = 4;
+		$config['total_rows'] = ($this->post_model->totalEvents());
+		$data['content'] = $this->post_model->fetchEvent($start, $config['per_page']);
+
+		$config['next_link'] = 'Older &rarr;';
+		$config['next_tag_open'] = '<li class="next">';
+		$config['next_tag_close'] = '</li>';
+
+		$config['prev_link'] = '&larr; Newer';
+		$config['prev_tag_open'] = '<li class="previous">';
+		$config['prev_tag_close'] = '</li>';
+		$config['use_page_numbers'] = TRUE;
+		//$data['paging'] = $this->pagination->create_links();
+		$this->pagination->initialize($config);  
 		$this->load->view('events/index', $data);
 	}
 
@@ -22,5 +40,7 @@ class Events extends CI_Controller {
 		$cc = strtotime($cc);
 
 		$data['content'] = $this->post_model->readEvent($id, $cc);
+
+		$this->load->view('events/read', $data);
 	}
 }
