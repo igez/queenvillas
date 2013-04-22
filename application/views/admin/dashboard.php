@@ -197,7 +197,7 @@
 
 		xhr.onreadystatechange = function() {
 		    if (xhr.readyState == 4) {
-		        //$(progress).parent().slideUp();
+		        console.log($(progress).parent().parent().slideUp(300));
 		    }
 		}
 	}

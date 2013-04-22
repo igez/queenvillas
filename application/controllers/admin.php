@@ -18,9 +18,6 @@ class Admin extends CI_Controller {
 	public function index()	{
 		$this->load->model('message_model');
 		$data['message_check'] = $this->message_model->message_total();
-
-		var_dump($_SERVER['REMOTE_ADDR']);
-
 		$data['content'] = "dashboard";
 		$this->load->view('admin/index', $data);
 	}
@@ -300,7 +297,7 @@ class Admin extends CI_Controller {
 
 	public function setting_general() {
 		$this->load->config('admin');
-		$data['content'] = 'setting_general';
+		$data['content'] = 'setting/setting_general';
 		$this->load->view('admin/index', $data);
 	}
 
