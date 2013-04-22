@@ -92,7 +92,7 @@ class Main extends CI_Controller {
 			$this->form_validation->set_rules('phone', 'Phone', 'required');
 			$this->form_validation->set_rules('address1', 'Address', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required');
-			$this->form_validation->set_rules('email-confirm', 'Email Confirmation', 'required');
+			$this->form_validation->set_rules('email-confirm', 'Email Confirmation', 'required|matches[email]');
 
 			if ($this->form_validation->run() == FALSE)
 			{
