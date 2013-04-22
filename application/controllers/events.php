@@ -13,18 +13,25 @@ class Events extends CI_Controller {
 
 	public function index() {
 		$this->load->library('pagination');
+		$offset = 0;
 		$config['uri_segment'] = 2;
 		$start = $this->uri->segment($config['uri_segment']);
 		$config['display_pages'] = FALSE;
 		$config['base_url'] = '/events';
-		$config['per_page'] = 4;
-		$config['total_rows'] = ($this->post_model->totalEvents());
-		$data['content'] = $this->post_model->fetchEvent($start, $config['per_page']);
+		$config['per_page'] = 2;
+		if ($start == NULL) {
+			$offset = 0;
+		}
+		else {
+			$offset = $config['per_page'] * ($start-1);
+		}
+		$limit = $config['per_page'];
+		$config['total_rows'] = $this->post_model->totalEvents();
+		$data['content'] = $this->post_model->fetchEvent($offset, $limit);
 
 		$config['next_link'] = 'Older &rarr;';
 		$config['next_tag_open'] = '<li class="next">';
 		$config['next_tag_close'] = '</li>';
-
 		$config['prev_link'] = '&larr; Newer';
 		$config['prev_tag_open'] = '<li class="previous">';
 		$config['prev_tag_close'] = '</li>';

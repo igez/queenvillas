@@ -235,11 +235,10 @@ class post_model extends CI_Model {
 		return $q->row(); 
 	}
 
-	public function fetchEvent($start, $limit) {
+	public function fetchEvent($offset=22, $limit) {
 		$this->db->where('category_id', 3)->order_by('timestamp', 'desc');
 		//$this->db->from('posts', $start, $limit);
-
-		$q = $this->db->get('posts', $limit, $start);
+		$q = $this->db->get('posts', $limit, $offset);
 		return $q->result();
 	}
 
