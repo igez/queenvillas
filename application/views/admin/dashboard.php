@@ -197,6 +197,7 @@
 
 		xhr.onreadystatechange = function() {
 		    if (xhr.readyState == 4) {
+		    	console.log(xhr.response);
 		        console.log($(progress).parent().parent().slideUp(300));
 		    }
 		}
