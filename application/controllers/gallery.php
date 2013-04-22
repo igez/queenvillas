@@ -23,6 +23,10 @@ class Gallery extends CI_Controller {
 				$this->make_thumb($_SERVER['DOCUMENT_ROOT']."/assets/uploads/images/".$_FILES['file']['name'], $_SERVER['DOCUMENT_ROOT']."/assets/uploads/images/thumbs/thumb_".$_FILES['file']['name'], 100);
 				echo "OK";
 			}
+
+			else {
+				echo "ERROR! Check Permission!";
+			}
 			
 		}
 		else {
