@@ -83,7 +83,9 @@
 			<div class="box-dashboard span3"  style="min-height: 400px; padding-left: 30px;">
 				<h3>Notifications</h3>
 				<ul class="dashboard-notif">
-					<li>You have <a href="#">1 Unread Messages.</a></li>
+					<?php if ($message_check != 0) : ?>
+					<li>You have <a href="/admin/message"><?=$message_check;?> Unread Messages.</a></li>
+					<?php endif; ?>
 					<li>You have <a href="#">4 Booking Request.</a></li>
 					<li>You have <a href="#">1 Online Booking.</a> </li>
 				</ul>

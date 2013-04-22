@@ -16,6 +16,11 @@ class Admin extends CI_Controller {
 	}
 	
 	public function index()	{
+		$this->load->model('message_model');
+		$data['message_check'] = $this->message_model->message_total();
+
+		var_dump($_SERVER['REMOTE_ADDR']);
+
 		$data['content'] = "dashboard";
 		$this->load->view('admin/index', $data);
 	}

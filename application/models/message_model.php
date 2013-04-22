@@ -47,4 +47,10 @@ class message_model extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->update('messages', $data); 
 	}
+
+	public function message_total() {
+		$q = $this->db->get_where('messages', array('read' => NULL));
+
+		return $q->num_rows(); 
+	}
 }
