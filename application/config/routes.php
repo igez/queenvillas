@@ -53,6 +53,7 @@ $route['booking/meeting'] = "main/booking_meeting";
 $route['verify/bot'] = "main/strToimg";
 $route['event/:num/:num/:num/:any'] = "events/read";
 $route['events/(:num)'] = "events/index";
+$route['booking/success'] = "main/booking_success";
 
 
 $route['admin/posts'] = "admin/posts";
@@ -71,6 +72,7 @@ $route['admin/comment/edit/(:num)'] = "admin/comment_edit";
 $route['admin/comment/new'] = "admin/comment_add";
 $route['admin/comment/delete/(:num)'] = "admin/comment_delete";
 $route['ajax/accomodation/save'] = "ajax/accomodation_save";
+$route['ajax/get_image'] = "ajax/get_image";
 $route['admin/mail_test'] = "admin/mail_text";
 $route['admin/gallery/upload'] = "gallery/upload";
 

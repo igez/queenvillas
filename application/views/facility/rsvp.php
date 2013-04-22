@@ -8,38 +8,11 @@
 	}
 	</style>
 
-	<script>
-		$(document).ready(function() {
-			$('#booking').on('submit', function(e) {
-				e.preventDefault();
-				var title = $('#title').val();
-					firstname = $('#firstname').val();
-					lastname = $('#lastname').val();
-					firstname = $('#firstname').val();
-					lastname = $('#lastname').val();
-					position = $('#position').val();
-					address1 = $('#address1').val();
-					address2 = $('#address2').val();
-					city = $('#city').val();
-					state = $('#state').val();
-					zip = $('#zip').val();
-					country = $('#country').val();
-					phone = $('#phone').val();
-					email = $('#email').val();
-					confirm = $('#confirm').val();
-					
-					dataSet = "title="+title+"&firstname="+fname;
-
-					console.log(dataSet);
-				
-			});
-		});
-	</script>
-
 <div class="row rsvp" >
 	<?php echo validation_errors(); ?>
+	
 
-	<form class="form-horizontal" id="booking">
+	<form class="form-horizontal" id="booking" action="" method="POST">
 	<div class="span12">
 		<h5>REQUEST MEETING INFORMATION</h5>
 		<p>Thank you for your interest in meetings at Queen Villas & Spa. We look forward to helping you create a memorable and rewarding event experience. To ensure we provide the most relevant and useful information, please select your specific area of interest by choosing one of the following options and completing the resulting fields.</p>
@@ -63,21 +36,24 @@
 	<p><i>Fields marked with an * are required</i></p>
 	
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">*Title</label>
+			<label class="control-label" for="inputEmail">Title</label>
 			<div class="controls">
 		    	<input type="text" name="title" id="title" placeholder="Title" class="input-xxlarge">
 		    </div>
+
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*First Name</label>
 			<div class="controls">
-		    	<input type="text" name="firstname" placeholder="First Name" class="input-xxlarge">
+		    	<input type="text" name="firstname" placeholder="First Name" class="input-xxlarge" value="<?=set_value('firstname');?>">
+		    	<?php echo form_error('firstname'); ?>
 		    </div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*Last Name</label>
 			<div class="controls">
-		    	<input type="text" name="lastname" placeholder="Last Name" class="input-xxlarge">
+		    	<input type="text" name="lastname" placeholder="Last Name" class="input-xxlarge" value="<?=set_value('lastname');?>">
+		    	<?php echo form_error('lastname'); ?>
 		    </div>
 		</div>
 		<div class="control-group">
@@ -89,7 +65,8 @@
 		<div class="control-group">
 			<label class="control-label" for="inputEmail">*Address Line 1</label>
 			<div class="controls">
-		    	<input type="text" name="address1" placeholder="Address Line 1" class="input-xxlarge">
+		    	<input type="text" name="address1" placeholder="Address Line 1" class="input-xxlarge" value="<?=set_value('address1');?>">
+		    	<?php echo form_error('address1'); ?>
 		    </div>
 		</div>
 		<div class="control-group">
@@ -99,25 +76,26 @@
 		    </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">* City</label>
+			<label class="control-label" for="inputEmail">*City</label>
 			<div class="controls">
-		    	<input type="text" name="city" placeholder="City" class="input-xxlarge">
+		    	<input type="text" name="city" placeholder="City" class="input-xxlarge"  value="<?=set_value('city');?>">
+		    	<?php echo form_error('city'); ?>
 		    </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">* State/Province</label>
+			<label class="control-label" for="inputEmail">State/Province</label>
 			<div class="controls">
 		    	<input type="text" name="state" placeholder="State/Province" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">* Zip/Postal Code</label>
+			<label class="control-label" for="inputEmail">Zip/Postal Code</label>
 			<div class="controls">
 		    	<input type="text" name="zip" placeholder="Zip/Postal Code" class="input-xxlarge">
 		    </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">* Country</label>
+			<label class="control-label" for="inputEmail">*Country</label>
 			<div class="controls">
 		    	<select name="country">
 <option value="">Country...</option>
@@ -369,30 +347,55 @@
 <option value="ZW">Zimbabwe</option>
 </select>
 		    </div>
+		    <?php echo form_error('country'); ?>
 		</div>
 		    <div class="control-group">
-			<label class="control-label" for="inputEmail">* Phone Number</label>
+			<label class="control-label" for="inputEmail">*Phone Number</label>
 			<div class="controls">
-		    	<input type="text" name="phone" placeholder="Phone Number" class="input-xxlarge">
+		    	<input type="text" name="phone" placeholder="Phone Number" class="input-xxlarge"  value="<?=set_value('phone');?>">
+		    	<?php echo form_error('phone'); ?>
 		    </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">* Email Address</label>
+			<label class="control-label" for="inputEmail">*Email Address</label>
 			<div class="controls">
-		    	<input type="text" name="email" placeholder="Email Address" class="input-xxlarge">
+		    	<input type="text" name="email" placeholder="Email Address" class="input-xxlarge"  value="<?=set_value('email');?>">
+		    	<?php echo form_error('email'); ?>
 		    </div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="inputEmail">* Confirm Email Address</label>
+			<label class="control-label" for="inputEmail">*Confirm Email Address</label>
 			<div class="controls">
-		    	<input type="text" name="email-confirm" placeholder="Confirm Email Address" class="input-xxlarge">
+		    	<input type="text" name="email-confirm" placeholder="Confirm Email Address" class="input-xxlarge"  value="<?=set_value('email-confirm');?>">
+		    	<?php echo form_error('email-confirm'); ?>
 		    </div>
+		</div>
+		<div class="control-group">
+			<label for="inputChallenge" class="control-label" id="challange">
+				<img src="/ajax/get_image?str=<?php echo base64_encode($this->session->userdata('chal'));?>" alt="">
+			</label>
+			<div class="controls">
+					<input type="text" class="input-small" name="challange" id="challange-input">
+			</div>
 		</div>
 		<div class="control-group">
 		    <div class="controls">
-		      <button type="submit" class="btn">Submit</button>
+		      <button type="submit" class="btn" id="doBooking">Submit</button>
 		    </div>
 		</div>
 	</form>
+	<script>
+		$('#doBooking').click(function() {
+			var cap = "<?=$this->session->userdata('chal');?>";
+
+			if (cap !== $('#challange-input').val()) {
+				$('#challange-input').focus();
+				console.log('challange mismatch');
+				console.log(cap);
+				console.log($('#challange-input').val());
+				return false;
+			}
+		});
+	</script>
 </div>
 </div>
