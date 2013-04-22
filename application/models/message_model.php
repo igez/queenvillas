@@ -28,15 +28,7 @@ class message_model extends CI_Model {
 				'rcpt_lname' => $_POST['lastname'],
 				'rcpt_email' => $_POST['email'],
 				'subject' => "Meeting Request #".date('YmdHis'),
-				'body' => "<b>Contact Details</b><hr>
-							Name : ".$_POST['lastname'].",".$_POST['firstname'].
-							"<br>Phone : ".$_POST['phone'].
-							"<br>Address : ".$_POST['address1'].
-							"<br>City :".$_POST['city'].
-							"<br>Country : ".$_POST['country'].
-							"<br>E-mail : ".$_POST['email'].
-							"<br>Type : ".$_POST['option']
-							,
+				'body' => "<b>Contact Details</b><hr>Name : ".$_POST['lastname'].",".$_POST['firstname']."<br>Phone : ".$_POST['phone']."<br>Address : ".$_POST['address1']."<br>City : ".$_POST['city']."<br>Country : ".$_POST['country']."<br>E-mail : ".$_POST['email']."<br>Type : ".$_POST['option'],
 				'client_ip' => $ip
 			);
 
