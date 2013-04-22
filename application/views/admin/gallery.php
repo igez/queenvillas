@@ -18,7 +18,7 @@
 	    foreach (new DirectoryIterator("./assets/uploads/images/") as $fn) {
 	    	$tpl = "/assets/uploads/images/";
 	    	$thmb = "/assets/uploads/images/thumbs/";
-	    	if ($fn->getExtension() == 'jpg' || $fn->getExtension() == 'png' || $fn->getExtension() == 'gif') {
+	    	if ($fn->getExtension() == 'JPG' || $fn->getExtension() == 'jpg' || $fn->getExtension() == 'png' || $fn->getExtension() == 'gif') {
 	    		echo "<li class='thumbnail' style='float: left; margin: 4px; list-style:none;'>";
 	    		echo "<a style='background: url();' href='".$tpl.$fn->getFilename()."' class='cboxElement'>";
 				echo "<img rel='".$thmb."thumb_".$fn->getFilename()."' src='".$thmb."thumb_".$fn->getFilename()."' width='100px' height='100px' class='thumb-img'>";

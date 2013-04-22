@@ -18,7 +18,6 @@ class Gallery extends CI_Controller {
 
 	public function upload() {
 		if ($_FILES || $_POST) {
-			
 			if (move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/assets/uploads/images/".$_FILES['file']['name'])) {
 				$this->make_thumb($_SERVER['DOCUMENT_ROOT']."/assets/uploads/images/".$_FILES['file']['name'], $_SERVER['DOCUMENT_ROOT']."/assets/uploads/images/thumbs/thumb_".$_FILES['file']['name'], 100);
 				echo "OK";
@@ -27,7 +26,6 @@ class Gallery extends CI_Controller {
 			else {
 				echo "ERROR! Check Permission!";
 			}
-			
 		}
 		else {
 			echo "no post triggered";
