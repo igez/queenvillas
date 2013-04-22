@@ -9,9 +9,6 @@
 	</style>
 
 <div class="row rsvp" >
-	<?php echo validation_errors(); ?>
-	
-
 	<form class="form-horizontal" id="booking" action="" method="POST">
 	<div class="span12">
 		<h5>REQUEST MEETING INFORMATION</h5>
