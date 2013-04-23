@@ -17,7 +17,7 @@
   </head>
   <body>
   	<?php $this->load->view('static/nav'); ?>
-  		<div class="bg-head" style="background: gray;">
+  		<div class="bg-head" style="background: url('/assets/img/eventscover.jpg') no-repeat; background-size: cover;">
   	</div>
   	<div class="bahe">
       <div class="title-container">
