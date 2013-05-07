@@ -68,7 +68,7 @@ class Contact extends CI_Controller {
 		$mail->IsSMTP(); // enable SMTP
 		$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
 		$mail->SMTPAuth = true;  // authentication enabled
-		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+		//$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 		$mail->Host = 'mail.robbyprima.com';
 		$mail->Port = 25; // 465: auth
 		$mail->Username = $guser;  
