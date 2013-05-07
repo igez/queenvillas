@@ -296,9 +296,37 @@ class Admin extends CI_Controller {
 	}
 
 	public function setting_general() {
-		$this->load->config('admin');
-		$data['content'] = 'setting/setting_general';
-		$this->load->view('admin/index', $data);
+		$this->load->model('setting_model');
+		if ($_POST) {
+			if ($_POST['sysmail-password']) {
+				$data = array(
+					'system_email' => $_POST['sysmail'],
+					'system_password' => $_POST['sysmail-password'],
+					'booking' => $_POST['booking'],
+					'reservation' => $_POST['rsvp'],
+					'support' => $_POST['support']
+				);
+			}
+			else {
+				$data = array(
+					'system_email' => $_POST['sysmail'],
+					'booking' => $_POST['booking'],
+					'reservation' => $_POST['rsvp'],
+					'support' => $_POST['support']
+				);
+				if ($this->setting_model->update_email($data)) {
+					$this->session->set_flashdata('success', 'Emails has been updated.');
+					redirect('/admin/setting/general', 'refresh');
+				}
+			}
+		}
+		else {
+			$data['emails'] = $this->setting_model->system_email();
+			$data['content'] = 'setting/setting_general';
+			$this->load->view('admin/index', $data);
+		}
+		
+		//var_dump($data);
 	}
 
 	public function comment_index() {

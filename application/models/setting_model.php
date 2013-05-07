@@ -104,4 +104,15 @@ class setting_model extends CI_Model {
 			return true;
 		}
 	}
+
+	public function system_email() {
+		$q = $this->db->get('configs');
+		return $q->row();
+	}
+
+	public function update_email($data) {
+		if ($this->db->update('configs', $data)) {
+			return TRUE;
+		}
+	}
 }

@@ -18,19 +18,27 @@ class Contact extends CI_Controller {
 
 	public function sendMessage() {
 		if (!empty($_POST['fname'])) {
+			$this->load->model('setting_model');
 			$this->load->config('admin');
 			$this->load->library('PHPMailer');
-			$guser = $this->config->item('info_email_username');
-			$gpwd = $this->config->item('info_email_password');
-			$hrd = $this->config->item('hrd_email');
+			//$guser = $this->config->item('info_email_username');
+			//$gpwd = $this->config->item('info_email_password');
+			$emails = $this->setting_model->system_email();
+
+			$guser = $emails->system_email;
+			$gpwd = $emails->system_password;
+			$rcpt = explode(',', $emails->support);
 			$this->load->model('message_model');
 			$message = $_POST['body'];
 			$target = $_POST['email'];
 			$this->message_model->saveMessage($_POST);
 			// send thank you email to client
-			$this->smtpmailer($target, $guser, 'donotreply@queenvillas.com', 'Thank You For Contacting Us', $message, $guser, $gpwd);
+			foreach ($rcpt as $email) {
+				$this->smtpmailer($email, $guser, 'QueenVillas Resort & Spa', 'Message From: '.$target, $message, $guser, $gpwd);
+			}
+			return $this->smtpmailer($target, $guser, 'QueenVillas Resort & Spa', 'Thank You For Contacting Us', $message, $guser, $gpwd);
 			// send email to admin_info
-			$this->smtpmailer($hrd, $guser, 'donotreply@queenvillas.com', $_POST['subject'], $message, $guser, $gpwd);
+			//$this->smtpmailer($hrd, $guser, 'donotreply@queenvillas.com', $_POST['subject'], $message, $guser, $gpwd);
 		}
 		else {
 			$result = array(
@@ -61,7 +69,7 @@ class Contact extends CI_Controller {
 		$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
 		$mail->SMTPAuth = true;  // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-		$mail->Host = 'smtp.gmail.com';
+		$mail->Host = 'host.urbanvibes.biz';
 		$mail->Port = 465; 
 		$mail->Username = $guser;  
 		$mail->Password = $gpwd;           

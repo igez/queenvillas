@@ -315,13 +315,13 @@
 						        $('.expandRsvp-2').slideUp();
 						    },
 
-						    success: function() {  
+						    success: function(e) {  
 						    	$('.loading-ajax').css('background', '#fff url(/assets/img/success-icon.png) no-repeat 10% 50%');
 						    	$('.loading-ajax').css('position', 'relative');
 						    	$('.loading-ajax').css('margin-top', '50px');
 						    	$('.loading-ajax').css('margin-bottom', '50px');
 						    	$('.loading-ajax p').html('<b>Success!</b>');
-						    	//$('.expandRsvp-2').fadeIn();
+						    	console.log(e);
 						  	},
 
 						    error: function () {
