@@ -306,6 +306,10 @@ class Admin extends CI_Controller {
 					'reservation' => $_POST['rsvp'],
 					'support' => $_POST['support']
 				);
+				if ($this->setting_model->update_email($data)) {
+					$this->session->set_flashdata('success', 'Emails has been updated.');
+					redirect('/admin/setting/general', 'refresh');
+				}
 			}
 			else {
 				$data = array(
