@@ -69,7 +69,7 @@ class Contact extends CI_Controller {
 		$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
 		$mail->SMTPAuth = true;  // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-		$mail->Host = 'host.urbanvibes.biz';
+		$mail->Host = 'smtp.gezdev.com';
 		$mail->Port = 465; 
 		$mail->Username = $guser;  
 		$mail->Password = $gpwd;           
