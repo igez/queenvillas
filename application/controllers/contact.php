@@ -70,7 +70,7 @@ class Contact extends CI_Controller {
 		$mail->SMTPAuth = true;  // authentication enabled
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 		$mail->Host = 'mail.robbyprima.com';
-		$mail->Port = 465; 
+		$mail->Port = 25; // 465: auth
 		$mail->Username = $guser;  
 		$mail->Password = $gpwd;           
 		$mail->SetFrom($from, $from_name);
